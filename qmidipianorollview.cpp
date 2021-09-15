@@ -19,11 +19,12 @@
 #include <QPainter>
 #include <QGraphicsRectItem>
 
+
 QMidiPianoRollView::QMidiPianoRollView(QWidget *parent) :
   QGraphicsView(parent),
   m_scene(new QGraphicsScene()),
-  m_keyWidth(10),
-  m_keyHeight(60)
+  m_keyWidth(KEY_WIDTH),
+  m_keyHeight(KEY_HEIGHT)
 {
   float x = 0;
   for(int i = 0; i < 128; i++)
@@ -62,6 +63,11 @@ QMidiPianoRollView::QMidiPianoRollView(QWidget *parent) :
   }
 
   setScene(m_scene);
+}
+
+void QMidiPianoRollView::mousePressEvent(QGraphicsSceneMouseEvent *t_event)
+{
+  m_scene->focusItem();
 }
 
 bool QMidiPianoRollView::isSemiTone(int pitch)
@@ -113,3 +119,4 @@ void QMidiPianoRollView::onMidiReceive(QMidiMessage *message)
   default: break;
   }
 }
+

@@ -50,11 +50,12 @@ public:
 
   int portCount();
   QStringList portNames();
+  bool isPortOpen(){ return m_isPortOpen; };
 
 
 signals:
 
-  void sigRecieveMessage(QMidiMessage);
+  void sigRecieveMessage(QMidiMessage*);
 
 public slots:
 

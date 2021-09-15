@@ -42,6 +42,7 @@ public:
 
   int portCount();
   QStringList portNames();
+  bool isPortOpen(){ return m_isPortOpen; };
 
   // send unknown messages
   void sendQMidiMessage(QMidiMessage *t_message);

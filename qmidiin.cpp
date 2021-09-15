@@ -41,11 +41,12 @@ void QMidiIn::recieveMessage(double t_deltatime,
   // On caste le void* pour pouvoir le déréférencer.
   auto *aMidiIn = static_cast<QMidiIn*>(t_userData);
 
-  auto aMessage = new QMidiMessage(aMidiIn);
+  // TODO: problème de qobject parent et de thread ??
+  auto aMessage = new QMidiMessage();
   aMessage->setRawMessage(t_unMessage);
   aMessage->setDeltaTime(t_deltatime);
 
-  emit aMidiIn->sigRecieveMessage(*aMessage);
+  emit aMidiIn->sigRecieveMessage(aMessage);
 
 }
 

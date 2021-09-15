@@ -104,8 +104,12 @@ enum ManuID // pour sysex
 
 #define QUEUE_SIZE_LIMIT 100
 
-// to have id for objects
+// to have id for objects QMidiIn et QMidiOut
 static int QMIDIIN_COUNT;
 static int QMIDIOUT_COUNT;
+
+// for QMidiPianoRoll
+#define KEY_WIDTH 14
+#define KEY_HEIGHT 60
 
 #endif // QMIDI_H

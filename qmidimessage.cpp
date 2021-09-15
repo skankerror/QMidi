@@ -76,8 +76,9 @@ void QMidiMessage::clear()
   m_songPos.second = 0;
   m_seqID = 0;
   m_deltaTime = 0;
-  m_sysExData->clear();
-  m_rawMessage->clear();
+  // TODO: these clear segfault !
+//  m_sysExData->clear();
+//  m_rawMessage->clear();
 }
 
 void QMidiMessage::makeRawMessage()

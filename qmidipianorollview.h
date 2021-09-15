@@ -20,7 +20,11 @@
 
 #include <QGraphicsView>
 #include <QGraphicsScene>
+#include <QGraphicsRectItem>
+#include <QMouseEvent>
 #include "qmidimessage.h"
+
+
 
 class QMidiPianoRollView :
     public QGraphicsView
@@ -35,6 +39,7 @@ public:
 protected:
 
   //    void paintEvent(QPaintEvent *event) Q_DECL_OVERRIDE;
+  void mousePressEvent(QGraphicsSceneMouseEvent *t_event) override;
 
 private:
 
