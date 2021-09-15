@@ -104,6 +104,8 @@ enum ManuID // pour sysex
 
 #define QUEUE_SIZE_LIMIT 100
 
-
+// to have id for objects
+static int QMIDIIN_COUNT;
+static int QMIDIOUT_COUNT;
 
 #endif // QMIDI_H

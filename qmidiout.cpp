@@ -223,7 +223,7 @@ void QMidiOut::connectMidiOut(int t_portNumber)
   {
     m_isPortOpen = true;
   }
-  else qDebug() << "Midi out " << m_currentID << " not opened";
+  else qDebug() << "Midi out " << /*m_currentID <<*/ " not opened";
 
 
 }

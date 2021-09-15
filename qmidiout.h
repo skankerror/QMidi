@@ -35,7 +35,7 @@ class QMidiOut :
 public:
 
   QMidiOut(QObject *parent = nullptr,
-           RtMidi::Api t_api = LINUX_ALSA,
+           RtMidi::Api t_api = UNSPECIFIED,
            const QString &t_clientName = "QMidiOut client");
 
   ~QMidiOut();
@@ -93,7 +93,6 @@ public slots:
 
 private:
 
-  static int QMIDIOUT_COUNT;
   const int m_currentID;
 
   bool m_isPortOpen;

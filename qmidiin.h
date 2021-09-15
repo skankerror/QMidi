@@ -35,17 +35,18 @@ class QMidiIn :
 public:
 
   QMidiIn(QObject *parent = nullptr,
-          RtMidi::Api t_api = LINUX_ALSA,
+          RtMidi::Api t_api = UNSPECIFIED,
           const QString &t_clientName = "QMidiIn client",
           unsigned int t_queueSizeLimit = QUEUE_SIZE_LIMIT);
 
   ~QMidiIn();
 
-  // Fn static pour le callback. Elle est statique mais elle peut accéder
-  // aux fonctions des objets. On lui enverrra this en arg userData.
+  // static method for rtmidiin callback fonction.
+  // it's static but can access to method of instancied objects.
+  // we'll send 'this' ptr as last arg, so it can emit signal on object
   static void recieveMessage(double t_deltatime,
                             std::vector<unsigned char> *t_unMessage,
-                            void *t_userData);
+                            void *t_userData); // TODO: make it private ?
 
   int portCount();
   QStringList portNames();
@@ -62,7 +63,6 @@ public slots:
 
 private:
 
-  static int QMIDIIN_COUNT;
   const int m_currentID;
 
   bool m_isPortOpen;
