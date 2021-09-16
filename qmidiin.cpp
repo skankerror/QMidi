@@ -43,7 +43,7 @@ void QMidiIn::recieveMessage(double t_deltatime,
 
   // TODO: problème de qobject parent et de thread ??
   auto aMessage = new QMidiMessage();
-  aMessage->setRawMessage(t_unMessage);
+  aMessage->setRawMessage(*t_unMessage);
   aMessage->setDeltaTime(t_deltatime);
 
   emit aMidiIn->sigRecieveMessage(aMessage);

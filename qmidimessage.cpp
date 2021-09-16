@@ -45,14 +45,14 @@ QMidiMessage::QMidiMessage(QMidiMessage &t_other)
   m_rawMessage = t_other.rawMessage();
 }
 
-std::vector<unsigned char> *QMidiMessage::rawMessage()
+std::vector<unsigned char> QMidiMessage::rawMessage()
 {
   // we make raw messages from other args
   makeRawMessage();
   return m_rawMessage;
 }
 
-void QMidiMessage::setRawMessage(std::vector<unsigned char> *t_rawMessage)
+void QMidiMessage::setRawMessage(std::vector<unsigned char> t_rawMessage)
 {
   // we set int
   m_rawMessage = t_rawMessage;
@@ -83,85 +83,87 @@ void QMidiMessage::clear()
 
 void QMidiMessage::makeRawMessage()
 {
+  m_rawMessage.clear();
   switch(m_status)
   {
   case NOTE_ON :
-    m_rawMessage->push_back(NOTE_ON + m_channel - 1);
-    m_rawMessage->push_back(m_pitch);
-    m_rawMessage->push_back(m_velocity);
+    m_rawMessage.push_back(NOTE_ON + m_channel - 1);
+    m_rawMessage.push_back(m_pitch);
+    m_rawMessage.push_back(m_velocity);
     break;
   case NOTE_OFF :
-    m_rawMessage->push_back(NOTE_OFF + m_channel - 1);
-    m_rawMessage->push_back(m_pitch);
-    m_rawMessage->push_back(0);
+    m_rawMessage.push_back(NOTE_OFF + m_channel - 1);
+    m_rawMessage.push_back(m_pitch);
+    m_rawMessage.push_back(0);
     break;
   case PROG_CHANGE :
-    m_rawMessage->push_back(PROG_CHANGE + m_channel - 1);
-    m_rawMessage->push_back(m_control);
-    m_rawMessage->push_back(m_value);
+    m_rawMessage.push_back(PROG_CHANGE + m_channel - 1);
+    m_rawMessage.push_back(m_control);
+    m_rawMessage.push_back(m_value);
     break;
   case PITCH_BEND :
-    m_rawMessage->push_back(PITCH_BEND + m_channel - 1);
-    m_rawMessage->push_back(m_pitchBend.first);
-    m_rawMessage->push_back(m_pitchBend.second);
+    m_rawMessage.push_back(PITCH_BEND + m_channel - 1);
+    m_rawMessage.push_back(m_pitchBend.first);
+    m_rawMessage.push_back(m_pitchBend.second);
     break;
   case AFTERTOUCH :
-    m_rawMessage->push_back(AFTERTOUCH + m_channel - 1);
-    m_rawMessage->push_back(m_pitch);
-    m_rawMessage->push_back(m_pressure);
+    m_rawMessage.push_back(AFTERTOUCH + m_channel - 1);
+    m_rawMessage.push_back(m_pitch);
+    m_rawMessage.push_back(m_pressure);
     break;
   case POLY_AFTERTOUCH :
-    m_rawMessage->push_back(POLY_AFTERTOUCH + m_channel - 1);
-    m_rawMessage->push_back(m_pressure);
+    m_rawMessage.push_back(POLY_AFTERTOUCH + m_channel - 1);
+    m_rawMessage.push_back(m_pressure);
     break;
   case CONTROL_CHANGE : // voir les channel mode messages
-    m_rawMessage->push_back(CONTROL_CHANGE + m_channel - 1);
-    m_rawMessage->push_back(m_control);
-    m_rawMessage->push_back(m_value);
+    m_rawMessage.push_back(CONTROL_CHANGE + m_channel - 1);
+    m_rawMessage.push_back(m_control);
+    m_rawMessage.push_back(m_value);
     break;
   case MIDI_CLOCK :
-    m_rawMessage->push_back(MIDI_CLOCK);
+    m_rawMessage.push_back(MIDI_CLOCK);
     break;
   case START :
-    m_rawMessage->push_back(START);
+    m_rawMessage.push_back(START);
     break;
   case STOP :
-    m_rawMessage->push_back(STOP);
+    m_rawMessage.push_back(STOP);
     break;
   case CONTINUE :
-    m_rawMessage->push_back(CONTINUE);
+    m_rawMessage.push_back(CONTINUE);
     break;
   case ACTIVE_SENSING :
-    m_rawMessage->push_back(ACTIVE_SENSING);
+    m_rawMessage.push_back(ACTIVE_SENSING);
     break;
   case SYSTEM_RESET :
-    m_rawMessage->push_back(SYSTEM_RESET);
+    m_rawMessage.push_back(SYSTEM_RESET);
     break;
   case SONG_POS_PTR :
-    m_rawMessage->push_back(SONG_POS_PTR);
-    m_rawMessage->push_back(m_songPos.first);
-    m_rawMessage->push_back(m_songPos.second);
+    m_rawMessage.push_back(SONG_POS_PTR);
+    m_rawMessage.push_back(m_songPos.first);
+    m_rawMessage.push_back(m_songPos.second);
     break;
   case SONG_SELECT :
-    m_rawMessage->push_back(SONG_SELECT);
-    m_rawMessage->push_back(m_seqID);
+    m_rawMessage.push_back(SONG_SELECT);
+    m_rawMessage.push_back(m_seqID);
     break;
   case TUNE_REQUEST :
-    m_rawMessage->push_back(TUNE_REQUEST);
+    m_rawMessage.push_back(TUNE_REQUEST);
     break;
   case SYSEX : // léger...
     m_rawMessage = m_sysExData;
-    if(m_sysExData->back() != EOX)
-      m_rawMessage->push_back(EOX);
+    if(m_sysExData.back() != EOX)
+      m_rawMessage.push_back(EOX);
     break;
   default :
     break;
   }
+//  qDebug() << m_rawMessage;
 }
 
 void QMidiMessage::parseRawMessage()
 {
-  int rawMessageSize = m_rawMessage->size();
+  int rawMessageSize = m_rawMessage.size();
 
 
   if (rawMessageSize == 0)
@@ -170,7 +172,7 @@ void QMidiMessage::parseRawMessage()
     return;
   }
 
-  int statusByte = m_rawMessage->at(0);
+  int statusByte = m_rawMessage.at(0);
   // first we need to determinate if we have a channel
   if (statusByte > 239) // we have no channel
     m_status = static_cast<MidiStatus>(statusByte);
@@ -179,40 +181,40 @@ void QMidiMessage::parseRawMessage()
   {
     // we isolate first 4 bits by pushing others to 0
     unsigned char statusMask = 0xF0; // 11110000 mask
-    m_status = static_cast<MidiStatus>(m_rawMessage->at(0) & statusMask);
+    m_status = static_cast<MidiStatus>(m_rawMessage.at(0) & statusMask);
 
     // we get last 4 bits for channel
     unsigned char channelMask = 0x0F; // 00001111
-    m_channel = m_rawMessage->at(0) & channelMask;
+    m_channel = m_rawMessage.at(0) & channelMask;
   }
 
   switch(m_status)
   {
   case NOTE_ON :
-    m_pitch = m_rawMessage->at(1);
-    m_velocity = m_rawMessage->at(2);
+    m_pitch = m_rawMessage.at(1);
+    m_velocity = m_rawMessage.at(2);
     break;
   case NOTE_OFF :
-    m_pitch = m_rawMessage->at(1);
-    m_velocity = m_rawMessage->at(2); // = 0 ?
+    m_pitch = m_rawMessage.at(1);
+    m_velocity = m_rawMessage.at(2); // = 0 ?
     break;
   case PROG_CHANGE :
-    m_progID = m_rawMessage->at(1);
+    m_progID = m_rawMessage.at(1);
     break;
   case PITCH_BEND : // un ou 2 octet de data ?
-    m_pitchBend.first = m_rawMessage->at(1);
-    m_pitchBend.second = m_rawMessage->at(2); // c'est bon ?
+    m_pitchBend.first = m_rawMessage.at(1);
+    m_pitchBend.second = m_rawMessage.at(2); // c'est bon ?
     break;
   case AFTERTOUCH :
-    m_pitch = m_rawMessage->at(1);
-    m_pressure = m_rawMessage->at(2);
+    m_pitch = m_rawMessage.at(1);
+    m_pressure = m_rawMessage.at(2);
     break;
   case POLY_AFTERTOUCH :
-    m_pressure = m_rawMessage->at(1);
+    m_pressure = m_rawMessage.at(1);
     break;
   case CONTROL_CHANGE : // voir les system rt messages
-    m_control = m_rawMessage->at(1);
-    m_value = m_rawMessage->at(2);
+    m_control = m_rawMessage.at(1);
+    m_value = m_rawMessage.at(2);
     break;
     // nothing to do for these cases
 //  case MIDI_CLOCK :
@@ -230,11 +232,11 @@ void QMidiMessage::parseRawMessage()
 //  case TUNE_REQUEST :
 //    break;
   case SONG_POS_PTR :
-    m_songPos.first = m_rawMessage->at(1);
-    m_songPos.second = m_rawMessage->at(2);
+    m_songPos.first = m_rawMessage.at(1);
+    m_songPos.second = m_rawMessage.at(2);
     break;
   case SONG_SELECT :
-    m_seqID = m_rawMessage->at(1);
+    m_seqID = m_rawMessage.at(1);
     break;
   case SYSEX :
     m_sysExData = m_rawMessage;

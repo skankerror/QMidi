@@ -18,6 +18,7 @@
 #include "qmidipianorollview.h"
 #include <QPainter>
 #include <QGraphicsRectItem>
+#include <QDebug>
 
 
 QMidiPianoRollView::QMidiPianoRollView(QWidget *parent) :
@@ -36,13 +37,9 @@ QMidiPianoRollView::QMidiPianoRollView(QWidget *parent) :
       rect = new QGraphicsRectItem(x,0,m_keyWidth,m_keyHeight);
       m_scene->addItem(rect);
       if(position != 4 && position != 11 )
-      {
         x += m_keyWidth/2+1;
-      }
       else
-      {
         x += m_keyWidth+1;
-      }
     }
     else
     {
@@ -65,55 +62,146 @@ QMidiPianoRollView::QMidiPianoRollView(QWidget *parent) :
   setScene(m_scene);
 }
 
-void QMidiPianoRollView::mousePressEvent(QGraphicsSceneMouseEvent *t_event)
+void QMidiPianoRollView::mousePressEvent(QMouseEvent *t_event)
 {
-  m_scene->focusItem();
+  if (auto item = itemAt(t_event->pos()))
+  {
+    auto item2 = static_cast<QGraphicsRectItem *>(item);
+    auto messageOn = new QMidiMessage(this);
+    messageOn->setStatus(NOTE_ON);
+    messageOn->setChannel(1);
+    messageOn->setPitch(m_keys.indexOf(item2));
+    messageOn->setVelocity(64);
+    messageOn->makeRawMessage();
+    qDebug() << messageOn->rawMessage();
+    onMidiReceive(messageOn);
+    m_isKeyClicked = true;
+    m_keyClicked = item2;
+    delete messageOn;
+
+//    QBrush brush;
+//    brush.setStyle(Qt::SolidPattern);
+//    brush.setColor(QColor(0,0,200));
+//    item2->setBrush(brush);
+//    m_isKeyClicked = true;
+//    m_keyClicked = item2;
+  }
+  QGraphicsView::mousePressEvent(t_event);
 }
 
-bool QMidiPianoRollView::isSemiTone(int pitch)
+void QMidiPianoRollView::mouseMoveEvent(QMouseEvent *t_event)
 {
-  int position = pitch %12;
+  if (m_isKeyClicked)
+  {
+    if (auto item = itemAt(t_event->pos()))
+    {
+      auto item2 = static_cast<QGraphicsRectItem *>(item);
+      if (item2 == m_keyClicked)
+        return;
+      else
+      {
+        auto messageOff = new QMidiMessage(this);
+        messageOff->setStatus(NOTE_OFF);
+        messageOff->setChannel(1);
+        messageOff->setPitch(m_keys.indexOf(m_keyClicked));
+        messageOff->setVelocity(0);
+        messageOff->makeRawMessage();
+        qDebug() << messageOff->rawMessage();
+        onMidiReceive(messageOff);
+        m_isKeyClicked = false;
+        m_keyClicked = nullptr;
+        delete messageOff;
+
+        auto messageOn = new QMidiMessage(this);
+        messageOn->setStatus(NOTE_ON);
+        messageOn->setChannel(1);
+        messageOn->setPitch(m_keys.indexOf(item2));
+        messageOn->setVelocity(64);
+        messageOn->makeRawMessage();
+        qDebug() << messageOff->rawMessage();
+        onMidiReceive(messageOn);
+        m_isKeyClicked = true;
+        m_keyClicked = item2;
+        delete messageOn;
+      }
+    }
+  }
+  QGraphicsView::mouseMoveEvent(t_event);
+}
+
+void QMidiPianoRollView::mouseReleaseEvent(QMouseEvent *t_event)
+{
+  if (QGraphicsItem *item = itemAt(t_event->pos()))
+  {
+//    auto item2 = static_cast<QGraphicsRectItem*>(item);
+    auto messageOff = new QMidiMessage(this);
+    messageOff->setStatus(NOTE_OFF);
+    messageOff->setChannel(1);
+    messageOff->setPitch(m_keys.indexOf(m_keyClicked));
+    messageOff->setVelocity(0);
+    messageOff->makeRawMessage();
+    qDebug() << messageOff->rawMessage();
+    onMidiReceive(messageOff);
+    m_isKeyClicked = false;
+    m_keyClicked = nullptr;
+    delete messageOff;
+
+
+//    QBrush brush;
+//    brush.setStyle(Qt::SolidPattern);
+//    QColor color;
+//    if (isBlackKey(item2))
+//      color = QColor(Qt::black);
+//    else
+//      color = QColor(Qt::white);
+//    brush.setColor(color);
+//    item2->setBrush(brush);
+  }
+  QGraphicsView::mouseReleaseEvent(t_event);
+}
+
+bool QMidiPianoRollView::isBlackKey(int t_pitch)
+{
+  int position = t_pitch %12;
   if(position == 0 || position == 2 || position == 4 || position == 5 || position == 7 || position == 9 || position == 11)
-  {
     return false;
-  }
   else
-  {
     return true;
-  }
+}
+
+bool QMidiPianoRollView::isBlackKey(QGraphicsRectItem *t_item)
+{
+  int position = m_keys.indexOf(t_item) % 12;
+  if(position == 0 || position == 2 || position == 4 || position == 5 || position == 7 || position == 9 || position == 11)
+    return false;
+  else
+    return true;
 
 }
 
-//void QMidiPianoRoll::paintEvent(QPaintEvent *event)
-//{
-////    QPainter painter(this);
-//}
-
-void QMidiPianoRollView::onMidiReceive(QMidiMessage *message)
+void QMidiPianoRollView::onMidiReceive(QMidiMessage *t_message)
 {
-  switch(message->status())
+  qDebug() << t_message->rawMessage();
+
+  switch(t_message->status())
   {
   case NOTE_ON: {
     QBrush brush;
     brush.setStyle(Qt::SolidPattern);
-    brush.setColor(QColor(0,0,200, message->velocity()*2));
-    m_keys[message->pitch()]->setBrush(brush);
+    brush.setColor(QColor(0,0,200, t_message->velocity()*2));
+    m_keys[t_message->pitch()]->setBrush(brush);
     break;
   }
   case NOTE_OFF: {
     QBrush brush;
     brush.setStyle(Qt::SolidPattern);
     QColor color;
-    if(isSemiTone(message->pitch()))
-    {
+    if(isBlackKey(t_message->pitch()))
       color = QColor(Qt::black);
-    }
     else
-    {
       color = QColor(Qt::white);
-    }
     brush.setColor(color);
-    m_keys[message->pitch()]->setBrush(brush);
+    m_keys[t_message->pitch()]->setBrush(brush);
     break;
   }
   default: break;

@@ -38,25 +38,34 @@ public:
 
 protected:
 
-  //    void paintEvent(QPaintEvent *event) Q_DECL_OVERRIDE;
-  void mousePressEvent(QGraphicsSceneMouseEvent *t_event) override;
+  void mousePressEvent(QMouseEvent *t_event) override;
+  void mouseMoveEvent(QMouseEvent *t_event) override;
+  void mouseReleaseEvent(QMouseEvent *t_event) override;
+
 
 private:
 
-  bool isSemiTone(int pitch);
+  bool isBlackKey(int t_pitch);
+  bool isBlackKey(QGraphicsRectItem *t_item);
 
 signals:
 
 public slots:
 
-  void onMidiReceive(QMidiMessage *message);
+  void onMidiReceive(QMidiMessage *t_message);
 
 private:
 
   QGraphicsScene *m_scene;
   int m_keyWidth;
   int m_keyHeight;
-  QVector<QGraphicsRectItem*> m_keys;
+  QVector<QGraphicsRectItem *> m_keys;
+
+  bool m_isKeyClicked = false;
+  QGraphicsRectItem *m_keyClicked = nullptr;
+//  int m_keyClicked = -1;
+  // mettre un QPos last clicked pour retenir la note pour release
+  // ou voir si on bouge en étant clické ?
 
 };
 

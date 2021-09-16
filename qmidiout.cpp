@@ -50,7 +50,8 @@ QStringList QMidiOut::portNames()
 
 void QMidiOut::sendQMidiMessage(QMidiMessage *t_message)
 {
-  sendRawMessage(t_message->rawMessage());
+  auto rawMessage = t_message->rawMessage();
+  sendRawMessage(&rawMessage);
 }
 
 void QMidiOut::sendRawMessage(std::vector<unsigned char> *t_rawMessage)
@@ -207,7 +208,7 @@ void QMidiOut::sendSysEx(std::vector<unsigned char> *t_sysExData)
 {
   auto message = new QMidiMessage(this);
   message->setStatus(SYSEX);
-  message->setSysExData(t_sysExData);
+  message->setSysExData(*t_sysExData);
   sendQMidiMessage(message);
 }
 
