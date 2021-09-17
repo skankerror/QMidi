@@ -51,12 +51,12 @@ QStringList QMidiOut::portNames()
 void QMidiOut::sendQMidiMessage(QMidiMessage *t_message)
 {
   auto rawMessage = t_message->rawMessage();
-  sendRawMessage(&rawMessage);
+  sendRawMessage(rawMessage);
 }
 
-void QMidiOut::sendRawMessage(std::vector<unsigned char> *t_rawMessage)
+void QMidiOut::sendRawMessage(std::vector<unsigned char> t_rawMessage)
 {
-  RtMidiOut::sendMessage(t_rawMessage);
+  RtMidiOut::sendMessage(&t_rawMessage);
 }
 
 void QMidiOut::sendNoteOn(unsigned int t_channel,
@@ -224,7 +224,7 @@ void QMidiOut::connectMidiOut(int t_portNumber)
   {
     m_isPortOpen = true;
   }
-  else qDebug() << "Midi out " << /*m_currentID <<*/ " not opened";
+  else qDebug() << "Midi out " << m_currentID << " not opened";
 
 
 }

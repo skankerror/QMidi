@@ -42,13 +42,14 @@ protected:
   void mouseMoveEvent(QMouseEvent *t_event) override;
   void mouseReleaseEvent(QMouseEvent *t_event) override;
 
-
 private:
 
   bool isBlackKey(int t_pitch);
   bool isBlackKey(QGraphicsRectItem *t_item);
 
 signals:
+
+  void sigKeyPressed(QMidiMessage *);
 
 public slots:
 
@@ -63,9 +64,6 @@ private:
 
   bool m_isKeyClicked = false;
   QGraphicsRectItem *m_keyClicked = nullptr;
-//  int m_keyClicked = -1;
-  // mettre un QPos last clicked pour retenir la note pour release
-  // ou voir si on bouge en étant clické ?
 
 };
 

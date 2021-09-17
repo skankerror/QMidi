@@ -31,7 +31,7 @@ class QMidiMessage :
 
 public:
 
-  // setters
+  // cstr
   explicit QMidiMessage(QObject *parent = nullptr);
   ~QMidiMessage();
   QMidiMessage(QMidiMessage &t_other);

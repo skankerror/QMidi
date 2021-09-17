@@ -46,12 +46,18 @@ public:
   // we'll send 'this' ptr as last arg, so it can emit signal on object
   static void recieveMessage(double t_deltatime,
                             std::vector<unsigned char> *t_unMessage,
-                            void *t_userData); // TODO: make it private ?
+                            void *t_userData);
 
   int portCount();
   QStringList portNames();
-  bool isPortOpen(){ return m_isPortOpen; };
+  bool isMidiPortOpen() const{ return m_isPortOpen; };
+  bool isIgnoreSysex() const{ return m_ignoreSysex; };
+  bool isIgnoreTime() const{ return m_ignoreSysex; };
+  bool isIgnoreSend() const{ return m_ignoreSysex; };
 
+  void setIgnoredTypes(bool t_ignoreSysex,
+                       bool t_ignoreTime,
+                       bool t_ignoreSense);
 
 signals:
 

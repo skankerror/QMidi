@@ -42,11 +42,7 @@ public:
 
   int portCount();
   QStringList portNames();
-  bool isPortOpen(){ return m_isPortOpen; };
-
-  // send unknown messages
-  void sendQMidiMessage(QMidiMessage *t_message);
-  void sendRawMessage(std::vector<unsigned char> *t_rawMessage);
+  bool isMidiPortOpen(){ return m_isPortOpen; };
 
   // send Channel Voice messages
   void sendNoteOn(unsigned int t_channel,
@@ -85,12 +81,14 @@ public:
   // send system exclusive messages
   void sendSysEx(std::vector<unsigned char> *t_sysExData);
 
-
-
 public slots:
 
+  // connection slots
   void connectMidiOut(int t_portNumber);
   void disconnectMidiOut();
+  // send messages
+  void sendQMidiMessage(QMidiMessage *t_message);
+  void sendRawMessage(std::vector<unsigned char> t_rawMessage);
 
 private:
 

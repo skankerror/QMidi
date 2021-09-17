@@ -27,7 +27,10 @@ QMidiIn::QMidiIn(QObject *parent,
            t_clientName.toStdString().c_str(),
            t_queueSizeLimit),
   m_currentID(QMIDIIN_COUNT++)
-{}
+{
+  // by default no ignored messages
+  setIgnoredTypes(false, false, false);
+}
 
 QMidiIn::~QMidiIn()
 {
@@ -41,8 +44,8 @@ void QMidiIn::recieveMessage(double t_deltatime,
   // On caste le void* pour pouvoir le déréférencer.
   auto *aMidiIn = static_cast<QMidiIn*>(t_userData);
 
-  // TODO: problème de qobject parent et de thread ??
-  auto aMessage = new QMidiMessage();
+  // TODO: check thread / parent object ??
+  auto aMessage = new QMidiMessage(/*aMidiIn*/);
   aMessage->setRawMessage(*t_unMessage);
   aMessage->setDeltaTime(t_deltatime);
 
@@ -67,6 +70,18 @@ QStringList QMidiIn::portNames()
   return stringList;
 }
 
+void QMidiIn::setIgnoredTypes(bool t_ignoreSysex,
+                              bool t_ignoreTime,
+                              bool t_ignoreSense)
+{
+  ignoreTypes(t_ignoreSysex,
+              t_ignoreTime,
+              t_ignoreSense);
+  m_ignoreSysex = t_ignoreSysex;
+  m_ignoreTime = t_ignoreTime;
+  m_ignoreSense = t_ignoreSense;
+}
+
 void QMidiIn::connectMidiIn(int t_portNumber)
 {
   if (RtMidiIn::isPortOpen())
@@ -79,7 +94,7 @@ void QMidiIn::connectMidiIn(int t_portNumber)
     m_isPortOpen = true;
     RtMidiIn::setCallback(&recieveMessage, this);
   }
-  else qDebug() << "Midi in " << /*m_currentID <<*/ " not opened";
+  else qDebug() << "Midi in " << m_currentID << " not opened";
 
 }
 

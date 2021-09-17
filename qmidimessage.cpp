@@ -19,31 +19,46 @@
 #include <QDebug>
 
 QMidiMessage::QMidiMessage(QObject *parent) :
-  QObject(parent)
+  QObject(parent),
+  m_status(UNKNOWN),
+  m_channel(1),
+  m_pitch(0),
+  m_velocity(0),
+  m_control(0),
+  m_value(0),
+  m_progID(0),
+  m_pressure(0),
+  m_seqID(0),
+  m_deltaTime(0)
 {
-  clear();
+  m_pitchBend.first = 0;
+  m_pitchBend.second = 0;
+  m_pitchBend.first = 0;
+  m_pitchBend.second = 0;
+  m_sysExData.clear();
+  m_rawMessage.clear();
 }
 
 QMidiMessage::~QMidiMessage()
 {}
 
-QMidiMessage::QMidiMessage(QMidiMessage &t_other)
-{
-  m_status = t_other.status();
-  m_channel = t_other.channel();
-  m_pitch = t_other.pitch();
-  m_velocity = t_other.velocity();
-  m_control = t_other.control();
-  m_value = t_other.value();
-  m_progID = t_other.progID();
-  m_pitchBend = t_other.pitchBend();
-  m_pressure = t_other.pressure();
-  m_songPos = t_other.songPos();
-  m_seqID = t_other.seqID();
-  m_deltaTime = t_other.deltaTime();
-  m_sysExData = t_other.sysExData();
-  m_rawMessage = t_other.rawMessage();
-}
+QMidiMessage::QMidiMessage(QMidiMessage &t_other) :
+  QObject(t_other.parent()),
+  m_status(t_other.status()),
+  m_channel(t_other.channel()),
+  m_pitch(t_other.pitch()),
+  m_velocity(t_other.velocity()),
+  m_control(t_other.control()),
+  m_value(t_other.value()),
+  m_progID(t_other.progID()),
+  m_pitchBend(t_other.pitchBend()),
+  m_pressure(t_other.pressure()),
+  m_songPos(t_other.songPos()),
+  m_seqID(t_other.seqID()),
+  m_deltaTime(t_other.deltaTime()),
+  m_sysExData(t_other.sysExData()),
+  m_rawMessage(t_other.rawMessage())
+{}
 
 std::vector<unsigned char> QMidiMessage::rawMessage()
 {
@@ -76,9 +91,8 @@ void QMidiMessage::clear()
   m_songPos.second = 0;
   m_seqID = 0;
   m_deltaTime = 0;
-  // TODO: these clear segfault !
-//  m_sysExData->clear();
-//  m_rawMessage->clear();
+  m_sysExData.clear();
+  m_rawMessage.clear();
 }
 
 void QMidiMessage::makeRawMessage()
@@ -158,7 +172,7 @@ void QMidiMessage::makeRawMessage()
   default :
     break;
   }
-//  qDebug() << m_rawMessage;
+  //  qDebug() << m_rawMessage;
 }
 
 void QMidiMessage::parseRawMessage()
@@ -217,20 +231,20 @@ void QMidiMessage::parseRawMessage()
     m_value = m_rawMessage.at(2);
     break;
     // nothing to do for these cases
-//  case MIDI_CLOCK :
-//    break;
-//  case START :
-//    break;
-//  case STOP :
-//    break;
-//  case CONTINUE :
-//    break;
-//  case ACTIVE_SENSING :
-//    break;
-//  case SYSTEM_RESET :
-//    break;
-//  case TUNE_REQUEST :
-//    break;
+    //  case MIDI_CLOCK :
+    //    break;
+    //  case START :
+    //    break;
+    //  case STOP :
+    //    break;
+    //  case CONTINUE :
+    //    break;
+    //  case ACTIVE_SENSING :
+    //    break;
+    //  case SYSTEM_RESET :
+    //    break;
+    //  case TUNE_REQUEST :
+    //    break;
   case SONG_POS_PTR :
     m_songPos.first = m_rawMessage.at(1);
     m_songPos.second = m_rawMessage.at(2);
