@@ -199,7 +199,7 @@ void QMidiMessage::parseRawMessage()
 
     // we get last 4 bits for channel
     unsigned char channelMask = 0x0F; // 00001111
-    m_channel = m_rawMessage.at(0) & channelMask;
+    m_channel = (m_rawMessage.at(0) & channelMask) + 1;
   }
 
   switch(m_status)

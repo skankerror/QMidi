@@ -159,7 +159,7 @@ bool QMidiPianoRollView::isBlackKey(QGraphicsRectItem *t_item)
 
 void QMidiPianoRollView::onMidiReceive(QMidiMessage *t_message)
 {
-  qDebug() << t_message->rawMessage();
+//  qDebug() << t_message->rawMessage();
 
   switch(t_message->status())
   {
@@ -184,7 +184,7 @@ void QMidiPianoRollView::onMidiReceive(QMidiMessage *t_message)
   }
   default: break;
   }
-  qDebug() << t_message->rawMessage();
+//  qDebug() << t_message->rawMessage();
   emit sigKeyPressed(t_message);
 }
 
