@@ -76,7 +76,7 @@ void QMidiPianoRollView::mousePressEvent(QMouseEvent *t_event)
     onMidiReceive(messageOn);
     m_isKeyClicked = true;
     m_keyClicked = item2;
-//    messageOn->deleteLater();
+    messageOn->deleteLater();
   }
   QGraphicsView::mousePressEvent(t_event);
 }
@@ -101,7 +101,7 @@ void QMidiPianoRollView::mouseMoveEvent(QMouseEvent *t_event)
         onMidiReceive(messageOff);
         m_isKeyClicked = false;
         m_keyClicked = nullptr;
-//        messageOff->deleteLater();
+        messageOff->deleteLater();
 
         auto messageOn = new QMidiMessage(this);
         messageOn->setStatus(NOTE_ON);
@@ -112,7 +112,7 @@ void QMidiPianoRollView::mouseMoveEvent(QMouseEvent *t_event)
         onMidiReceive(messageOn);
         m_isKeyClicked = true;
         m_keyClicked = item2;
-//        messageOn->deleteLater();
+        messageOn->deleteLater();
       }
     }
   }
@@ -129,11 +129,10 @@ void QMidiPianoRollView::mouseReleaseEvent(QMouseEvent *t_event)
     messageOff->setPitch(m_keys.indexOf(m_keyClicked));
     messageOff->setVelocity(0);
     messageOff->makeRawMessage();
-    onMidiReceive(messageOff);
+    if (m_keyClicked) onMidiReceive(messageOff);
     m_isKeyClicked = false;
     m_keyClicked = nullptr;
-//    delete messageOff;
-
+    messageOff->deleteLater();
   }
   QGraphicsView::mouseReleaseEvent(t_event);
 }
@@ -159,7 +158,6 @@ bool QMidiPianoRollView::isBlackKey(QGraphicsRectItem *t_item)
 
 void QMidiPianoRollView::onMidiReceive(QMidiMessage *t_message)
 {
-//  qDebug() << t_message->rawMessage();
 
   switch(t_message->status())
   {
@@ -184,7 +182,6 @@ void QMidiPianoRollView::onMidiReceive(QMidiMessage *t_message)
   }
   default: break;
   }
-//  qDebug() << t_message->rawMessage();
   emit sigKeyPressed(t_message);
 }
 

@@ -26,10 +26,14 @@ QMidiIn::QMidiIn(QObject *parent,
   RtMidiIn(t_api,
            t_clientName.toStdString().c_str(),
            t_queueSizeLimit),
-  m_currentID(QMIDIIN_COUNT++)
+  m_currentID(QMIDIIN_COUNT++),
+  m_isPortOpen(false),
+  m_ignoreSysex(false),
+  m_ignoreTime(false),
+  m_ignoreSense(false)
 {
   // by default no ignored messages
-  setIgnoredTypes(false, false, false);
+  setIgnoredTypes(m_ignoreSysex, m_ignoreTime, m_ignoreSense);
 }
 
 QMidiIn::~QMidiIn()
@@ -41,7 +45,7 @@ void QMidiIn::recieveMessage(double t_deltatime,
                              std::vector<unsigned char> *t_unMessage,
                              void *t_userData)
 {
-  // On caste le void* pour pouvoir le déréférencer.
+  // We cast void ptr in order to emit his signal at the end
   auto *aMidiIn = static_cast<QMidiIn*>(t_userData);
 
   // TODO: check thread / parent object ??

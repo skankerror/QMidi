@@ -68,12 +68,15 @@ public:
   void setSysExData(std::vector<unsigned char> t_sysExData){ m_sysExData = t_sysExData; };
   void setRawMessage(std::vector<unsigned char> t_rawMessage);
 
+  // method to set raw message from args
   void makeRawMessage();
 
 
 private:
 
   void clear();
+
+  // method to set args from raw message
   void parseRawMessage();
 
 private:
@@ -92,10 +95,6 @@ private:
   double m_deltaTime;
   std::vector<unsigned char> m_sysExData;
   std::vector<unsigned char> m_rawMessage;
-
-signals:
-
-public slots:
 
 };
 #endif // QMIDIMESSAGE_H

@@ -69,7 +69,6 @@ std::vector<unsigned char> QMidiMessage::rawMessage()
 
 void QMidiMessage::setRawMessage(std::vector<unsigned char> t_rawMessage)
 {
-  // we set int
   m_rawMessage = t_rawMessage;
   // we populate args
   parseRawMessage();
@@ -164,7 +163,7 @@ void QMidiMessage::makeRawMessage()
   case TUNE_REQUEST :
     m_rawMessage.push_back(TUNE_REQUEST);
     break;
-  case SYSEX : // léger...
+  case SYSEX : // TODO: develop sysex
     m_rawMessage = m_sysExData;
     if(m_sysExData.back() != EOX)
       m_rawMessage.push_back(EOX);
@@ -172,7 +171,6 @@ void QMidiMessage::makeRawMessage()
   default :
     break;
   }
-  //  qDebug() << m_rawMessage;
 }
 
 void QMidiMessage::parseRawMessage()
