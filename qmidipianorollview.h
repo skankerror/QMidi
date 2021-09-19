@@ -39,6 +39,7 @@ public:
 protected:
 
   void mousePressEvent(QMouseEvent *t_event) override;
+  void mouseDoubleClickEvent(QMouseEvent *t_event) override;
   void mouseMoveEvent(QMouseEvent *t_event) override;
   void mouseReleaseEvent(QMouseEvent *t_event) override;
 

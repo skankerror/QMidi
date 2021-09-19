@@ -16,7 +16,6 @@
  */
 
 #include "qmidipianorollview.h"
-#include <QPainter>
 #include <QDebug>
 
 
@@ -81,6 +80,11 @@ void QMidiPianoRollView::mousePressEvent(QMouseEvent *t_event)
   QGraphicsView::mousePressEvent(t_event);
 }
 
+void QMidiPianoRollView::mouseDoubleClickEvent(QMouseEvent *t_event)
+{
+  QMidiPianoRollView::mousePressEvent(t_event);
+}
+
 void QMidiPianoRollView::mouseMoveEvent(QMouseEvent *t_event)
 {
   if (m_isKeyClicked)
@@ -129,7 +133,7 @@ void QMidiPianoRollView::mouseReleaseEvent(QMouseEvent *t_event)
     messageOff->setPitch(m_keys.indexOf(m_keyClicked));
     messageOff->setVelocity(0);
     messageOff->makeRawMessage();
-    if (m_keyClicked) onMidiReceive(messageOff);
+    onMidiReceive(messageOff);
     m_isKeyClicked = false;
     m_keyClicked = nullptr;
     messageOff->deleteLater();
