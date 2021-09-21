@@ -54,15 +54,12 @@ QMidiPianoRollView::QMidiPianoRollView(QWidget *parent) :
       x += m_keyWidth/2+1;
     }
     m_keys.push_back(rect);
-
   }
-
   setScene(m_scene);
 }
 
 void QMidiPianoRollView::mousePressEvent(QMouseEvent *t_event)
 {
-  // TODO: check if it's a left simple click before
   if (auto item = itemAt(t_event->pos()))
   {
     auto item2 = static_cast<QGraphicsRectItem *>(item);
@@ -71,7 +68,6 @@ void QMidiPianoRollView::mousePressEvent(QMouseEvent *t_event)
     messageOn->setChannel(1);
     messageOn->setPitch(m_keys.indexOf(item2));
     messageOn->setVelocity(64);
-    messageOn->makeRawMessage();
     onMidiReceive(messageOn);
     m_isKeyClicked = true;
     m_keyClicked = item2;
@@ -101,7 +97,6 @@ void QMidiPianoRollView::mouseMoveEvent(QMouseEvent *t_event)
         messageOff->setChannel(1);
         messageOff->setPitch(m_keys.indexOf(m_keyClicked));
         messageOff->setVelocity(0);
-        messageOff->makeRawMessage();
         onMidiReceive(messageOff);
         m_isKeyClicked = false;
         m_keyClicked = nullptr;
@@ -112,7 +107,6 @@ void QMidiPianoRollView::mouseMoveEvent(QMouseEvent *t_event)
         messageOn->setChannel(1);
         messageOn->setPitch(m_keys.indexOf(item2));
         messageOn->setVelocity(64);
-        messageOn->makeRawMessage();
         onMidiReceive(messageOn);
         m_isKeyClicked = true;
         m_keyClicked = item2;
@@ -132,7 +126,6 @@ void QMidiPianoRollView::mouseReleaseEvent(QMouseEvent *t_event)
     messageOff->setChannel(1);
     messageOff->setPitch(m_keys.indexOf(m_keyClicked));
     messageOff->setVelocity(0);
-    messageOff->makeRawMessage();
     onMidiReceive(messageOff);
     m_isKeyClicked = false;
     m_keyClicked = nullptr;
@@ -165,14 +158,16 @@ void QMidiPianoRollView::onMidiReceive(QMidiMessage *t_message)
 
   switch(t_message->status())
   {
-  case NOTE_ON: {
+  case NOTE_ON:
+  {
     QBrush brush;
     brush.setStyle(Qt::SolidPattern);
     brush.setColor(QColor(0,0,200, t_message->velocity()*2));
     m_keys[t_message->pitch()]->setBrush(brush);
     break;
   }
-  case NOTE_OFF: {
+  case NOTE_OFF:
+  {
     QBrush brush;
     brush.setStyle(Qt::SolidPattern);
     QColor color;

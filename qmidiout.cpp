@@ -106,23 +106,23 @@ void QMidiOut::sendPitchBend(unsigned int t_channel,
 }
 
 void QMidiOut::sendAftertouch(unsigned int t_channel,
-                              unsigned int t_pitch,
                               unsigned int t_pressure)
 {
   auto message = new QMidiMessage(this);
   message->setStatus(AFTERTOUCH);
   message->setChannel(t_channel);
-  message->setPitch(t_pitch);
   message->setPressure(t_pressure);
   sendQMidiMessage(message);
 }
 
 void QMidiOut::sendPolyAftertouch(unsigned int t_channel,
+                                  unsigned int t_pitch,
                                   unsigned int t_pressure)
 {
   auto message = new QMidiMessage(this);
   message->setStatus(POLY_AFTERTOUCH);
   message->setChannel(t_channel);
+  message->setPitch(t_pitch);
   message->setPressure(t_pressure);
   sendQMidiMessage(message);
 }
@@ -137,6 +137,94 @@ void QMidiOut::sendControlChange(unsigned int t_channel,
   message->setControl(t_control);
   message->setValue(t_value);
   sendQMidiMessage(message);
+}
+
+void QMidiOut::sendChannelModeReset(unsigned int t_channel)
+{
+  auto message = new QMidiMessage(this);
+  message->setStatus(CONTROL_CHANGE);
+  message->setChannel(t_channel);
+  message->setChModStatus(RESET);
+  message->setValue(0);
+  sendQMidiMessage(message);
+}
+
+void QMidiOut::sendLocalControlOn(unsigned int t_channel)
+{
+  auto message = new QMidiMessage(this);
+  message->setStatus(CONTROL_CHANGE);
+  message->setChannel(t_channel);
+  message->setChModStatus(LOCAL_CONTROL);
+  message->setValue(LOCAL_CONTROL_ON);
+  sendQMidiMessage(message);
+
+}
+
+void QMidiOut::sendLocalControlOff(unsigned int t_channel)
+{
+  auto message = new QMidiMessage(this);
+  message->setStatus(CONTROL_CHANGE);
+  message->setChannel(t_channel);
+  message->setChModStatus(LOCAL_CONTROL);
+  message->setValue(LOCAL_CONTROL_OFF);
+  sendQMidiMessage(message);
+
+}
+
+void QMidiOut::sendAllNotesOff(unsigned int t_channel)
+{
+  auto message = new QMidiMessage(this);
+  message->setStatus(CONTROL_CHANGE);
+  message->setChannel(t_channel);
+  message->setChModStatus(ALL_NOTES_OFF);
+  message->setValue(0);
+  sendQMidiMessage(message);
+
+}
+
+void QMidiOut::sendOmniOff(unsigned int t_channel)
+{
+  auto message = new QMidiMessage(this);
+  message->setStatus(CONTROL_CHANGE);
+  message->setChannel(t_channel);
+  message->setChModStatus(OMNI_OFF);
+  message->setValue(0);
+  sendQMidiMessage(message);
+
+}
+
+void QMidiOut::sendOmniOn(unsigned int t_channel)
+{
+  auto message = new QMidiMessage(this);
+  message->setStatus(CONTROL_CHANGE);
+  message->setChannel(t_channel);
+  message->setChModStatus(OMNI_ON);
+  message->setValue(0);
+  sendQMidiMessage(message);
+
+}
+
+void QMidiOut::sendMonoOn(unsigned int t_channel,
+                          unsigned int t_channelNumber)
+{
+  auto message = new QMidiMessage(this);
+  message->setStatus(CONTROL_CHANGE);
+  message->setChannel(t_channel);
+  message->setChModStatus(MONO_ON);
+  message->setChannelNumber(t_channelNumber);
+  sendQMidiMessage(message);
+
+}
+
+void QMidiOut::sendPolyOn(unsigned int t_channel)
+{
+  auto message = new QMidiMessage(this);
+  message->setStatus(CONTROL_CHANGE);
+  message->setChannel(t_channel);
+  message->setChModStatus(POLY_ON);
+  message->setValue(0);
+  sendQMidiMessage(message);
+
 }
 
 void QMidiOut::sendMidiClock()

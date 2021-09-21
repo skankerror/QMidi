@@ -24,6 +24,7 @@
 #include "qmidi.h"
 #include "qmidimessage.h"
 
+// TODO: add virtual port
 
 class QMidiOut :
     public QObject,
@@ -36,7 +37,7 @@ public:
 
   QMidiOut(QObject *parent = nullptr,
            RtMidi::Api t_api = UNSPECIFIED,
-           const QString &t_clientName = "QMidiOut client");
+           const QString &t_clientName = MIDI_OUT_CLIENT_DEFAULT_NAME);
 
   ~QMidiOut();
 
@@ -47,7 +48,7 @@ public:
   // send Channel Voice messages
   void sendNoteOn(unsigned int t_channel,
                   unsigned int t_pitch,
-                  unsigned int t_velocity = 64);
+                  unsigned int t_velocity = DEFAULT_VELOCITY);
   void sendNoteOff(unsigned int t_channel,
                    unsigned int t_pitch,
                    unsigned int t_velocity = 0);
@@ -56,14 +57,24 @@ public:
   void sendPitchBend(unsigned int t_channel,
                      QPair<unsigned int, unsigned int> t_pitchBend);
   void sendAftertouch(unsigned int t_channel,
-                      unsigned int t_pitch,
                       unsigned int t_pressure);
   void sendPolyAftertouch(unsigned int t_channel,
+                          unsigned int t_pitch,
                           unsigned int t_pressure);
-  // TODO: implement Channel mode messages
   void sendControlChange(unsigned int t_channel,
                          unsigned int t_control,
                          unsigned int t_value);
+
+  // send Channel Mode messages
+  void sendChannelModeReset(unsigned int t_channel);
+  void sendLocalControlOn(unsigned int t_channel);
+  void sendLocalControlOff(unsigned int t_channel);
+  void sendAllNotesOff(unsigned int t_channel);
+  void sendOmniOff(unsigned int t_channel);
+  void sendOmniOn(unsigned int t_channel);
+  void sendMonoOn(unsigned int t_channel,
+                  unsigned int t_channelNumber);
+  void sendPolyOn(unsigned int t_channel);
 
   // send System real time messages
   void sendMidiClock();
@@ -85,6 +96,7 @@ public slots:
 
   // connection slots
   void connectMidiOut(int t_portNumber);
+  // TODO: add connect with string
   void disconnectMidiOut();
   // send messages
   void sendQMidiMessage(QMidiMessage *t_message);

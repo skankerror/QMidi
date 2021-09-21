@@ -24,6 +24,7 @@
 #include "qmidi.h"
 #include "qmidimessage.h"
 
+// TODO: add virtual port
 
 class QMidiIn :
     public QObject,
@@ -36,7 +37,7 @@ public:
 
   QMidiIn(QObject *parent = nullptr,
           RtMidi::Api t_api = UNSPECIFIED,
-          const QString &t_clientName = "QMidiIn client",
+          const QString &t_clientName = MIDI_IN_CLIENT_DEFAULT_NAME,
           unsigned int t_queueSizeLimit = QUEUE_SIZE_LIMIT);
 
   ~QMidiIn();
@@ -52,8 +53,8 @@ public:
   QStringList portNames();
   bool isMidiPortOpen() const{ return m_isPortOpen; };
   bool isIgnoreSysex() const{ return m_ignoreSysex; };
-  bool isIgnoreTime() const{ return m_ignoreSysex; };
-  bool isIgnoreSend() const{ return m_ignoreSysex; };
+  bool isIgnoreTime() const{ return m_ignoreTime; };
+  bool isIgnoreSense() const{ return m_ignoreSense; };
 
   void setIgnoredTypes(bool t_ignoreSysex,
                        bool t_ignoreTime,
@@ -66,6 +67,7 @@ signals:
 public slots:
 
   void connectMidiIn(int t_portNumber);
+  // TODO: add connect with string
   void disconnectMidiIn();
 
 private:

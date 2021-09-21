@@ -49,6 +49,7 @@ void QMidiIn::recieveMessage(double t_deltatime,
   auto *aMidiIn = static_cast<QMidiIn*>(t_userData);
 
   // TODO: check thread / parent object ??
+  // maybe pass the vector and create qmessage in qmidiIO ?
   auto aMessage = new QMidiMessage(/*aMidiIn*/);
   aMessage->setRawMessage(*t_unMessage);
   aMessage->setDeltaTime(t_deltatime);

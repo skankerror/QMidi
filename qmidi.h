@@ -20,16 +20,16 @@
 
 enum MidiStatus
 {
-  UNKNOWN = 0x00, // risque de passer pour un byte data...
+  UNKNOWN = 0x00,
 
   // channel voice messages
-  NOTE_ON = 0x90,
-  NOTE_OFF = 0x80,
-  PROG_CHANGE = 0xC0,
-  PITCH_BEND = 0xE0,
-  AFTERTOUCH = 0xD0,
-  POLY_AFTERTOUCH = 0xA0,
-  CONTROL_CHANGE = 0xB0, // prend aussi les channel modes messages
+  NOTE_ON = 0x90, // 2 data bytes, pitch and velocity
+  NOTE_OFF = 0x80, // 2 data bytes, pitch and velocity ( = 0)
+  PROG_CHANGE = 0xC0, // 1 data byte, program ID
+  PITCH_BEND = 0xE0, // 2 data bytes (MSB, LSB)
+  AFTERTOUCH = 0xD0, // 1 data byte, pressure
+  POLY_AFTERTOUCH = 0xA0, // 2 data bytes, pitch, pressure
+  CONTROL_CHANGE = 0xB0, // this handles channel mode message too
 
   // system real time messages
   MIDI_CLOCK = 0xF8,
@@ -39,17 +39,40 @@ enum MidiStatus
   ACTIVE_SENSING = 0xFE,
   SYSTEM_RESET = 0xFF,
 
-  // system common messages (pour seq asservis)
-  SONG_POS_PTR = 0xF2,
-  SONG_SELECT = 0xF3,
-  TUNE_REQUEST = 0xF6,
+  // system common messages (for slaved seq)
+  MIDI_TIMING_CODE = 0xF1, // 1 data byte
+  SONG_POS_PTR = 0xF2, // 2 data bytes
+  SONG_SELECT = 0xF3, // 1 data byte
+  TUNE_REQUEST = 0xF6, // none
 
   // system exclusive messages
   SYSEX = 0xF0,
-  EOX = 0xF7
+  EOX = 0xF7 // End of Sysex
 };
 
-enum ManuID // pour sysex
+// first byte of data for CONTROL_CHANGE status
+// if byte < 121 first byte will be controler ID and second one, value
+// else it's channel mode message.
+enum ChannelModeStatus
+{
+  UNKNOWN_CH_MOD_MESSAGE = 0x00,
+  RESET = 0x79, // 2nd byte means nothing (set to 0)
+  LOCAL_CONTROL = 0x7A, // 2nd byte 0 = off, 127 = on
+  ALL_NOTES_OFF = 0x7B, // 2nd byte means nothing (set to 0)
+  OMNI_OFF = 0x7C, // 2nd byte means nothing (set to 0)
+  OMNI_ON = 0x7D, // 2nd byte means nothing (set to 0)
+  MONO_ON = 0x7E,  /*if 2nd byte = 0 then the number of
+  channels used is determined by the receiver;
+  all other values set a specific number of channels,
+  beginning with the current basic channel.*/
+  POLY_ON = 0x7F // 2nd byte means nothing (set to 0)
+};
+
+// 2nd byte of data for local control channel mode status
+#define LOCAL_CONTROL_ON  127
+#define LOCAL_CONTROL_OFF  0
+
+enum ManuID // for sysex
 {
   SEQUENTIAL_CIRCUITS = 0x01,
   BIG_BRIAR = 0x02,
@@ -102,7 +125,16 @@ enum ManuID // pour sysex
 #define MAX_TIMECODE 16383
 
 
-#define QUEUE_SIZE_LIMIT 100
+#define QUEUE_SIZE_LIMIT 1024
+#define MIDI_IN_CLIENT_DEFAULT_NAME "QMidiIn Client"
+#define MIDI_OUT_CLIENT_DEFAULT_NAME "QMidiOut Client"
+
+#define DEFAULT_VELOCITY 64
+// higher status byte value with channel info
+#define CHANNEL_VOICE_INFORMATION_LIMIT 239
+// masks to deal with channel in byte
+#define STATUS_MASK 0xF0 // 11110000 mask
+#define CHANNEL_MASK 0x0F // 00001111 mask
 
 // to have id for objects QMidiIn et QMidiOut
 static int QMIDIIN_COUNT;
