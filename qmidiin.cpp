@@ -19,13 +19,13 @@
 #include <QDebug>
 
 QMidiIn::QMidiIn(QObject *parent,
-                 RtMidi::Api t_api,
+                 QMidiApi t_api,
                  const QString &t_clientName,
                  unsigned int t_queueSizeLimit):
   QObject(parent),
-  RtMidiIn(t_api,
-           t_clientName.toStdString().c_str(),
-           t_queueSizeLimit),
+  m_rtMidiIn(new RtMidiIn((RtMidi::Api)t_api,
+                          t_clientName.toStdString().c_str(),
+                          t_queueSizeLimit)),
   m_currentID(QMIDIIN_COUNT++),
   m_isPortOpen(false),
   m_ignoreSysex(false),
@@ -38,15 +38,15 @@ QMidiIn::QMidiIn(QObject *parent,
 
 QMidiIn::~QMidiIn()
 {
-  RtMidiIn::~RtMidiIn();
+//  RtMidiIn::~RtMidiIn();
+  delete m_rtMidiIn;
 }
 
-void QMidiIn::recieveMessage(double t_deltatime,
-                             std::vector<unsigned char> *t_unMessage,
-                             void *t_userData)
+void QMidiIn::callBack(double t_deltatime,
+                       std::vector<unsigned char> *t_unMessage,
+                       void *t_userData)
 {
-  // We cast void ptr in order to emit his signal at the end
-  auto *aMidiIn = static_cast<QMidiIn*>(t_userData);
+  auto aMidiIn = (QMidiIn*)t_userData;
 
   // TODO: check thread / parent object ??
   // maybe pass the vector and create qmessage in qmidiIO ?
@@ -60,7 +60,7 @@ void QMidiIn::recieveMessage(double t_deltatime,
 
 int QMidiIn::portCount()
 {
-  return getPortCount();
+  return m_rtMidiIn->getPortCount();
 }
 
 QStringList QMidiIn::portNames()
@@ -69,7 +69,7 @@ QStringList QMidiIn::portNames()
   QStringList stringList;
   for(int i = 0; i < aPortCount; i++)
   {
-    QString string = QString::fromStdString(getPortName(i));
+    QString string = QString::fromStdString(m_rtMidiIn->getPortName(i));
     stringList.append(string);
   }
   return stringList;
@@ -79,7 +79,7 @@ void QMidiIn::setIgnoredTypes(bool t_ignoreSysex,
                               bool t_ignoreTime,
                               bool t_ignoreSense)
 {
-  ignoreTypes(t_ignoreSysex,
+  m_rtMidiIn->ignoreTypes(t_ignoreSysex,
               t_ignoreTime,
               t_ignoreSense);
   m_ignoreSysex = t_ignoreSysex;
@@ -89,27 +89,49 @@ void QMidiIn::setIgnoredTypes(bool t_ignoreSysex,
 
 void QMidiIn::connectMidiIn(int t_portNumber)
 {
-  if (RtMidiIn::isPortOpen())
+  if (m_rtMidiIn->isPortOpen())
     disconnectMidiIn();
 
-  RtMidiIn::openPort(t_portNumber);
+  m_rtMidiIn->openPort(t_portNumber);
 
-  if (RtMidiIn::isPortOpen())
+  if (m_rtMidiIn->isPortOpen())
   {
     m_isPortOpen = true;
-    RtMidiIn::setCallback(&recieveMessage, this);
+    m_rtMidiIn->setCallback(&callBack, this);
   }
   else qDebug() << "Midi in " << m_currentID << " not opened";
+}
 
+void QMidiIn::connectMidiIn(QString &t_portName)
+{
+  for(unsigned int i = 0; i < m_rtMidiIn->getPortCount(); i++)
+  {
+    if(t_portName == QString::fromStdString(m_rtMidiIn->getPortName(i)))
+    {
+      if (m_rtMidiIn->isPortOpen())
+        disconnectMidiIn();
+      m_rtMidiIn->openPort(i);
+    }
+    if (m_rtMidiIn->isPortOpen())
+      m_isPortOpen = true;
+    else
+      qDebug() << "Midi out " << m_currentID << " not opened";
+  }
+}
+
+
+void QMidiIn::connectVirtualMidiIn()
+{
+  m_rtMidiIn->openVirtualPort("QMidiIn virtual port");
 }
 
 void QMidiIn::disconnectMidiIn()
 {
-  if (RtMidiIn::isPortOpen())
+  if (m_rtMidiIn->isPortOpen())
   {
     m_isPortOpen = false;
-    RtMidiIn::closePort();
-    RtMidiIn::cancelCallback();
+    m_rtMidiIn->closePort();
+    m_rtMidiIn->cancelCallback();
   }
   else qDebug() << "Port in was not opened...";
 }

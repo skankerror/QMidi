@@ -81,11 +81,12 @@ void QMidiPianoRollView::mouseDoubleClickEvent(QMouseEvent *t_event)
   QMidiPianoRollView::mousePressEvent(t_event);
 }
 
+// BUG : click et sort du cadre revient, ça plante. à débugger
 void QMidiPianoRollView::mouseMoveEvent(QMouseEvent *t_event)
 {
   if (m_isKeyClicked)
   {
-    if (auto item = itemAt(t_event->pos()))
+    if (auto item = itemAt(t_event->pos())) // move is on an item
     {
       auto item2 = static_cast<QGraphicsRectItem *>(item);
       if (item2 == m_keyClicked)
@@ -112,6 +113,18 @@ void QMidiPianoRollView::mouseMoveEvent(QMouseEvent *t_event)
         m_keyClicked = item2;
         messageOn->deleteLater();
       }
+    }
+    else // move is not on an item
+    {
+      auto messageOff = new QMidiMessage(this);
+      messageOff->setStatus(NOTE_OFF);
+      messageOff->setChannel(1);
+      messageOff->setPitch(m_keys.indexOf(m_keyClicked));
+      messageOff->setVelocity(0);
+      onMidiReceive(messageOff);
+      m_isKeyClicked = false;
+      m_keyClicked = nullptr;
+      messageOff->deleteLater();
     }
   }
   QGraphicsView::mouseMoveEvent(t_event);
@@ -150,7 +163,6 @@ bool QMidiPianoRollView::isBlackKey(QGraphicsRectItem *t_item)
     return false;
   else
     return true;
-
 }
 
 void QMidiPianoRollView::onMidiReceive(QMidiMessage *t_message)

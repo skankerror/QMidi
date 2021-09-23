@@ -25,7 +25,6 @@
 #include "qmidimessage.h"
 
 
-
 class QMidiPianoRollView :
     public QGraphicsView
 {

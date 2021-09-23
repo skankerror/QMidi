@@ -24,11 +24,9 @@
 #include "qmidi.h"
 #include "qmidimessage.h"
 
-// TODO: add virtual port
 
 class QMidiIn :
-    public QObject,
-    private RtMidiIn
+    public QObject
 {
 
   Q_OBJECT
@@ -36,18 +34,11 @@ class QMidiIn :
 public:
 
   QMidiIn(QObject *parent = nullptr,
-          RtMidi::Api t_api = UNSPECIFIED,
+          QMidiApi t_api = Q_UNSPECIFIED,
           const QString &t_clientName = MIDI_IN_CLIENT_DEFAULT_NAME,
           unsigned int t_queueSizeLimit = QUEUE_SIZE_LIMIT);
 
   ~QMidiIn();
-
-  // static method for rtmidiin callback fonction.
-  // it's static but can access to method of instancied objects.
-  // we'll send 'this' ptr as last arg, so it can emit signal on object
-  static void recieveMessage(double t_deltatime,
-                            std::vector<unsigned char> *t_unMessage,
-                            void *t_userData);
 
   int portCount();
   QStringList portNames();
@@ -60,6 +51,12 @@ public:
                        bool t_ignoreTime,
                        bool t_ignoreSense);
 
+private :
+
+  static void callBack(double t_deltatime,
+                       std::vector<unsigned char> *t_unMessage,
+                       void *t_userData);
+
 signals:
 
   void sigRecieveMessage(QMidiMessage*);
@@ -67,10 +64,14 @@ signals:
 public slots:
 
   void connectMidiIn(int t_portNumber);
+  void connectMidiIn(QString &t_portName);
+  void connectVirtualMidiIn();
   // TODO: add connect with string
   void disconnectMidiIn();
 
 private:
+
+  RtMidiIn *m_rtMidiIn;
 
   const int m_currentID;
 

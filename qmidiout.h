@@ -24,11 +24,9 @@
 #include "qmidi.h"
 #include "qmidimessage.h"
 
-// TODO: add virtual port
-
 class QMidiOut :
-    public QObject,
-    private RtMidiOut
+    public QObject/*,
+    private RtMidiOut*/
 {
 
   Q_OBJECT
@@ -36,7 +34,7 @@ class QMidiOut :
 public:
 
   QMidiOut(QObject *parent = nullptr,
-           RtMidi::Api t_api = UNSPECIFIED,
+           QMidiApi t_api = Q_UNSPECIFIED,
            const QString &t_clientName = MIDI_OUT_CLIENT_DEFAULT_NAME);
 
   ~QMidiOut();
@@ -95,14 +93,18 @@ public:
 public slots:
 
   // connection slots
-  void connectMidiOut(int t_portNumber);
   // TODO: add connect with string
+  void connectMidiOut(int t_portNumber);
+  void connectMidiOut(QString &t_portName);
+  void connectVirtualMidiOut();
   void disconnectMidiOut();
   // send messages
   void sendQMidiMessage(QMidiMessage *t_message);
   void sendRawMessage(std::vector<unsigned char> t_rawMessage);
 
 private:
+
+  RtMidiOut *m_rtMidiOut;
 
   const int m_currentID;
 

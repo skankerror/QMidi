@@ -34,7 +34,8 @@ public:
   // cstr
   explicit QMidiMessage(QObject *parent = nullptr);
   ~QMidiMessage();
-  QMidiMessage(QMidiMessage &t_other);
+  QMidiMessage(QMidiMessage &t_other,
+               QObject *parent = nullptr);
 
   // getters
   MidiStatus status() const{ return m_status; };
@@ -73,7 +74,6 @@ public:
   void setRawMessage(std::vector<unsigned char> &t_rawMessage);
 
 
-
 private:
 
   void clear();
@@ -83,6 +83,7 @@ private:
 
   // method to set args from raw message
   void parseRawMessage();
+
 
 private:
 

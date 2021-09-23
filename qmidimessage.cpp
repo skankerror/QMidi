@@ -43,8 +43,9 @@ QMidiMessage::QMidiMessage(QObject *parent) :
 QMidiMessage::~QMidiMessage()
 {}
 
-QMidiMessage::QMidiMessage(QMidiMessage &t_other) :
-//  QObject(t_other.parent()),
+QMidiMessage::QMidiMessage(QMidiMessage &t_other,
+                           QObject *parent) :
+  QObject(parent),
   m_status(t_other.status()),
   m_channel(t_other.channel()),
   m_pitch(t_other.pitch()),
@@ -244,7 +245,7 @@ void QMidiMessage::parseRawMessage()
     break;
   case CONTROL_CHANGE :
     m_control = m_rawMessage.at(1);
-    if (m_control > 120) // channel mode message
+    if (m_control > CONTROL_CHANGE_CONTROLER_ID_LIMIT) // channel mode message
     {
       m_chModStatus = static_cast<ChannelModeStatus>(m_channel);
       if (m_chModStatus == MONO_ON)

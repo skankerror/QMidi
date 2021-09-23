@@ -18,6 +18,17 @@
 #ifndef QMIDI_H
 #define QMIDI_H
 
+enum QMidiApi
+{
+  Q_UNSPECIFIED,    /*!< Search for a working compiled API. */
+  Q_MACOSX_CORE,    /*!< Macintosh OS-X CoreMIDI API. */
+  Q_LINUX_ALSA,     /*!< The Advanced Linux Sound Architecture API. */
+  Q_UNIX_JACK,      /*!< The JACK Low-Latency MIDI Server API. */
+  Q_WINDOWS_MM,     /*!< The Microsoft Multimedia MIDI API. */
+  Q_RTMIDI_DUMMY,   /*!< A compilable but non-functional API. */
+  Q_NUM_APIS        /*!< Number of values in this enum. */
+};
+
 enum MidiStatus
 {
   UNKNOWN = 0x00,
@@ -132,6 +143,8 @@ enum ManuID // for sysex
 #define DEFAULT_VELOCITY 64
 // higher status byte value with channel info
 #define CHANNEL_VOICE_INFORMATION_LIMIT 239
+// higher control change controler id
+#define CONTROL_CHANGE_CONTROLER_ID_LIMIT 120
 // masks to deal with channel in byte
 #define STATUS_MASK 0xF0 // 11110000 mask
 #define CHANNEL_MASK 0x0F // 00001111 mask

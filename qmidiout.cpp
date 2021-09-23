@@ -19,21 +19,22 @@
 #include <QDebug>
 
 QMidiOut::QMidiOut(QObject *parent,
-                   RtMidi::Api t_api,
+                   QMidiApi t_api,
                    const QString &t_clientName) :
   QObject(parent),
-  RtMidiOut(t_api, t_clientName.toStdString().c_str()),
+  m_rtMidiOut(new RtMidiOut((RtMidi::Api)t_api,
+                            t_clientName.toStdString().c_str())),
   m_currentID(QMIDIOUT_COUNT++)
 {}
 
 QMidiOut::~QMidiOut()
 {
-  RtMidiOut::~RtMidiOut();
+  delete m_rtMidiOut;
 }
 
 int QMidiOut::portCount()
 {
-  return getPortCount();
+  return m_rtMidiOut->getPortCount();
 }
 
 QStringList QMidiOut::portNames()
@@ -42,7 +43,7 @@ QStringList QMidiOut::portNames()
   QStringList stringList;
   for(int i = 0; i < aPortCount; i++)
   {
-    QString string = QString::fromStdString(getPortName(i));
+    QString string = QString::fromStdString(m_rtMidiOut->getPortName(i));
     stringList.append(string);
   }
   return stringList;
@@ -56,7 +57,7 @@ void QMidiOut::sendQMidiMessage(QMidiMessage *t_message)
 
 void QMidiOut::sendRawMessage(std::vector<unsigned char> t_rawMessage)
 {
-  RtMidiOut::sendMessage(&t_rawMessage);
+  m_rtMidiOut->sendMessage(&t_rawMessage);
 }
 
 void QMidiOut::sendNoteOn(unsigned int t_channel,
@@ -303,26 +304,47 @@ void QMidiOut::sendSysEx(std::vector<unsigned char> *t_sysExData)
 
 void QMidiOut::connectMidiOut(int t_portNumber)
 {
-  if (RtMidiOut::isPortOpen())
+  if (m_rtMidiOut->isPortOpen())
     disconnectMidiOut();
 
-  RtMidiOut::openPort(t_portNumber);
+  m_rtMidiOut->openPort(t_portNumber);
 
-  if (RtMidiOut::isPortOpen())
-  {
+  if (m_rtMidiOut->isPortOpen())
     m_isPortOpen = true;
-  }
-  else qDebug() << "Midi out " << m_currentID << " not opened";
+  else
+    qDebug() << "Midi out " << m_currentID << " not opened";
 
 
 }
 
+void QMidiOut::connectMidiOut(QString &t_portName)
+{
+  for(unsigned int i = 0; i < m_rtMidiOut->getPortCount(); i++)
+  {
+    if(t_portName == QString::fromStdString(m_rtMidiOut->getPortName(i)))
+    {
+      if (m_rtMidiOut->isPortOpen())
+        disconnectMidiOut();
+      m_rtMidiOut->openPort(i);
+    }
+    if (m_rtMidiOut->isPortOpen())
+      m_isPortOpen = true;
+    else
+      qDebug() << "Midi out " << m_currentID << " not opened";
+  }
+}
+
+void QMidiOut::connectVirtualMidiOut()
+{
+  m_rtMidiOut->openVirtualPort("QMidiOut virtual port");
+}
+
 void QMidiOut::disconnectMidiOut()
 {
-  if (RtMidiOut::isPortOpen())
+  if (m_rtMidiOut->isPortOpen())
   {
     m_isPortOpen = false;
-    RtMidiOut::closePort();
+    m_rtMidiOut->closePort();
   }
   else qDebug() << "Port out was not opened...";
 
