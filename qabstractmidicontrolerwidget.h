@@ -22,6 +22,9 @@ signals:
 protected:
 
   QVector<QPushButton *> m_v_pushButtons;
+  QVector<QSlider *> m_v_sliders;
+  QVector<QLabel *> m_v_labels;
+
 };
 
 #endif // QABSTRACTMIDICONTROLERWIDGET_H
