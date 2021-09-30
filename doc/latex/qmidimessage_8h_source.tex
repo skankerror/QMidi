@@ -1,0 +1,114 @@
+\hypertarget{qmidimessage_8h_source}{}\doxysection{qmidimessage.\+h}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{/*}}
+\DoxyCodeLine{2 \textcolor{comment}{ * (c) 2021 Michaël Creusy -\/-\/ creusy(.)michael(@)gmail(.)com}}
+\DoxyCodeLine{3 \textcolor{comment}{ *}}
+\DoxyCodeLine{4 \textcolor{comment}{ * This program is free software: you can redistribute it and/or modify}}
+\DoxyCodeLine{5 \textcolor{comment}{ * it under the terms of the GNU General Public License as published by}}
+\DoxyCodeLine{6 \textcolor{comment}{ * the Free Software Foundation, either version 3 of the License, or}}
+\DoxyCodeLine{7 \textcolor{comment}{ * (at your option) any later version.}}
+\DoxyCodeLine{8 \textcolor{comment}{ *}}
+\DoxyCodeLine{9 \textcolor{comment}{ * This program is distributed in the hope that it will be useful,}}
+\DoxyCodeLine{10 \textcolor{comment}{ * but WITHOUT ANY WARRANTY; without even the implied warranty of}}
+\DoxyCodeLine{11 \textcolor{comment}{ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the}}
+\DoxyCodeLine{12 \textcolor{comment}{ * GNU General Public License for more details.}}
+\DoxyCodeLine{13 \textcolor{comment}{ *}}
+\DoxyCodeLine{14 \textcolor{comment}{ * You should have received a copy of the GNU General Public License}}
+\DoxyCodeLine{15 \textcolor{comment}{ * along with this program.  If not, see <http://www.gnu.org/licenses/>.}}
+\DoxyCodeLine{16 \textcolor{comment}{ */}}
+\DoxyCodeLine{17 }
+\DoxyCodeLine{18 \textcolor{preprocessor}{\#ifndef QMIDIMESSAGE\_H}}
+\DoxyCodeLine{19 \textcolor{preprocessor}{\#define QMIDIMESSAGE\_H}}
+\DoxyCodeLine{20 }
+\DoxyCodeLine{21 \textcolor{preprocessor}{\#include <QObject>}}
+\DoxyCodeLine{22 \textcolor{preprocessor}{\#include <vector>}}
+\DoxyCodeLine{23 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{qmidi_8h}{qmidi.h}}"{}}}
+\DoxyCodeLine{24 }
+\DoxyCodeLine{25 }
+\DoxyCodeLine{30 \textcolor{keyword}{class }\mbox{\hyperlink{classQMidiMessage}{QMidiMessage}} :}
+\DoxyCodeLine{31     \textcolor{keyword}{public} QObject}
+\DoxyCodeLine{32 \{}
+\DoxyCodeLine{33 }
+\DoxyCodeLine{34   Q\_OBJECT}
+\DoxyCodeLine{35 }
+\DoxyCodeLine{36 \textcolor{keyword}{public}:}
+\DoxyCodeLine{37 }
+\DoxyCodeLine{41   \textcolor{keyword}{explicit} \mbox{\hyperlink{classQMidiMessage_a93df6ecbc1e4c03a5eb5a9eaa00e2d06}{QMidiMessage}}(QObject *parent = \textcolor{keyword}{nullptr});}
+\DoxyCodeLine{42   \mbox{\hyperlink{classQMidiMessage}{\string~QMidiMessage}}();}
+\DoxyCodeLine{43   \mbox{\hyperlink{classQMidiMessage_a93df6ecbc1e4c03a5eb5a9eaa00e2d06}{QMidiMessage}}(\mbox{\hyperlink{classQMidiMessage}{QMidiMessage}} \&t\_other,}
+\DoxyCodeLine{44                QObject *parent = \textcolor{keyword}{nullptr});}
+\DoxyCodeLine{45 }
+\DoxyCodeLine{46   \textcolor{comment}{// getters}}
+\DoxyCodeLine{47   \mbox{\hyperlink{qmidi_8h_afd22c71541642a69344fb311b4539a2d}{MidiStatus}} status()\textcolor{keyword}{ const}\{ \textcolor{keywordflow}{return} m\_status; \};}
+\DoxyCodeLine{48   \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} channel()\textcolor{keyword}{ const}\{ \textcolor{keywordflow}{return} m\_channel; \};}
+\DoxyCodeLine{49   \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} pitch()\textcolor{keyword}{ const}\{ \textcolor{keywordflow}{return} m\_pitch; \};}
+\DoxyCodeLine{50   \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} velocity()\textcolor{keyword}{ const}\{ \textcolor{keywordflow}{return} m\_velocity; \};}
+\DoxyCodeLine{51   \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} control()\textcolor{keyword}{ const}\{ \textcolor{keywordflow}{return} m\_control; \};}
+\DoxyCodeLine{52   \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} value()\textcolor{keyword}{ const}\{ \textcolor{keywordflow}{return} m\_value; \};}
+\DoxyCodeLine{53   \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} progID()\textcolor{keyword}{ const}\{ \textcolor{keywordflow}{return} m\_progID; \};}
+\DoxyCodeLine{54   QPair<unsigned int, unsigned int> pitchBend()\textcolor{keyword}{ const}\{ \textcolor{keywordflow}{return} m\_pitchBend; \};}
+\DoxyCodeLine{55   \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} pressure()\textcolor{keyword}{ const}\{ \textcolor{keywordflow}{return} m\_pressure; \};}
+\DoxyCodeLine{56   QPair<unsigned int, unsigned int> songPos()\textcolor{keyword}{ const}\{ \textcolor{keywordflow}{return} m\_songPos; \};}
+\DoxyCodeLine{57   \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} seqID()\textcolor{keyword}{ const}\{ \textcolor{keywordflow}{return} m\_seqID; \};}
+\DoxyCodeLine{58   \mbox{\hyperlink{qmidi_8h_aa4b6f84137ca41144e000b5ab0af044d}{ChannelModeStatus}} chModStatus()\textcolor{keyword}{ const}\{ \textcolor{keywordflow}{return} m\_chModStatus; \};}
+\DoxyCodeLine{59   \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} channelNumber()\textcolor{keyword}{ const}\{ \textcolor{keywordflow}{return} m\_channelNumber; \};}
+\DoxyCodeLine{60   \textcolor{keywordtype}{double} deltaTime()\textcolor{keyword}{ const}\{ \textcolor{keywordflow}{return} m\_deltaTime; \};}
+\DoxyCodeLine{61   std::vector<unsigned char> sysExData()\textcolor{keyword}{ const}\{ \textcolor{keywordflow}{return} m\_sysExData; \};}
+\DoxyCodeLine{62   std::vector<unsigned char> rawMessage();}
+\DoxyCodeLine{63 }
+\DoxyCodeLine{64   \textcolor{comment}{// setters}}
+\DoxyCodeLine{65   \textcolor{keywordtype}{void} setStatus(\textcolor{keyword}{const} \mbox{\hyperlink{qmidi_8h_afd22c71541642a69344fb311b4539a2d}{MidiStatus}} t\_status)\{ m\_status = t\_status; \};}
+\DoxyCodeLine{66   \textcolor{keywordtype}{void} setChannel(\textcolor{keyword}{const} \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} t\_channel)\{ m\_channel = t\_channel; \};}
+\DoxyCodeLine{67   \textcolor{keywordtype}{void} setPitch(\textcolor{keyword}{const} \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} t\_pitch)\{ m\_pitch = t\_pitch; \};}
+\DoxyCodeLine{68   \textcolor{keywordtype}{void} setVelocity(\textcolor{keyword}{const} \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} t\_velocity)\{ m\_velocity = t\_velocity; \};}
+\DoxyCodeLine{69   \textcolor{keywordtype}{void} setControl(\textcolor{keyword}{const} \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} t\_control)\{ m\_control = t\_control; \};}
+\DoxyCodeLine{70   \textcolor{keywordtype}{void} setValue(\textcolor{keyword}{const} \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} t\_value)\{ m\_value = t\_value; \};}
+\DoxyCodeLine{71   \textcolor{keywordtype}{void} setProgID(\textcolor{keyword}{const} \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} t\_progID)\{ m\_progID = t\_progID; \};}
+\DoxyCodeLine{72   \textcolor{keywordtype}{void} setPitchBend(\textcolor{keyword}{const} QPair<unsigned int, unsigned int> t\_pitchBend)\{ m\_pitchBend = t\_pitchBend; \};}
+\DoxyCodeLine{73   \textcolor{keywordtype}{void} setPressure(\textcolor{keyword}{const} \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} t\_pressure)\{ m\_pressure = t\_pressure; \};}
+\DoxyCodeLine{74   \textcolor{keywordtype}{void} setSongPos(\textcolor{keyword}{const} QPair<unsigned int, unsigned int> t\_songPos)\{ m\_songPos = t\_songPos; \};}
+\DoxyCodeLine{75   \textcolor{keywordtype}{void} setSeqID(\textcolor{keyword}{const} \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} t\_seqID)\{ m\_seqID = t\_seqID; \};}
+\DoxyCodeLine{76   \textcolor{keywordtype}{void} setChModStatus(\mbox{\hyperlink{qmidi_8h_aa4b6f84137ca41144e000b5ab0af044d}{ChannelModeStatus}} t\_ChModStatus)\{ m\_chModStatus = t\_ChModStatus; \};}
+\DoxyCodeLine{77   \textcolor{keywordtype}{void} setChannelNumber(\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} t\_channelNumber)\{ m\_channelNumber = t\_channelNumber; \};}
+\DoxyCodeLine{78   \textcolor{keywordtype}{void} setDeltaTime(\textcolor{keyword}{const} \textcolor{keywordtype}{double} t\_deltaTime)\{ m\_deltaTime = t\_deltaTime; \};}
+\DoxyCodeLine{79   \textcolor{keywordtype}{void} setSysExData(std::vector<unsigned char> \&t\_sysExData)\{ m\_sysExData = t\_sysExData; \};}
+\DoxyCodeLine{80   \textcolor{keywordtype}{void} setRawMessage(std::vector<unsigned char> \&t\_rawMessage);}
+\DoxyCodeLine{81 }
+\DoxyCodeLine{82 }
+\DoxyCodeLine{83 \textcolor{keyword}{private}:}
+\DoxyCodeLine{84 }
+\DoxyCodeLine{85   \textcolor{keywordtype}{void} clear();}
+\DoxyCodeLine{86 }
+\DoxyCodeLine{87   \textcolor{comment}{// method to set raw message from args}}
+\DoxyCodeLine{88   \textcolor{keywordtype}{void} makeRawMessage();}
+\DoxyCodeLine{89 }
+\DoxyCodeLine{90   \textcolor{comment}{// method to set args from raw message}}
+\DoxyCodeLine{91   \textcolor{keywordtype}{void} parseRawMessage();}
+\DoxyCodeLine{92 }
+\DoxyCodeLine{93 }
+\DoxyCodeLine{94 \textcolor{keyword}{private}:}
+\DoxyCodeLine{95 }
+\DoxyCodeLine{96   \mbox{\hyperlink{qmidi_8h_afd22c71541642a69344fb311b4539a2d}{MidiStatus}} m\_status;}
+\DoxyCodeLine{97   \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} m\_channel;}
+\DoxyCodeLine{98   \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} m\_pitch;}
+\DoxyCodeLine{99   \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} m\_velocity;}
+\DoxyCodeLine{100   \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} m\_control;}
+\DoxyCodeLine{101   \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} m\_value;}
+\DoxyCodeLine{102   \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} m\_progID;}
+\DoxyCodeLine{103   QPair<unsigned int, unsigned int> m\_pitchBend;}
+\DoxyCodeLine{104   \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} m\_pressure;}
+\DoxyCodeLine{105   QPair<unsigned int, unsigned int> m\_songPos;}
+\DoxyCodeLine{106   \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} m\_seqID;}
+\DoxyCodeLine{107 }
+\DoxyCodeLine{108   \mbox{\hyperlink{qmidi_8h_aa4b6f84137ca41144e000b5ab0af044d}{ChannelModeStatus}} m\_chModStatus;}
+\DoxyCodeLine{109   \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} m\_channelNumber;}
+\DoxyCodeLine{110 }
+\DoxyCodeLine{111   \textcolor{keywordtype}{double} m\_deltaTime;}
+\DoxyCodeLine{112   std::vector<unsigned char> m\_sysExData;}
+\DoxyCodeLine{113   std::vector<unsigned char> m\_rawMessage;}
+\DoxyCodeLine{114 }
+\DoxyCodeLine{115 \};}
+\DoxyCodeLine{116 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// QMIDIMESSAGE\_H}}
+
+\end{DoxyCode}

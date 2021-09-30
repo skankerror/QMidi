@@ -9,10 +9,18 @@ class QAkaiAPCMiniWidget :
 
   Q_OBJECT
 
-public:
+public :
 
   explicit QAkaiAPCMiniWidget(QWidget *parent = nullptr);
+  ~QAkaiAPCMiniWidget();
 
+//private :
+
+//  void drawWidget();
+
+protected:
+
+  void drawWidget() override;
 };
 
 #endif // QAKAIAPCMINIWIDGET_H

@@ -1,0 +1,304 @@
+\hypertarget{qmidi_8h}{}\doxysection{qmidi.\+h File Reference}
+\label{qmidi_8h}\index{qmidi.h@{qmidi.h}}
+
+
+enum, define, global var file  
+
+
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{qmidi_8h_aa03a9a3e1147849e7267c417e74006f9}\label{qmidi_8h_aa03a9a3e1147849e7267c417e74006f9}} 
+\#define {\bfseries LOCAL\+\_\+\+CONTROL\+\_\+\+ON}~127
+\begin{DoxyCompactList}\small\item\em 2nd byte of data for local control channel mode status \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{qmidi_8h_a008887b1c0cfbff01de7e20ac174e5ae}\label{qmidi_8h_a008887b1c0cfbff01de7e20ac174e5ae}} 
+\#define {\bfseries LOCAL\+\_\+\+CONTROL\+\_\+\+OFF}~0
+\begin{DoxyCompactList}\small\item\em 2nd byte of data for local control channel mode status \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{qmidi_8h_aff30caf48e0efcb42494fa073cb42b46}{QMidi\+Api}} \{ \newline
+\mbox{\hyperlink{qmidi_8h_aff30caf48e0efcb42494fa073cb42b46acc954a08ca8b8a001f1f48e5b2c34603}{Q\+\_\+\+UNSPECIFIED}}
+, \mbox{\hyperlink{qmidi_8h_aff30caf48e0efcb42494fa073cb42b46a5f016f41082d6f54d9f9efec253f926f}{Q\+\_\+\+MACOSX\+\_\+\+CORE}}
+, \mbox{\hyperlink{qmidi_8h_aff30caf48e0efcb42494fa073cb42b46a0b4b4ea93a1f0196563be71284bdd1e4}{Q\+\_\+\+LINUX\+\_\+\+ALSA}}
+, \mbox{\hyperlink{qmidi_8h_aff30caf48e0efcb42494fa073cb42b46a76e0657818f8ee71d314b466665f23e0}{Q\+\_\+\+UNIX\+\_\+\+JACK}}
+, \newline
+\mbox{\hyperlink{qmidi_8h_aff30caf48e0efcb42494fa073cb42b46a18c7be61c7502762ab94526b1e7985ab}{Q\+\_\+\+WINDOWS\+\_\+\+MM}}
+, \mbox{\hyperlink{qmidi_8h_aff30caf48e0efcb42494fa073cb42b46a6a3daae77fe4b456d051b30ea3183300}{Q\+\_\+\+RTMIDI\+\_\+\+DUMMY}}
+, \mbox{\hyperlink{qmidi_8h_aff30caf48e0efcb42494fa073cb42b46a48ca40408db76071b0bab53e959ff4e9}{Q\+\_\+\+NUM\+\_\+\+APIS}}
+ \}
+\begin{DoxyCompactList}\small\item\em a simple wrapper for Rt\+Midi\+::\+Api \end{DoxyCompactList}\item 
+enum \mbox{\hyperlink{qmidi_8h_afd22c71541642a69344fb311b4539a2d}{Midi\+Status}} \{ \newline
+{\bfseries UNKNOWN} = 0x00
+, \mbox{\hyperlink{qmidi_8h_afd22c71541642a69344fb311b4539a2da7867571d87023a2497e6826fbde8ed94}{NOTE\+\_\+\+ON}} = 0x90
+, \mbox{\hyperlink{qmidi_8h_afd22c71541642a69344fb311b4539a2dad9f1e80e9d867906d5dfdd41c58eb7fd}{NOTE\+\_\+\+OFF}} = 0x80
+, \mbox{\hyperlink{qmidi_8h_afd22c71541642a69344fb311b4539a2dadb8cc49bf474e8b0875b65fdccdd82c1}{PROG\+\_\+\+CHANGE}} = 0x\+C0
+, \newline
+\mbox{\hyperlink{qmidi_8h_afd22c71541642a69344fb311b4539a2da20b7a2fe41ab81cfa6802930acf24d5e}{PITCH\+\_\+\+BEND}} = 0x\+E0
+, \mbox{\hyperlink{qmidi_8h_afd22c71541642a69344fb311b4539a2dac61ccbb2f9a6a824db5a51dde743e193}{AFTERTOUCH}} = 0x\+D0
+, \mbox{\hyperlink{qmidi_8h_afd22c71541642a69344fb311b4539a2dae93d855a67637a35a8ba2aec26f11a02}{POLY\+\_\+\+AFTERTOUCH}} = 0x\+A0
+, \mbox{\hyperlink{qmidi_8h_afd22c71541642a69344fb311b4539a2da6d88c7ffd732a335696ecd0f3e877824}{CONTROL\+\_\+\+CHANGE}} = 0x\+B0
+, \newline
+\mbox{\hyperlink{qmidi_8h_afd22c71541642a69344fb311b4539a2da955062eff9bc51b9bdbb3ec11dd3a0d1}{MIDI\+\_\+\+CLOCK}} = 0x\+F8
+, \mbox{\hyperlink{qmidi_8h_afd22c71541642a69344fb311b4539a2da13d000b4d7dc70d90239b7430d1eb6b2}{START}} = 0x\+FA
+, \mbox{\hyperlink{qmidi_8h_afd22c71541642a69344fb311b4539a2da679ee5320d66c8322e310daeb2ee99b8}{STOP}} = 0x\+FC
+, \mbox{\hyperlink{qmidi_8h_afd22c71541642a69344fb311b4539a2da49959dd441dcda75d6898cf2c68fb374}{CONTINUE}} = 0x\+FB
+, \newline
+\mbox{\hyperlink{qmidi_8h_afd22c71541642a69344fb311b4539a2dab0b55f85cb0598ebb10b26393b0d7134}{ACTIVE\+\_\+\+SENSING}} = 0x\+FE
+, \mbox{\hyperlink{qmidi_8h_afd22c71541642a69344fb311b4539a2dafe5b6d24081f2a5ff0d5b67dc58b4941}{SYSTEM\+\_\+\+RESET}} = 0x\+FF
+, \mbox{\hyperlink{qmidi_8h_afd22c71541642a69344fb311b4539a2da1b1c7771211864d1c70f222049fb7ca9}{MIDI\+\_\+\+TIMING\+\_\+\+CODE}} = 0x\+F1
+, \mbox{\hyperlink{qmidi_8h_afd22c71541642a69344fb311b4539a2dae8547f483ba0a3c37885e6ed9871dd34}{SONG\+\_\+\+POS\+\_\+\+PTR}} = 0x\+F2
+, \newline
+\mbox{\hyperlink{qmidi_8h_afd22c71541642a69344fb311b4539a2da3e4dd0fe5244f65bf30626fb4f1272f5}{SONG\+\_\+\+SELECT}} = 0x\+F3
+, \mbox{\hyperlink{qmidi_8h_afd22c71541642a69344fb311b4539a2da11aac875912c20d7777c1650adfaee45}{TUNE\+\_\+\+REQUEST}} = 0x\+F6
+, \mbox{\hyperlink{qmidi_8h_afd22c71541642a69344fb311b4539a2dac5c280ef3de71a3a594f7286c5f2da97}{SYSEX}} = 0x\+F0
+, \mbox{\hyperlink{qmidi_8h_afd22c71541642a69344fb311b4539a2daff08330d3286ecc4beba7c8512f5fd42}{EOX}} = 0x\+F7
+ \}
+\begin{DoxyCompactList}\small\item\em exhaustive midi status enum \end{DoxyCompactList}\item 
+enum \mbox{\hyperlink{qmidi_8h_aa4b6f84137ca41144e000b5ab0af044d}{Channel\+Mode\+Status}} \{ \newline
+\mbox{\hyperlink{qmidi_8h_aa4b6f84137ca41144e000b5ab0af044da1bc350270be3c4a898b62524642635d8}{UNKNOWN\+\_\+\+CH\+\_\+\+MOD\+\_\+\+MESSAGE}} = 0x00
+, \mbox{\hyperlink{qmidi_8h_aa4b6f84137ca41144e000b5ab0af044da589b7d94a3d91d145720e2fed0eb3a05}{RESET}} = 0x79
+, \mbox{\hyperlink{qmidi_8h_aa4b6f84137ca41144e000b5ab0af044da9624e1934d5db049dcb6f7434a35e2af}{LOCAL\+\_\+\+CONTROL}} = 0x7A
+, \mbox{\hyperlink{qmidi_8h_aa4b6f84137ca41144e000b5ab0af044da89da44e44125cd6451e62cca811cca33}{ALL\+\_\+\+NOTES\+\_\+\+OFF}} = 0x7B
+, \newline
+\mbox{\hyperlink{qmidi_8h_aa4b6f84137ca41144e000b5ab0af044dad1700e4e2360bc33fa81b63f3d8f625b}{OMNI\+\_\+\+OFF}} = 0x7C
+, \mbox{\hyperlink{qmidi_8h_aa4b6f84137ca41144e000b5ab0af044da3e571d2339a832c277170cb2ec0d510a}{OMNI\+\_\+\+ON}} = 0x7D
+, \mbox{\hyperlink{qmidi_8h_aa4b6f84137ca41144e000b5ab0af044da68a9559559e763ca1692dbee1f5f2a73}{MONO\+\_\+\+ON}} = 0x7E
+, \mbox{\hyperlink{qmidi_8h_aa4b6f84137ca41144e000b5ab0af044da80095f8fb1395dde85d6bdf6bcaadb03}{POLY\+\_\+\+ON}} = 0x7F
+ \}
+\begin{DoxyCompactList}\small\item\em first byte of data for CONTROL\+\_\+\+CHANGE status \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{qmidi_8h_a05bb17e97b98be20bcd6143e05bbc2e1}\label{qmidi_8h_a05bb17e97b98be20bcd6143e05bbc2e1}} 
+enum \mbox{\hyperlink{qmidi_8h_a05bb17e97b98be20bcd6143e05bbc2e1}{Manu\+ID}} \{ \newline
+{\bfseries SEQUENTIAL\+\_\+\+CIRCUITS} = 0x01
+, {\bfseries BIG\+\_\+\+BRIAR} = 0x02
+, {\bfseries OCTAVE\+\_\+\+PLATEAU} = 0x03
+, {\bfseries MOOG} = 0x04
+, \newline
+{\bfseries PASSPORT\+\_\+\+DESIGNS} = 0x05
+, {\bfseries LEXICON} = 0x06
+, {\bfseries KURZWEIL} = 0x07
+, {\bfseries FENDER} = 0x08
+, \newline
+{\bfseries GULBRANSEN} = 0x09
+, {\bfseries DELTA\+\_\+\+LABS} = 0x0A
+, {\bfseries SOUND\+\_\+\+COMP} = 0x0B
+, {\bfseries GENERAL\+\_\+\+ELECTRO} = 0x0C
+, \newline
+{\bfseries TECHMAR} = 0x0D
+, {\bfseries MATTHEWS\+\_\+\+RESEARCH} = 0x0E
+, {\bfseries OBERHEIM} = 0x10
+, {\bfseries PAIA} = 0x11
+, \newline
+{\bfseries SIMMONS} = 0x12
+, {\bfseries DIGIDESIGN} = 0x13
+, {\bfseries FAIRLIGHT} = 0x14
+, {\bfseries PEAVEY} = 0x1B
+, \newline
+{\bfseries JL\+\_\+\+COOPER} = 0x15
+, {\bfseries LOWERY} = 0x16
+, {\bfseries LIN} = 0x17
+, {\bfseries EMU} = 0x18
+, \newline
+{\bfseries BONTEMPI} = 0x20
+, {\bfseries SIEL} = 0x21
+, {\bfseries SYNTHEAXE} = 0x23
+, {\bfseries HOHNER} = 0x24
+, \newline
+{\bfseries CRUMAR} = 0x25
+, {\bfseries SOLTON} = 0x26
+, {\bfseries JELLINGHAUS\+\_\+\+MS} = 0x27
+, {\bfseries CTS} = 0x28
+, \newline
+{\bfseries PPG} = 0x29
+, {\bfseries ELKA} = 0x2F
+, {\bfseries CHEETAH} = 0x36
+, {\bfseries KAWAI} = 0x40
+, \newline
+{\bfseries ROLAND} = 0x41
+, {\bfseries KORG} = 0x42
+, {\bfseries YAMAHA} = 0x43
+, {\bfseries CASIO} = 0x44
+, \newline
+{\bfseries AKAI} = 0x45
+ \}
+\begin{DoxyCompactList}\small\item\em Manufactor ID for sysex messages. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+enum, define, global var file 
+
+In this file stand all the QMidi enum, define and global variables 
+
+\doxysubsection{Enumeration Type Documentation}
+\mbox{\Hypertarget{qmidi_8h_aa4b6f84137ca41144e000b5ab0af044d}\label{qmidi_8h_aa4b6f84137ca41144e000b5ab0af044d}} 
+\index{qmidi.h@{qmidi.h}!ChannelModeStatus@{ChannelModeStatus}}
+\index{ChannelModeStatus@{ChannelModeStatus}!qmidi.h@{qmidi.h}}
+\doxysubsubsection{\texorpdfstring{ChannelModeStatus}{ChannelModeStatus}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{qmidi_8h_aa4b6f84137ca41144e000b5ab0af044d}{Channel\+Mode\+Status}}}
+
+
+
+first byte of data for CONTROL\+\_\+\+CHANGE status 
+
+if byte \texorpdfstring{$<$}{<} 121 first byte will be controler ID and second one, value else it\textquotesingle{}s channel mode message with these following status. \begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{UNKNOWN\_CH\_MOD\_MESSAGE@{UNKNOWN\_CH\_MOD\_MESSAGE}!qmidi.h@{qmidi.h}}\index{qmidi.h@{qmidi.h}!UNKNOWN\_CH\_MOD\_MESSAGE@{UNKNOWN\_CH\_MOD\_MESSAGE}}}\mbox{\Hypertarget{qmidi_8h_aa4b6f84137ca41144e000b5ab0af044da1bc350270be3c4a898b62524642635d8}\label{qmidi_8h_aa4b6f84137ca41144e000b5ab0af044da1bc350270be3c4a898b62524642635d8}} 
+UNKNOWN\+\_\+\+CH\+\_\+\+MOD\+\_\+\+MESSAGE&null default value \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{RESET@{RESET}!qmidi.h@{qmidi.h}}\index{qmidi.h@{qmidi.h}!RESET@{RESET}}}\mbox{\Hypertarget{qmidi_8h_aa4b6f84137ca41144e000b5ab0af044da589b7d94a3d91d145720e2fed0eb3a05}\label{qmidi_8h_aa4b6f84137ca41144e000b5ab0af044da589b7d94a3d91d145720e2fed0eb3a05}} 
+RESET&2nd byte means nothing (set to 0) \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{LOCAL\_CONTROL@{LOCAL\_CONTROL}!qmidi.h@{qmidi.h}}\index{qmidi.h@{qmidi.h}!LOCAL\_CONTROL@{LOCAL\_CONTROL}}}\mbox{\Hypertarget{qmidi_8h_aa4b6f84137ca41144e000b5ab0af044da9624e1934d5db049dcb6f7434a35e2af}\label{qmidi_8h_aa4b6f84137ca41144e000b5ab0af044da9624e1934d5db049dcb6f7434a35e2af}} 
+LOCAL\+\_\+\+CONTROL&2nd byte 0 = off, 127 = on \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ALL\_NOTES\_OFF@{ALL\_NOTES\_OFF}!qmidi.h@{qmidi.h}}\index{qmidi.h@{qmidi.h}!ALL\_NOTES\_OFF@{ALL\_NOTES\_OFF}}}\mbox{\Hypertarget{qmidi_8h_aa4b6f84137ca41144e000b5ab0af044da89da44e44125cd6451e62cca811cca33}\label{qmidi_8h_aa4b6f84137ca41144e000b5ab0af044da89da44e44125cd6451e62cca811cca33}} 
+ALL\+\_\+\+NOTES\+\_\+\+OFF&2nd byte means nothing (set to 0) \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{OMNI\_OFF@{OMNI\_OFF}!qmidi.h@{qmidi.h}}\index{qmidi.h@{qmidi.h}!OMNI\_OFF@{OMNI\_OFF}}}\mbox{\Hypertarget{qmidi_8h_aa4b6f84137ca41144e000b5ab0af044dad1700e4e2360bc33fa81b63f3d8f625b}\label{qmidi_8h_aa4b6f84137ca41144e000b5ab0af044dad1700e4e2360bc33fa81b63f3d8f625b}} 
+OMNI\+\_\+\+OFF&2nd byte means nothing (set to 0) \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{OMNI\_ON@{OMNI\_ON}!qmidi.h@{qmidi.h}}\index{qmidi.h@{qmidi.h}!OMNI\_ON@{OMNI\_ON}}}\mbox{\Hypertarget{qmidi_8h_aa4b6f84137ca41144e000b5ab0af044da3e571d2339a832c277170cb2ec0d510a}\label{qmidi_8h_aa4b6f84137ca41144e000b5ab0af044da3e571d2339a832c277170cb2ec0d510a}} 
+OMNI\+\_\+\+ON&2nd byte means nothing (set to 0) \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{MONO\_ON@{MONO\_ON}!qmidi.h@{qmidi.h}}\index{qmidi.h@{qmidi.h}!MONO\_ON@{MONO\_ON}}}\mbox{\Hypertarget{qmidi_8h_aa4b6f84137ca41144e000b5ab0af044da68a9559559e763ca1692dbee1f5f2a73}\label{qmidi_8h_aa4b6f84137ca41144e000b5ab0af044da68a9559559e763ca1692dbee1f5f2a73}} 
+MONO\+\_\+\+ON&if 2nd byte = 0 then the number of channels used is determined by the receiver; all other values set a specific number of channels, beginning with the current basic channel. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{POLY\_ON@{POLY\_ON}!qmidi.h@{qmidi.h}}\index{qmidi.h@{qmidi.h}!POLY\_ON@{POLY\_ON}}}\mbox{\Hypertarget{qmidi_8h_aa4b6f84137ca41144e000b5ab0af044da80095f8fb1395dde85d6bdf6bcaadb03}\label{qmidi_8h_aa4b6f84137ca41144e000b5ab0af044da80095f8fb1395dde85d6bdf6bcaadb03}} 
+POLY\+\_\+\+ON&2nd byte means nothing (set to 0) \\
+\hline
+
+\end{DoxyEnumFields}
+\mbox{\Hypertarget{qmidi_8h_afd22c71541642a69344fb311b4539a2d}\label{qmidi_8h_afd22c71541642a69344fb311b4539a2d}} 
+\index{qmidi.h@{qmidi.h}!MidiStatus@{MidiStatus}}
+\index{MidiStatus@{MidiStatus}!qmidi.h@{qmidi.h}}
+\doxysubsubsection{\texorpdfstring{MidiStatus}{MidiStatus}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{qmidi_8h_afd22c71541642a69344fb311b4539a2d}{Midi\+Status}}}
+
+
+
+exhaustive midi status enum 
+
+This enum holds all midi status \begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{NOTE\_ON@{NOTE\_ON}!qmidi.h@{qmidi.h}}\index{qmidi.h@{qmidi.h}!NOTE\_ON@{NOTE\_ON}}}\mbox{\Hypertarget{qmidi_8h_afd22c71541642a69344fb311b4539a2da7867571d87023a2497e6826fbde8ed94}\label{qmidi_8h_afd22c71541642a69344fb311b4539a2da7867571d87023a2497e6826fbde8ed94}} 
+NOTE\+\_\+\+ON&plus 2 data bytes, pitch and velocity \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{NOTE\_OFF@{NOTE\_OFF}!qmidi.h@{qmidi.h}}\index{qmidi.h@{qmidi.h}!NOTE\_OFF@{NOTE\_OFF}}}\mbox{\Hypertarget{qmidi_8h_afd22c71541642a69344fb311b4539a2dad9f1e80e9d867906d5dfdd41c58eb7fd}\label{qmidi_8h_afd22c71541642a69344fb311b4539a2dad9f1e80e9d867906d5dfdd41c58eb7fd}} 
+NOTE\+\_\+\+OFF&plus 2 data bytes, pitch and velocity ( = 0) \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{PROG\_CHANGE@{PROG\_CHANGE}!qmidi.h@{qmidi.h}}\index{qmidi.h@{qmidi.h}!PROG\_CHANGE@{PROG\_CHANGE}}}\mbox{\Hypertarget{qmidi_8h_afd22c71541642a69344fb311b4539a2dadb8cc49bf474e8b0875b65fdccdd82c1}\label{qmidi_8h_afd22c71541642a69344fb311b4539a2dadb8cc49bf474e8b0875b65fdccdd82c1}} 
+PROG\+\_\+\+CHANGE&plus 1 data byte, program ID \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{PITCH\_BEND@{PITCH\_BEND}!qmidi.h@{qmidi.h}}\index{qmidi.h@{qmidi.h}!PITCH\_BEND@{PITCH\_BEND}}}\mbox{\Hypertarget{qmidi_8h_afd22c71541642a69344fb311b4539a2da20b7a2fe41ab81cfa6802930acf24d5e}\label{qmidi_8h_afd22c71541642a69344fb311b4539a2da20b7a2fe41ab81cfa6802930acf24d5e}} 
+PITCH\+\_\+\+BEND&plus 2 data bytes (MSB, LSB) \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{AFTERTOUCH@{AFTERTOUCH}!qmidi.h@{qmidi.h}}\index{qmidi.h@{qmidi.h}!AFTERTOUCH@{AFTERTOUCH}}}\mbox{\Hypertarget{qmidi_8h_afd22c71541642a69344fb311b4539a2dac61ccbb2f9a6a824db5a51dde743e193}\label{qmidi_8h_afd22c71541642a69344fb311b4539a2dac61ccbb2f9a6a824db5a51dde743e193}} 
+AFTERTOUCH&1 data byte, pressure \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{POLY\_AFTERTOUCH@{POLY\_AFTERTOUCH}!qmidi.h@{qmidi.h}}\index{qmidi.h@{qmidi.h}!POLY\_AFTERTOUCH@{POLY\_AFTERTOUCH}}}\mbox{\Hypertarget{qmidi_8h_afd22c71541642a69344fb311b4539a2dae93d855a67637a35a8ba2aec26f11a02}\label{qmidi_8h_afd22c71541642a69344fb311b4539a2dae93d855a67637a35a8ba2aec26f11a02}} 
+POLY\+\_\+\+AFTERTOUCH&2 data bytes, pitch, pressure \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CONTROL\_CHANGE@{CONTROL\_CHANGE}!qmidi.h@{qmidi.h}}\index{qmidi.h@{qmidi.h}!CONTROL\_CHANGE@{CONTROL\_CHANGE}}}\mbox{\Hypertarget{qmidi_8h_afd22c71541642a69344fb311b4539a2da6d88c7ffd732a335696ecd0f3e877824}\label{qmidi_8h_afd22c71541642a69344fb311b4539a2da6d88c7ffd732a335696ecd0f3e877824}} 
+CONTROL\+\_\+\+CHANGE&this handles channel mode message too \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{MIDI\_CLOCK@{MIDI\_CLOCK}!qmidi.h@{qmidi.h}}\index{qmidi.h@{qmidi.h}!MIDI\_CLOCK@{MIDI\_CLOCK}}}\mbox{\Hypertarget{qmidi_8h_afd22c71541642a69344fb311b4539a2da955062eff9bc51b9bdbb3ec11dd3a0d1}\label{qmidi_8h_afd22c71541642a69344fb311b4539a2da955062eff9bc51b9bdbb3ec11dd3a0d1}} 
+MIDI\+\_\+\+CLOCK&system real time message for sequencer \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{START@{START}!qmidi.h@{qmidi.h}}\index{qmidi.h@{qmidi.h}!START@{START}}}\mbox{\Hypertarget{qmidi_8h_afd22c71541642a69344fb311b4539a2da13d000b4d7dc70d90239b7430d1eb6b2}\label{qmidi_8h_afd22c71541642a69344fb311b4539a2da13d000b4d7dc70d90239b7430d1eb6b2}} 
+START&system real time message for sequencer \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{STOP@{STOP}!qmidi.h@{qmidi.h}}\index{qmidi.h@{qmidi.h}!STOP@{STOP}}}\mbox{\Hypertarget{qmidi_8h_afd22c71541642a69344fb311b4539a2da679ee5320d66c8322e310daeb2ee99b8}\label{qmidi_8h_afd22c71541642a69344fb311b4539a2da679ee5320d66c8322e310daeb2ee99b8}} 
+STOP&system real time message for sequencer \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CONTINUE@{CONTINUE}!qmidi.h@{qmidi.h}}\index{qmidi.h@{qmidi.h}!CONTINUE@{CONTINUE}}}\mbox{\Hypertarget{qmidi_8h_afd22c71541642a69344fb311b4539a2da49959dd441dcda75d6898cf2c68fb374}\label{qmidi_8h_afd22c71541642a69344fb311b4539a2da49959dd441dcda75d6898cf2c68fb374}} 
+CONTINUE&system real time message for sequencer \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ACTIVE\_SENSING@{ACTIVE\_SENSING}!qmidi.h@{qmidi.h}}\index{qmidi.h@{qmidi.h}!ACTIVE\_SENSING@{ACTIVE\_SENSING}}}\mbox{\Hypertarget{qmidi_8h_afd22c71541642a69344fb311b4539a2dab0b55f85cb0598ebb10b26393b0d7134}\label{qmidi_8h_afd22c71541642a69344fb311b4539a2dab0b55f85cb0598ebb10b26393b0d7134}} 
+ACTIVE\+\_\+\+SENSING&system real time message for sequencer \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SYSTEM\_RESET@{SYSTEM\_RESET}!qmidi.h@{qmidi.h}}\index{qmidi.h@{qmidi.h}!SYSTEM\_RESET@{SYSTEM\_RESET}}}\mbox{\Hypertarget{qmidi_8h_afd22c71541642a69344fb311b4539a2dafe5b6d24081f2a5ff0d5b67dc58b4941}\label{qmidi_8h_afd22c71541642a69344fb311b4539a2dafe5b6d24081f2a5ff0d5b67dc58b4941}} 
+SYSTEM\+\_\+\+RESET&system real time message for sequencer \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{MIDI\_TIMING\_CODE@{MIDI\_TIMING\_CODE}!qmidi.h@{qmidi.h}}\index{qmidi.h@{qmidi.h}!MIDI\_TIMING\_CODE@{MIDI\_TIMING\_CODE}}}\mbox{\Hypertarget{qmidi_8h_afd22c71541642a69344fb311b4539a2da1b1c7771211864d1c70f222049fb7ca9}\label{qmidi_8h_afd22c71541642a69344fb311b4539a2da1b1c7771211864d1c70f222049fb7ca9}} 
+MIDI\+\_\+\+TIMING\+\_\+\+CODE&system common message for slaved sequencer \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SONG\_POS\_PTR@{SONG\_POS\_PTR}!qmidi.h@{qmidi.h}}\index{qmidi.h@{qmidi.h}!SONG\_POS\_PTR@{SONG\_POS\_PTR}}}\mbox{\Hypertarget{qmidi_8h_afd22c71541642a69344fb311b4539a2dae8547f483ba0a3c37885e6ed9871dd34}\label{qmidi_8h_afd22c71541642a69344fb311b4539a2dae8547f483ba0a3c37885e6ed9871dd34}} 
+SONG\+\_\+\+POS\+\_\+\+PTR&system common message for slaved sequencer plus 2 data bytes \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SONG\_SELECT@{SONG\_SELECT}!qmidi.h@{qmidi.h}}\index{qmidi.h@{qmidi.h}!SONG\_SELECT@{SONG\_SELECT}}}\mbox{\Hypertarget{qmidi_8h_afd22c71541642a69344fb311b4539a2da3e4dd0fe5244f65bf30626fb4f1272f5}\label{qmidi_8h_afd22c71541642a69344fb311b4539a2da3e4dd0fe5244f65bf30626fb4f1272f5}} 
+SONG\+\_\+\+SELECT&system common message for slaved sequencer plus 1 data byte \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{TUNE\_REQUEST@{TUNE\_REQUEST}!qmidi.h@{qmidi.h}}\index{qmidi.h@{qmidi.h}!TUNE\_REQUEST@{TUNE\_REQUEST}}}\mbox{\Hypertarget{qmidi_8h_afd22c71541642a69344fb311b4539a2da11aac875912c20d7777c1650adfaee45}\label{qmidi_8h_afd22c71541642a69344fb311b4539a2da11aac875912c20d7777c1650adfaee45}} 
+TUNE\+\_\+\+REQUEST&system common message for slaved sequencer \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SYSEX@{SYSEX}!qmidi.h@{qmidi.h}}\index{qmidi.h@{qmidi.h}!SYSEX@{SYSEX}}}\mbox{\Hypertarget{qmidi_8h_afd22c71541642a69344fb311b4539a2dac5c280ef3de71a3a594f7286c5f2da97}\label{qmidi_8h_afd22c71541642a69344fb311b4539a2dac5c280ef3de71a3a594f7286c5f2da97}} 
+SYSEX&system exclusive message status \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{EOX@{EOX}!qmidi.h@{qmidi.h}}\index{qmidi.h@{qmidi.h}!EOX@{EOX}}}\mbox{\Hypertarget{qmidi_8h_afd22c71541642a69344fb311b4539a2daff08330d3286ecc4beba7c8512f5fd42}\label{qmidi_8h_afd22c71541642a69344fb311b4539a2daff08330d3286ecc4beba7c8512f5fd42}} 
+EOX&end of sysex \\
+\hline
+
+\end{DoxyEnumFields}
+\mbox{\Hypertarget{qmidi_8h_aff30caf48e0efcb42494fa073cb42b46}\label{qmidi_8h_aff30caf48e0efcb42494fa073cb42b46}} 
+\index{qmidi.h@{qmidi.h}!QMidiApi@{QMidiApi}}
+\index{QMidiApi@{QMidiApi}!qmidi.h@{qmidi.h}}
+\doxysubsubsection{\texorpdfstring{QMidiApi}{QMidiApi}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{qmidi_8h_aff30caf48e0efcb42494fa073cb42b46}{QMidi\+Api}}}
+
+
+
+a simple wrapper for Rt\+Midi\+::\+Api 
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Q\_UNSPECIFIED@{Q\_UNSPECIFIED}!qmidi.h@{qmidi.h}}\index{qmidi.h@{qmidi.h}!Q\_UNSPECIFIED@{Q\_UNSPECIFIED}}}\mbox{\Hypertarget{qmidi_8h_aff30caf48e0efcb42494fa073cb42b46acc954a08ca8b8a001f1f48e5b2c34603}\label{qmidi_8h_aff30caf48e0efcb42494fa073cb42b46acc954a08ca8b8a001f1f48e5b2c34603}} 
+Q\+\_\+\+UNSPECIFIED&Search for a working compiled API. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Q\_MACOSX\_CORE@{Q\_MACOSX\_CORE}!qmidi.h@{qmidi.h}}\index{qmidi.h@{qmidi.h}!Q\_MACOSX\_CORE@{Q\_MACOSX\_CORE}}}\mbox{\Hypertarget{qmidi_8h_aff30caf48e0efcb42494fa073cb42b46a5f016f41082d6f54d9f9efec253f926f}\label{qmidi_8h_aff30caf48e0efcb42494fa073cb42b46a5f016f41082d6f54d9f9efec253f926f}} 
+Q\+\_\+\+MACOSX\+\_\+\+CORE&Macintosh OS-\/X Core\+MIDI API. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Q\_LINUX\_ALSA@{Q\_LINUX\_ALSA}!qmidi.h@{qmidi.h}}\index{qmidi.h@{qmidi.h}!Q\_LINUX\_ALSA@{Q\_LINUX\_ALSA}}}\mbox{\Hypertarget{qmidi_8h_aff30caf48e0efcb42494fa073cb42b46a0b4b4ea93a1f0196563be71284bdd1e4}\label{qmidi_8h_aff30caf48e0efcb42494fa073cb42b46a0b4b4ea93a1f0196563be71284bdd1e4}} 
+Q\+\_\+\+LINUX\+\_\+\+ALSA&The Advanced Linux Sound Architecture API. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Q\_UNIX\_JACK@{Q\_UNIX\_JACK}!qmidi.h@{qmidi.h}}\index{qmidi.h@{qmidi.h}!Q\_UNIX\_JACK@{Q\_UNIX\_JACK}}}\mbox{\Hypertarget{qmidi_8h_aff30caf48e0efcb42494fa073cb42b46a76e0657818f8ee71d314b466665f23e0}\label{qmidi_8h_aff30caf48e0efcb42494fa073cb42b46a76e0657818f8ee71d314b466665f23e0}} 
+Q\+\_\+\+UNIX\+\_\+\+JACK&The JACK Low-\/\+Latency MIDI Server API. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Q\_WINDOWS\_MM@{Q\_WINDOWS\_MM}!qmidi.h@{qmidi.h}}\index{qmidi.h@{qmidi.h}!Q\_WINDOWS\_MM@{Q\_WINDOWS\_MM}}}\mbox{\Hypertarget{qmidi_8h_aff30caf48e0efcb42494fa073cb42b46a18c7be61c7502762ab94526b1e7985ab}\label{qmidi_8h_aff30caf48e0efcb42494fa073cb42b46a18c7be61c7502762ab94526b1e7985ab}} 
+Q\+\_\+\+WINDOWS\+\_\+\+MM&The Microsoft Multimedia MIDI API. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Q\_RTMIDI\_DUMMY@{Q\_RTMIDI\_DUMMY}!qmidi.h@{qmidi.h}}\index{qmidi.h@{qmidi.h}!Q\_RTMIDI\_DUMMY@{Q\_RTMIDI\_DUMMY}}}\mbox{\Hypertarget{qmidi_8h_aff30caf48e0efcb42494fa073cb42b46a6a3daae77fe4b456d051b30ea3183300}\label{qmidi_8h_aff30caf48e0efcb42494fa073cb42b46a6a3daae77fe4b456d051b30ea3183300}} 
+Q\+\_\+\+RTMIDI\+\_\+\+DUMMY&A compilable but non-\/functional API. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Q\_NUM\_APIS@{Q\_NUM\_APIS}!qmidi.h@{qmidi.h}}\index{qmidi.h@{qmidi.h}!Q\_NUM\_APIS@{Q\_NUM\_APIS}}}\mbox{\Hypertarget{qmidi_8h_aff30caf48e0efcb42494fa073cb42b46a48ca40408db76071b0bab53e959ff4e9}\label{qmidi_8h_aff30caf48e0efcb42494fa073cb42b46a48ca40408db76071b0bab53e959ff4e9}} 
+Q\+\_\+\+NUM\+\_\+\+APIS&Number of values in this enum. \\
+\hline
+
+\end{DoxyEnumFields}

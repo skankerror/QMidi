@@ -26,6 +26,7 @@ add_library(QMidi STATIC
   qmidipianorollview.cpp
   qabstractmidicontrolerwidget.cpp
   qakaiapcminiwidget.cpp
+  qmidiconnectwidget.cpp
   ${TS_FILES}
   )
 

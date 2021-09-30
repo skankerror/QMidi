@@ -13,13 +13,18 @@ class QAbstractMidiControlerWidget :
 
   Q_OBJECT
 
-public:
+public :
 
   explicit QAbstractMidiControlerWidget(QWidget *parent = nullptr);
+  virtual ~QAbstractMidiControlerWidget(){};
+
+protected :
+
+  virtual void drawWidget() = 0;
 
 signals:
 
-protected:
+protected :
 
   QVector<QPushButton *> m_v_pushButtons;
   QVector<QSlider *> m_v_sliders;

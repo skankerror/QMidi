@@ -93,7 +93,6 @@ public:
 public slots:
 
   // connection slots
-  // TODO: add connect with string
   void connectMidiOut(int t_portNumber);
   void connectMidiOut(QString &t_portName);
   void connectVirtualMidiOut();

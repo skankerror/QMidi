@@ -23,6 +23,10 @@
 #include "qmidi.h"
 
 
+/*! \brief MIDI message class
+ *
+ *  Class to handle all MIDI events.
+*/
 class QMidiMessage :
     public QObject
 {
@@ -31,9 +35,18 @@ class QMidiMessage :
 
 public:
 
-  // cstr
+  /*! \brief QMidiMessage constructor.
+   *  \param parent a QObject parent
+   */
   explicit QMidiMessage(QObject *parent = nullptr);
+
+  /*! \brief QMidiMessage destructor */
   ~QMidiMessage();
+
+  /*! \brief QMidiMessage copy constructor
+   *  \param t_other object to copy
+   *  \param parent QObject parent
+   */
   QMidiMessage(QMidiMessage &t_other,
                QObject *parent = nullptr);
 

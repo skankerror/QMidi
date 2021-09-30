@@ -314,7 +314,6 @@ void QMidiOut::connectMidiOut(int t_portNumber)
   else
     qDebug() << "Midi out " << m_currentID << " not opened";
 
-
 }
 
 void QMidiOut::connectMidiOut(QString &t_portName)

@@ -1,0 +1,155 @@
+\hypertarget{qmidi_8h_source}{}\doxysection{qmidi.\+h}
+\mbox{\hyperlink{qmidi_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{/*}}
+\DoxyCodeLine{2 \textcolor{comment}{ * (c) 2021 Michaël Creusy -\/-\/ creusy(.)michael(@)gmail(.)com}}
+\DoxyCodeLine{3 \textcolor{comment}{ *}}
+\DoxyCodeLine{4 \textcolor{comment}{ * This program is free software: you can redistribute it and/or modify}}
+\DoxyCodeLine{5 \textcolor{comment}{ * it under the terms of the GNU General Public License as published by}}
+\DoxyCodeLine{6 \textcolor{comment}{ * the Free Software Foundation, either version 3 of the License, or}}
+\DoxyCodeLine{7 \textcolor{comment}{ * (at your option) any later version.}}
+\DoxyCodeLine{8 \textcolor{comment}{ *}}
+\DoxyCodeLine{9 \textcolor{comment}{ * This program is distributed in the hope that it will be useful,}}
+\DoxyCodeLine{10 \textcolor{comment}{ * but WITHOUT ANY WARRANTY; without even the implied warranty of}}
+\DoxyCodeLine{11 \textcolor{comment}{ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the}}
+\DoxyCodeLine{12 \textcolor{comment}{ * GNU General Public License for more details.}}
+\DoxyCodeLine{13 \textcolor{comment}{ *}}
+\DoxyCodeLine{14 \textcolor{comment}{ * You should have received a copy of the GNU General Public License}}
+\DoxyCodeLine{15 \textcolor{comment}{ * along with this program.  If not, see <http://www.gnu.org/licenses/>.}}
+\DoxyCodeLine{16 \textcolor{comment}{ */}}
+\DoxyCodeLine{17 }
+\DoxyCodeLine{18 \textcolor{preprocessor}{\#ifndef QMIDI\_H}}
+\DoxyCodeLine{19 \textcolor{preprocessor}{\#define QMIDI\_H}}
+\DoxyCodeLine{20 }
+\DoxyCodeLine{30 \textcolor{keyword}{enum} \mbox{\hyperlink{qmidi_8h_aff30caf48e0efcb42494fa073cb42b46}{QMidiApi}}}
+\DoxyCodeLine{31 \{}
+\DoxyCodeLine{32   \mbox{\hyperlink{qmidi_8h_aff30caf48e0efcb42494fa073cb42b46acc954a08ca8b8a001f1f48e5b2c34603}{Q\_UNSPECIFIED}},    }
+\DoxyCodeLine{33   \mbox{\hyperlink{qmidi_8h_aff30caf48e0efcb42494fa073cb42b46a5f016f41082d6f54d9f9efec253f926f}{Q\_MACOSX\_CORE}},    }
+\DoxyCodeLine{34   \mbox{\hyperlink{qmidi_8h_aff30caf48e0efcb42494fa073cb42b46a0b4b4ea93a1f0196563be71284bdd1e4}{Q\_LINUX\_ALSA}},     }
+\DoxyCodeLine{35   \mbox{\hyperlink{qmidi_8h_aff30caf48e0efcb42494fa073cb42b46a76e0657818f8ee71d314b466665f23e0}{Q\_UNIX\_JACK}},      }
+\DoxyCodeLine{36   \mbox{\hyperlink{qmidi_8h_aff30caf48e0efcb42494fa073cb42b46a18c7be61c7502762ab94526b1e7985ab}{Q\_WINDOWS\_MM}},     }
+\DoxyCodeLine{37   \mbox{\hyperlink{qmidi_8h_aff30caf48e0efcb42494fa073cb42b46a6a3daae77fe4b456d051b30ea3183300}{Q\_RTMIDI\_DUMMY}},   }
+\DoxyCodeLine{38   \mbox{\hyperlink{qmidi_8h_aff30caf48e0efcb42494fa073cb42b46a48ca40408db76071b0bab53e959ff4e9}{Q\_NUM\_APIS}}        }
+\DoxyCodeLine{39 \};}
+\DoxyCodeLine{40 }
+\DoxyCodeLine{46 \textcolor{keyword}{enum} \mbox{\hyperlink{qmidi_8h_afd22c71541642a69344fb311b4539a2d}{MidiStatus}}}
+\DoxyCodeLine{47 \{}
+\DoxyCodeLine{48   UNKNOWN = 0x00,}
+\DoxyCodeLine{49 }
+\DoxyCodeLine{50   \textcolor{comment}{// channel voice messages}}
+\DoxyCodeLine{51   \mbox{\hyperlink{qmidi_8h_afd22c71541642a69344fb311b4539a2da7867571d87023a2497e6826fbde8ed94}{NOTE\_ON}} = 0x90, }
+\DoxyCodeLine{52   \mbox{\hyperlink{qmidi_8h_afd22c71541642a69344fb311b4539a2dad9f1e80e9d867906d5dfdd41c58eb7fd}{NOTE\_OFF}} = 0x80, }
+\DoxyCodeLine{53   \mbox{\hyperlink{qmidi_8h_afd22c71541642a69344fb311b4539a2dadb8cc49bf474e8b0875b65fdccdd82c1}{PROG\_CHANGE}} = 0xC0, }
+\DoxyCodeLine{54   \mbox{\hyperlink{qmidi_8h_afd22c71541642a69344fb311b4539a2da20b7a2fe41ab81cfa6802930acf24d5e}{PITCH\_BEND}} = 0xE0, }
+\DoxyCodeLine{55   \mbox{\hyperlink{qmidi_8h_afd22c71541642a69344fb311b4539a2dac61ccbb2f9a6a824db5a51dde743e193}{AFTERTOUCH}} = 0xD0, }
+\DoxyCodeLine{56   \mbox{\hyperlink{qmidi_8h_afd22c71541642a69344fb311b4539a2dae93d855a67637a35a8ba2aec26f11a02}{POLY\_AFTERTOUCH}} = 0xA0, }
+\DoxyCodeLine{57   \mbox{\hyperlink{qmidi_8h_afd22c71541642a69344fb311b4539a2da6d88c7ffd732a335696ecd0f3e877824}{CONTROL\_CHANGE}} = 0xB0, }
+\DoxyCodeLine{59   \textcolor{comment}{// system real time messages}}
+\DoxyCodeLine{60   \mbox{\hyperlink{qmidi_8h_afd22c71541642a69344fb311b4539a2da955062eff9bc51b9bdbb3ec11dd3a0d1}{MIDI\_CLOCK}} = 0xF8, }
+\DoxyCodeLine{61   \mbox{\hyperlink{qmidi_8h_afd22c71541642a69344fb311b4539a2da13d000b4d7dc70d90239b7430d1eb6b2}{START}} = 0xFA, }
+\DoxyCodeLine{62   \mbox{\hyperlink{qmidi_8h_afd22c71541642a69344fb311b4539a2da679ee5320d66c8322e310daeb2ee99b8}{STOP}} = 0xFC, }
+\DoxyCodeLine{63   \mbox{\hyperlink{qmidi_8h_afd22c71541642a69344fb311b4539a2da49959dd441dcda75d6898cf2c68fb374}{CONTINUE}} = 0xFB, }
+\DoxyCodeLine{64   \mbox{\hyperlink{qmidi_8h_afd22c71541642a69344fb311b4539a2dab0b55f85cb0598ebb10b26393b0d7134}{ACTIVE\_SENSING}} = 0xFE, }
+\DoxyCodeLine{65   \mbox{\hyperlink{qmidi_8h_afd22c71541642a69344fb311b4539a2dafe5b6d24081f2a5ff0d5b67dc58b4941}{SYSTEM\_RESET}} = 0xFF, }
+\DoxyCodeLine{67   \textcolor{comment}{// system common messages (for slaved seq)}}
+\DoxyCodeLine{68   \mbox{\hyperlink{qmidi_8h_afd22c71541642a69344fb311b4539a2da1b1c7771211864d1c70f222049fb7ca9}{MIDI\_TIMING\_CODE}} = 0xF1, }
+\DoxyCodeLine{69   \mbox{\hyperlink{qmidi_8h_afd22c71541642a69344fb311b4539a2dae8547f483ba0a3c37885e6ed9871dd34}{SONG\_POS\_PTR}} = 0xF2, }
+\DoxyCodeLine{70   \mbox{\hyperlink{qmidi_8h_afd22c71541642a69344fb311b4539a2da3e4dd0fe5244f65bf30626fb4f1272f5}{SONG\_SELECT}} = 0xF3, }
+\DoxyCodeLine{71   \mbox{\hyperlink{qmidi_8h_afd22c71541642a69344fb311b4539a2da11aac875912c20d7777c1650adfaee45}{TUNE\_REQUEST}} = 0xF6, }
+\DoxyCodeLine{73   \textcolor{comment}{// system exclusive messages}}
+\DoxyCodeLine{74   \mbox{\hyperlink{qmidi_8h_afd22c71541642a69344fb311b4539a2dac5c280ef3de71a3a594f7286c5f2da97}{SYSEX}} = 0xF0, }
+\DoxyCodeLine{75   \mbox{\hyperlink{qmidi_8h_afd22c71541642a69344fb311b4539a2daff08330d3286ecc4beba7c8512f5fd42}{EOX}} = 0xF7 }
+\DoxyCodeLine{76 \};}
+\DoxyCodeLine{77 }
+\DoxyCodeLine{84 \textcolor{keyword}{enum} \mbox{\hyperlink{qmidi_8h_aa4b6f84137ca41144e000b5ab0af044d}{ChannelModeStatus}}}
+\DoxyCodeLine{85 \{}
+\DoxyCodeLine{86   \mbox{\hyperlink{qmidi_8h_aa4b6f84137ca41144e000b5ab0af044da1bc350270be3c4a898b62524642635d8}{UNKNOWN\_CH\_MOD\_MESSAGE}} = 0x00, }
+\DoxyCodeLine{87   \mbox{\hyperlink{qmidi_8h_aa4b6f84137ca41144e000b5ab0af044da589b7d94a3d91d145720e2fed0eb3a05}{RESET}} = 0x79, }
+\DoxyCodeLine{88   \mbox{\hyperlink{qmidi_8h_aa4b6f84137ca41144e000b5ab0af044da9624e1934d5db049dcb6f7434a35e2af}{LOCAL\_CONTROL}} = 0x7A, }
+\DoxyCodeLine{89   \mbox{\hyperlink{qmidi_8h_aa4b6f84137ca41144e000b5ab0af044da89da44e44125cd6451e62cca811cca33}{ALL\_NOTES\_OFF}} = 0x7B, }
+\DoxyCodeLine{90   \mbox{\hyperlink{qmidi_8h_aa4b6f84137ca41144e000b5ab0af044dad1700e4e2360bc33fa81b63f3d8f625b}{OMNI\_OFF}} = 0x7C, }
+\DoxyCodeLine{91   \mbox{\hyperlink{qmidi_8h_aa4b6f84137ca41144e000b5ab0af044da3e571d2339a832c277170cb2ec0d510a}{OMNI\_ON}} = 0x7D, }
+\DoxyCodeLine{92   \mbox{\hyperlink{qmidi_8h_aa4b6f84137ca41144e000b5ab0af044da68a9559559e763ca1692dbee1f5f2a73}{MONO\_ON}} = 0x7E,  }
+\DoxyCodeLine{97   \mbox{\hyperlink{qmidi_8h_aa4b6f84137ca41144e000b5ab0af044da80095f8fb1395dde85d6bdf6bcaadb03}{POLY\_ON}} = 0x7F }
+\DoxyCodeLine{98 \};}
+\DoxyCodeLine{99 }
+\DoxyCodeLine{103 \textcolor{preprocessor}{\#define LOCAL\_CONTROL\_ON  127}}
+\DoxyCodeLine{104 }
+\DoxyCodeLine{108 \textcolor{preprocessor}{\#define LOCAL\_CONTROL\_OFF  0}}
+\DoxyCodeLine{109 }
+\DoxyCodeLine{113 \textcolor{keyword}{enum} \mbox{\hyperlink{qmidi_8h_a05bb17e97b98be20bcd6143e05bbc2e1}{ManuID}} \textcolor{comment}{// for sysex}}
+\DoxyCodeLine{114 \{}
+\DoxyCodeLine{115   SEQUENTIAL\_CIRCUITS = 0x01,}
+\DoxyCodeLine{116   BIG\_BRIAR = 0x02,}
+\DoxyCodeLine{117   OCTAVE\_PLATEAU = 0x03,}
+\DoxyCodeLine{118   MOOG = 0x04,}
+\DoxyCodeLine{119   PASSPORT\_DESIGNS = 0x05,}
+\DoxyCodeLine{120   LEXICON = 0x06,}
+\DoxyCodeLine{121   KURZWEIL = 0x07,}
+\DoxyCodeLine{122   FENDER = 0x08,}
+\DoxyCodeLine{123   GULBRANSEN = 0x09,}
+\DoxyCodeLine{124   DELTA\_LABS = 0x0A,}
+\DoxyCodeLine{125   SOUND\_COMP = 0x0B,}
+\DoxyCodeLine{126   GENERAL\_ELECTRO = 0x0C,}
+\DoxyCodeLine{127   TECHMAR = 0x0D,}
+\DoxyCodeLine{128   MATTHEWS\_RESEARCH = 0x0E,}
+\DoxyCodeLine{129   OBERHEIM = 0x10,}
+\DoxyCodeLine{130   PAIA = 0x11,}
+\DoxyCodeLine{131   SIMMONS = 0x12,}
+\DoxyCodeLine{132   DIGIDESIGN = 0x13,}
+\DoxyCodeLine{133   FAIRLIGHT = 0x14,}
+\DoxyCodeLine{134   PEAVEY = 0x1B,}
+\DoxyCodeLine{135   JL\_COOPER = 0x15,}
+\DoxyCodeLine{136   LOWERY = 0x16,}
+\DoxyCodeLine{137   LIN = 0x17,}
+\DoxyCodeLine{138   EMU = 0x18,}
+\DoxyCodeLine{139   BONTEMPI = 0x20,}
+\DoxyCodeLine{140   SIEL = 0x21,}
+\DoxyCodeLine{141   SYNTHEAXE = 0x23,}
+\DoxyCodeLine{142   HOHNER = 0x24,}
+\DoxyCodeLine{143   CRUMAR = 0x25,}
+\DoxyCodeLine{144   SOLTON = 0x26,}
+\DoxyCodeLine{145   JELLINGHAUS\_MS = 0x27,}
+\DoxyCodeLine{146   CTS = 0x28,}
+\DoxyCodeLine{147   PPG = 0x29,}
+\DoxyCodeLine{148   ELKA = 0x2F,}
+\DoxyCodeLine{149   CHEETAH = 0x36,}
+\DoxyCodeLine{150   KAWAI = 0x40,}
+\DoxyCodeLine{151   ROLAND = 0x41,}
+\DoxyCodeLine{152   KORG = 0x42,}
+\DoxyCodeLine{153   YAMAHA = 0x43,}
+\DoxyCodeLine{154   CASIO = 0x44,}
+\DoxyCodeLine{155   AKAI = 0x45}
+\DoxyCodeLine{156 \};}
+\DoxyCodeLine{157 }
+\DoxyCodeLine{158 \textcolor{comment}{// number range defines}}
+\DoxyCodeLine{159 \textcolor{comment}{// because it's sometimes hard to remember these  ...}}
+\DoxyCodeLine{160 \textcolor{comment}{// TODO: replace this with a method in QMidiMessage ?}}
+\DoxyCodeLine{161 \textcolor{comment}{//\#define MIN\_BEND       0}}
+\DoxyCodeLine{162 \textcolor{comment}{//\#define MAX\_BEND       16383}}
+\DoxyCodeLine{163 \textcolor{comment}{//\#define MIN\_TIMECODE 0}}
+\DoxyCodeLine{164 \textcolor{comment}{//\#define MAX\_TIMECODE 16383}}
+\DoxyCodeLine{165 }
+\DoxyCodeLine{167 \textcolor{preprocessor}{\#define QUEUE\_SIZE\_LIMIT 1024}}
+\DoxyCodeLine{168 \textcolor{preprocessor}{\#define MIDI\_IN\_CLIENT\_DEFAULT\_NAME "{}QMidiIn Client"{}}}
+\DoxyCodeLine{169 \textcolor{preprocessor}{\#define MIDI\_OUT\_CLIENT\_DEFAULT\_NAME "{}QMidiOut Client"{}}}
+\DoxyCodeLine{170 }
+\DoxyCodeLine{171 \textcolor{preprocessor}{\#define DEFAULT\_VELOCITY 64}}
+\DoxyCodeLine{172 \textcolor{comment}{// higher status byte value with channel info}}
+\DoxyCodeLine{173 \textcolor{preprocessor}{\#define CHANNEL\_VOICE\_INFORMATION\_LIMIT 239}}
+\DoxyCodeLine{174 \textcolor{comment}{// higher control change controler id}}
+\DoxyCodeLine{175 \textcolor{preprocessor}{\#define CONTROL\_CHANGE\_CONTROLER\_ID\_LIMIT 120}}
+\DoxyCodeLine{176 \textcolor{comment}{// masks to deal with channel in byte}}
+\DoxyCodeLine{177 \textcolor{preprocessor}{\#define STATUS\_MASK 0xF0 }\textcolor{comment}{// 11110000 mask}}
+\DoxyCodeLine{178 \textcolor{preprocessor}{\#define CHANNEL\_MASK 0x0F }\textcolor{comment}{// 00001111 mask}}
+\DoxyCodeLine{179 }
+\DoxyCodeLine{180 \textcolor{comment}{// to have id for objects QMidiIn et QMidiOut}}
+\DoxyCodeLine{181 \textcolor{keyword}{static} \textcolor{keywordtype}{int} QMIDIIN\_COUNT;}
+\DoxyCodeLine{182 \textcolor{keyword}{static} \textcolor{keywordtype}{int} QMIDIOUT\_COUNT;}
+\DoxyCodeLine{183 }
+\DoxyCodeLine{184 \textcolor{comment}{// for QMidiPianoRoll}}
+\DoxyCodeLine{185 \textcolor{preprocessor}{\#define KEY\_WIDTH 14}}
+\DoxyCodeLine{186 \textcolor{preprocessor}{\#define KEY\_HEIGHT 60}}
+\DoxyCodeLine{189 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// QMIDI\_H}}
+
+\end{DoxyCode}
