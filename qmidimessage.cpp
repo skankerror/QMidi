@@ -29,7 +29,7 @@ QMidiMessage::QMidiMessage(QObject *parent) :
   m_progID(0),
   m_pressure(0),
   m_seqID(0),
-  m_chModStatus(UNKNOWN_CH_MOD_MESSAGE),
+  m_CCFristDataByte(CCFIRSTDATABYTE_ERROR),
   m_deltaTime(0)
 {
   m_pitchBend.first = 0;
@@ -57,7 +57,7 @@ QMidiMessage::QMidiMessage(QMidiMessage &t_other,
   m_pressure(t_other.pressure()),
   m_songPos(t_other.songPos()),
   m_seqID(t_other.seqID()),
-  m_chModStatus(t_other.chModStatus()),
+  m_CCFristDataByte(t_other.CCFristDataByte()),
   m_deltaTime(t_other.deltaTime()),
   m_sysExData(t_other.sysExData()),
   m_rawMessage(t_other.rawMessage())
@@ -92,7 +92,7 @@ void QMidiMessage::clear()
   m_songPos.first = 0;
   m_songPos.second = 0;
   m_seqID = 0;
-  m_chModStatus = UNKNOWN_CH_MOD_MESSAGE;
+  m_CCFristDataByte = CCFIRSTDATABYTE_ERROR;
   m_deltaTime = 0;
   m_sysExData.clear();
   m_rawMessage.clear();
@@ -135,20 +135,20 @@ void QMidiMessage::makeRawMessage()
   case CONTROL_CHANGE :
   {
     m_rawMessage.push_back(CONTROL_CHANGE + m_channel - 1);
-    if (m_channel > 120) // Channel Mode Message
-    {
-      m_chModStatus = static_cast<ChannelModeStatus>(m_channel);
-      m_rawMessage.push_back(m_chModStatus);
-      if (m_chModStatus == MONO_ON)
-        m_rawMessage.push_back(m_channelNumber);
-      else
-        m_rawMessage.push_back(m_value);
-    }
-    else // it's real control change message
-    {
-      m_rawMessage.push_back(m_control);
-      m_rawMessage.push_back(m_value);
-    }
+//    if (m_channel > 120) // Channel Mode Message
+//    {
+//      m_chModStatus = static_cast<ChannelModeStatus>(m_channel);
+//      m_rawMessage.push_back(m_chModStatus);
+//      if (m_chModStatus == MONO_ON)
+//        m_rawMessage.push_back(m_channelNumber);
+//      else
+//        m_rawMessage.push_back(m_value);
+//    }
+//    else // it's real control change message
+//    {
+//      m_rawMessage.push_back(m_control);
+//      m_rawMessage.push_back(m_value);
+//    }
     break;
   }
   case MIDI_CLOCK :
@@ -245,13 +245,13 @@ void QMidiMessage::parseRawMessage()
     break;
   case CONTROL_CHANGE :
     m_control = m_rawMessage.at(1);
-    if (m_control > CONTROL_CHANGE_CONTROLER_ID_LIMIT) // channel mode message
-    {
-      m_chModStatus = static_cast<ChannelModeStatus>(m_channel);
-      if (m_chModStatus == MONO_ON)
-        m_channelNumber = m_rawMessage.at(2);
-    }
-    m_value = m_rawMessage.at(2);
+//    if (m_control > CONTROL_CHANGE_CONTROLER_ID_LIMIT) // channel mode message
+//    {
+//      m_chModStatus = static_cast<ChannelModeStatus>(m_channel);
+//      if (m_chModStatus == MONO_ON)
+//        m_channelNumber = m_rawMessage.at(2);
+//    }
+//    m_value = m_rawMessage.at(2);
     break;
   case SONG_POS_PTR :
     m_songPos.first = m_rawMessage.at(1);

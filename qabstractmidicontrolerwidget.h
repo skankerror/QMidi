@@ -16,7 +16,7 @@ class QAbstractMidiControlerWidget :
 public :
 
   explicit QAbstractMidiControlerWidget(QWidget *parent = nullptr);
-  virtual ~QAbstractMidiControlerWidget(){};
+  virtual ~QAbstractMidiControlerWidget(){}
 
 protected :
 

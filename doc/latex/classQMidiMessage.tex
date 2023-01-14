@@ -20,9 +20,11 @@ Inheritance diagram for QMidi\+Message\+:\begin{figure}[H]
 \item 
 \mbox{\hyperlink{classQMidiMessage_a93df6ecbc1e4c03a5eb5a9eaa00e2d06}{QMidi\+Message}} (QObject $\ast$parent=nullptr)
 \begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{classQMidiMessage}{QMidi\+Message}} constructor. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{classQMidiMessage_a22a0aa33853f276d6e0cf58240dc2cb0}\label{classQMidiMessage_a22a0aa33853f276d6e0cf58240dc2cb0}} 
-{\bfseries QMidi\+Message} (\mbox{\hyperlink{classQMidiMessage}{QMidi\+Message}} \&t\+\_\+other, QObject $\ast$parent=nullptr)
-\item 
+\mbox{\Hypertarget{classQMidiMessage_a07c843b9314de74c8fc7eb5349942cd3}\label{classQMidiMessage_a07c843b9314de74c8fc7eb5349942cd3}} 
+{\bfseries $\sim$\+QMidi\+Message} ()
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{classQMidiMessage}{QMidi\+Message}} destructor. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classQMidiMessage_a22a0aa33853f276d6e0cf58240dc2cb0}{QMidi\+Message}} (\mbox{\hyperlink{classQMidiMessage}{QMidi\+Message}} \&t\+\_\+other, QObject $\ast$parent=nullptr)
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{classQMidiMessage}{QMidi\+Message}} copy constructor. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{classQMidiMessage_a77e66a41b0ec2aefeb0d702140472545}\label{classQMidiMessage_a77e66a41b0ec2aefeb0d702140472545}} 
 \mbox{\hyperlink{qmidi_8h_afd22c71541642a69344fb311b4539a2d}{Midi\+Status}} {\bfseries status} () const
 \item 
@@ -34,9 +36,6 @@ unsigned int {\bfseries pitch} () const
 \item 
 \mbox{\Hypertarget{classQMidiMessage_a87eed87d8a80bea92789a109c1b4f755}\label{classQMidiMessage_a87eed87d8a80bea92789a109c1b4f755}} 
 unsigned int {\bfseries velocity} () const
-\item 
-\mbox{\Hypertarget{classQMidiMessage_a825d563edf5852cefabb6bbe2447ba0e}\label{classQMidiMessage_a825d563edf5852cefabb6bbe2447ba0e}} 
-unsigned int {\bfseries control} () const
 \item 
 \mbox{\Hypertarget{classQMidiMessage_a4fbf17ad09d7596d3887197721fe2135}\label{classQMidiMessage_a4fbf17ad09d7596d3887197721fe2135}} 
 unsigned int {\bfseries value} () const
@@ -56,8 +55,8 @@ QPair$<$ unsigned int, unsigned int $>$ {\bfseries song\+Pos} () const
 \mbox{\Hypertarget{classQMidiMessage_a316c5872d4fa92c4a2108df5c1112f4a}\label{classQMidiMessage_a316c5872d4fa92c4a2108df5c1112f4a}} 
 unsigned int {\bfseries seq\+ID} () const
 \item 
-\mbox{\Hypertarget{classQMidiMessage_a41be2a7f02a376245f2b4e547f5d76ec}\label{classQMidiMessage_a41be2a7f02a376245f2b4e547f5d76ec}} 
-\mbox{\hyperlink{qmidi_8h_aa4b6f84137ca41144e000b5ab0af044d}{Channel\+Mode\+Status}} {\bfseries ch\+Mod\+Status} () const
+\mbox{\Hypertarget{classQMidiMessage_a0df027c75da233de1b4a4f361c0020af}\label{classQMidiMessage_a0df027c75da233de1b4a4f361c0020af}} 
+\mbox{\hyperlink{qmidi_8h_a01c2958834092b449b3dbfed0648de81}{CCFirst\+Data\+Byte}} {\bfseries CCFrist\+Data\+Byte} () const
 \item 
 \mbox{\Hypertarget{classQMidiMessage_ab6ff9ad6bd2280c981448b402a4b4648}\label{classQMidiMessage_ab6ff9ad6bd2280c981448b402a4b4648}} 
 unsigned int {\bfseries channel\+Number} () const
@@ -83,9 +82,6 @@ void {\bfseries set\+Pitch} (const unsigned int t\+\_\+pitch)
 \mbox{\Hypertarget{classQMidiMessage_ad52716675bacf93dde44aa44825e6ba5}\label{classQMidiMessage_ad52716675bacf93dde44aa44825e6ba5}} 
 void {\bfseries set\+Velocity} (const unsigned int t\+\_\+velocity)
 \item 
-\mbox{\Hypertarget{classQMidiMessage_afdd9b7fdb48879bb30b4d6d653c31e46}\label{classQMidiMessage_afdd9b7fdb48879bb30b4d6d653c31e46}} 
-void {\bfseries set\+Control} (const unsigned int t\+\_\+control)
-\item 
 \mbox{\Hypertarget{classQMidiMessage_a38641010e27951f6747803877e8f77c5}\label{classQMidiMessage_a38641010e27951f6747803877e8f77c5}} 
 void {\bfseries set\+Value} (const unsigned int t\+\_\+value)
 \item 
@@ -104,8 +100,8 @@ void {\bfseries set\+Song\+Pos} (const QPair$<$ unsigned int, unsigned int $>$ t
 \mbox{\Hypertarget{classQMidiMessage_ab1c3f3437fecd122e81921acb6512d1f}\label{classQMidiMessage_ab1c3f3437fecd122e81921acb6512d1f}} 
 void {\bfseries set\+Seq\+ID} (const unsigned int t\+\_\+seq\+ID)
 \item 
-\mbox{\Hypertarget{classQMidiMessage_ae877c9dc035750e7dd723436b79659ec}\label{classQMidiMessage_ae877c9dc035750e7dd723436b79659ec}} 
-void {\bfseries set\+Ch\+Mod\+Status} (\mbox{\hyperlink{qmidi_8h_aa4b6f84137ca41144e000b5ab0af044d}{Channel\+Mode\+Status}} t\+\_\+\+Ch\+Mod\+Status)
+\mbox{\Hypertarget{classQMidiMessage_aa53fa0d1872fb77b670f225a82a19727}\label{classQMidiMessage_aa53fa0d1872fb77b670f225a82a19727}} 
+void {\bfseries set\+CCFrist\+Data\+Byte} (\mbox{\hyperlink{qmidi_8h_a01c2958834092b449b3dbfed0648de81}{CCFirst\+Data\+Byte}} t\+\_\+\+CCFrist\+Data\+Byte)
 \item 
 \mbox{\Hypertarget{classQMidiMessage_a7bf7f416db60f0112c06b45172b3900c}\label{classQMidiMessage_a7bf7f416db60f0112c06b45172b3900c}} 
 void {\bfseries set\+Channel\+Number} (unsigned int t\+\_\+channel\+Number)
@@ -130,7 +126,7 @@ Class to handle all MIDI events.
 \mbox{\Hypertarget{classQMidiMessage_a93df6ecbc1e4c03a5eb5a9eaa00e2d06}\label{classQMidiMessage_a93df6ecbc1e4c03a5eb5a9eaa00e2d06}} 
 \index{QMidiMessage@{QMidiMessage}!QMidiMessage@{QMidiMessage}}
 \index{QMidiMessage@{QMidiMessage}!QMidiMessage@{QMidiMessage}}
-\doxysubsubsection{\texorpdfstring{QMidiMessage()}{QMidiMessage()}}
+\doxysubsubsection{\texorpdfstring{QMidiMessage()}{QMidiMessage()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
 {\footnotesize\ttfamily QMidi\+Message\+::\+QMidi\+Message (\begin{DoxyParamCaption}\item[{QObject $\ast$}]{parent = {\ttfamily nullptr} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
 
 
@@ -140,6 +136,23 @@ Class to handle all MIDI events.
 
 \begin{DoxyParams}{Parameters}
 {\em parent} & a QObject parent \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classQMidiMessage_a22a0aa33853f276d6e0cf58240dc2cb0}\label{classQMidiMessage_a22a0aa33853f276d6e0cf58240dc2cb0}} 
+\index{QMidiMessage@{QMidiMessage}!QMidiMessage@{QMidiMessage}}
+\index{QMidiMessage@{QMidiMessage}!QMidiMessage@{QMidiMessage}}
+\doxysubsubsection{\texorpdfstring{QMidiMessage()}{QMidiMessage()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily QMidi\+Message\+::\+QMidi\+Message (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classQMidiMessage}{QMidi\+Message}} \&}]{t\+\_\+other,  }\item[{QObject $\ast$}]{parent = {\ttfamily nullptr} }\end{DoxyParamCaption})}
+
+
+
+\mbox{\hyperlink{classQMidiMessage}{QMidi\+Message}} copy constructor. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em t\+\_\+other} & object to copy \\
+\hline
+{\em parent} & QObject parent \\
 \hline
 \end{DoxyParams}
 

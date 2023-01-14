@@ -16,20 +16,25 @@
 \DoxyCodeLine{13 }
 \DoxyCodeLine{14   Q\_OBJECT}
 \DoxyCodeLine{15 }
-\DoxyCodeLine{16 \textcolor{keyword}{public}:}
+\DoxyCodeLine{16 public :}
 \DoxyCodeLine{17 }
 \DoxyCodeLine{18   \textcolor{keyword}{explicit} \mbox{\hyperlink{classQAbstractMidiControlerWidget}{QAbstractMidiControlerWidget}}(QWidget *parent = \textcolor{keyword}{nullptr});}
-\DoxyCodeLine{19 }
-\DoxyCodeLine{20 signals:}
-\DoxyCodeLine{21 }
-\DoxyCodeLine{22 \textcolor{keyword}{protected}:}
-\DoxyCodeLine{23 }
-\DoxyCodeLine{24   QVector<QPushButton *> m\_v\_pushButtons;}
-\DoxyCodeLine{25   QVector<QSlider *> m\_v\_sliders;}
-\DoxyCodeLine{26   QVector<QLabel *> m\_v\_labels;}
-\DoxyCodeLine{27 }
-\DoxyCodeLine{28 \};}
-\DoxyCodeLine{29 }
-\DoxyCodeLine{30 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// QABSTRACTMIDICONTROLERWIDGET\_H}}
+\DoxyCodeLine{19   \textcolor{keyword}{virtual} \mbox{\hyperlink{classQAbstractMidiControlerWidget}{\string~QAbstractMidiControlerWidget}}()\{\};}
+\DoxyCodeLine{20 }
+\DoxyCodeLine{21 protected :}
+\DoxyCodeLine{22 }
+\DoxyCodeLine{23   \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} drawWidget() = 0;}
+\DoxyCodeLine{24 }
+\DoxyCodeLine{25 signals:}
+\DoxyCodeLine{26 }
+\DoxyCodeLine{27 protected :}
+\DoxyCodeLine{28 }
+\DoxyCodeLine{29   QVector<QPushButton *> m\_v\_pushButtons;}
+\DoxyCodeLine{30   QVector<QSlider *> m\_v\_sliders;}
+\DoxyCodeLine{31   QVector<QLabel *> m\_v\_labels;}
+\DoxyCodeLine{32 }
+\DoxyCodeLine{33 \};}
+\DoxyCodeLine{34 }
+\DoxyCodeLine{35 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// QABSTRACTMIDICONTROLERWIDGET\_H}}
 
 \end{DoxyCode}

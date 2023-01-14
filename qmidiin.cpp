@@ -99,7 +99,8 @@ void QMidiIn::connectMidiIn(int t_portNumber)
     m_isPortOpen = true;
     m_rtMidiIn->setCallback(&callBack, this);
   }
-  else qDebug() << "Midi in " << m_currentID << " not opened";
+  else
+    qDebug() << "Midi in " << m_currentID << " not opened";
 }
 
 void QMidiIn::connectMidiIn(QString &t_portName)
@@ -115,7 +116,7 @@ void QMidiIn::connectMidiIn(QString &t_portName)
     if (m_rtMidiIn->isPortOpen())
       m_isPortOpen = true;
     else
-      qDebug() << "Midi out " << m_currentID << " not opened";
+      qDebug() << "Midi in " << m_currentID << " not opened";
   }
 }
 

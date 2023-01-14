@@ -28,7 +28,7 @@
 QAkaiAPCMiniWidget::QAkaiAPCMiniWidget(QWidget *parent) :
   QAbstractMidiControlerWidget(parent)
 {
-  drawWidget();
+  this->QAkaiAPCMiniWidget::drawWidget();
 }
 
 QAkaiAPCMiniWidget::~QAkaiAPCMiniWidget()

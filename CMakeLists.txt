@@ -20,13 +20,21 @@ find_package(Qt${QT_VERSION_MAJOR} COMPONENTS Widgets LinguistTools REQUIRED)
 set(TS_FILES QMidi_fr_GF.ts)
 
 add_library(QMidi STATIC
+  qmidi.h
   qmidimessage.cpp
+  qmidimessage.h
   qmidiin.cpp
+  qmidiin.h
   qmidiout.cpp
+  qmidiout.h
   qmidipianorollview.cpp
+  qmidipianorollview.h
   qabstractmidicontrolerwidget.cpp
+  qabstractmidicontrolerwidget.h
   qakaiapcminiwidget.cpp
+  qakaiapcminiwidget.h
   qmidiconnectwidget.cpp
+  qmidiconnectwidget.h
   ${TS_FILES}
   )
 

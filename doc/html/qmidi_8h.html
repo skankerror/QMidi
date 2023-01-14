@@ -130,20 +130,170 @@ Enumerations</h2></td></tr>
  }</td></tr>
 <tr class="memdesc:afd22c71541642a69344fb311b4539a2d"><td class="mdescLeft">&#160;</td><td class="mdescRight">exhaustive midi status enum  <a href="qmidi_8h.html#afd22c71541642a69344fb311b4539a2d">More...</a><br /></td></tr>
 <tr class="separator:afd22c71541642a69344fb311b4539a2d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa4b6f84137ca41144e000b5ab0af044d"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="qmidi_8h.html#aa4b6f84137ca41144e000b5ab0af044d">ChannelModeStatus</a> { <br />
-&#160;&#160;<a class="el" href="qmidi_8h.html#aa4b6f84137ca41144e000b5ab0af044da1bc350270be3c4a898b62524642635d8">UNKNOWN_CH_MOD_MESSAGE</a> = 0x00
-, <a class="el" href="qmidi_8h.html#aa4b6f84137ca41144e000b5ab0af044da589b7d94a3d91d145720e2fed0eb3a05">RESET</a> = 0x79
-, <a class="el" href="qmidi_8h.html#aa4b6f84137ca41144e000b5ab0af044da9624e1934d5db049dcb6f7434a35e2af">LOCAL_CONTROL</a> = 0x7A
-, <a class="el" href="qmidi_8h.html#aa4b6f84137ca41144e000b5ab0af044da89da44e44125cd6451e62cca811cca33">ALL_NOTES_OFF</a> = 0x7B
+<tr class="memitem:a01c2958834092b449b3dbfed0648de81"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="qmidi_8h.html#a01c2958834092b449b3dbfed0648de81">CCFirstDataByte</a> { <br />
+&#160;&#160;<a class="el" href="qmidi_8h.html#a01c2958834092b449b3dbfed0648de81ac87f3c9fd45428ca707e6ea735a79c67">BANK_SELECT</a> = 0x00
+, <a class="el" href="qmidi_8h.html#a01c2958834092b449b3dbfed0648de81aff5ae831545e27d7e8168b1614a7436c">MODULATION_WHEEL</a> = 0x01
+, <a class="el" href="qmidi_8h.html#a01c2958834092b449b3dbfed0648de81acfa7a67117078306bdc3c61513023c8a">BREATH_CONTROLER</a> = 0x02
+, <a class="el" href="qmidi_8h.html#a01c2958834092b449b3dbfed0648de81ac45bf9e54def78fec39df2b84b31564c">UNDEFINED_3</a> = 0x03
 , <br />
-&#160;&#160;<a class="el" href="qmidi_8h.html#aa4b6f84137ca41144e000b5ab0af044dad1700e4e2360bc33fa81b63f3d8f625b">OMNI_OFF</a> = 0x7C
-, <a class="el" href="qmidi_8h.html#aa4b6f84137ca41144e000b5ab0af044da3e571d2339a832c277170cb2ec0d510a">OMNI_ON</a> = 0x7D
-, <a class="el" href="qmidi_8h.html#aa4b6f84137ca41144e000b5ab0af044da68a9559559e763ca1692dbee1f5f2a73">MONO_ON</a> = 0x7E
-, <a class="el" href="qmidi_8h.html#aa4b6f84137ca41144e000b5ab0af044da80095f8fb1395dde85d6bdf6bcaadb03">POLY_ON</a> = 0x7F
+&#160;&#160;<a class="el" href="qmidi_8h.html#a01c2958834092b449b3dbfed0648de81a63240119efa81d0eceace339c4f292e6">FOOT_CONTROLLER</a> = 0x04
+, <a class="el" href="qmidi_8h.html#a01c2958834092b449b3dbfed0648de81aae1e91d587e901d7ac3ae87f1f21fdeb">PORTAMENTO_TIME</a> = 0x05
+, <a class="el" href="qmidi_8h.html#a01c2958834092b449b3dbfed0648de81a0910dbb99df42a48b6d495092401efc8">DATA_ENTRY</a> = 0x06
+, <a class="el" href="qmidi_8h.html#a01c2958834092b449b3dbfed0648de81a32589b7faf86e566252589b2efee9bd6">CHANNEL_VOLUME</a> = 0x07
+, <br />
+&#160;&#160;<a class="el" href="qmidi_8h.html#a01c2958834092b449b3dbfed0648de81aa7fbdba844f9e290189b826a10c1d399">BALANCE</a> = 0x08
+, <a class="el" href="qmidi_8h.html#a01c2958834092b449b3dbfed0648de81acb8afa41611517c8a6addc50760a5c37">UNDEFINED_9</a> = 0x09
+, <a class="el" href="qmidi_8h.html#a01c2958834092b449b3dbfed0648de81a1fea4799e7e5d4fd82b3df6813ce0e71">PAN</a> = 0x0A
+, <a class="el" href="qmidi_8h.html#a01c2958834092b449b3dbfed0648de81ad0c5ce591ca32679265519b540771a81">EXPRESSION_CONTROLLER</a> = 0x0B
+, <br />
+&#160;&#160;<a class="el" href="qmidi_8h.html#a01c2958834092b449b3dbfed0648de81afe0c37a1e186dbe89ec788756ba145d3">EFFECT_CONTROL_1</a> = 0x0C
+, <a class="el" href="qmidi_8h.html#a01c2958834092b449b3dbfed0648de81a188fc85e7c50642aa6e08738d633c58a">EFFECT_CONTROL_2</a> = 0x0D
+, <a class="el" href="qmidi_8h.html#a01c2958834092b449b3dbfed0648de81a50209a3831509bafd10bb32761e50c14">UNDEFINED_14</a> = 0x0E
+, <a class="el" href="qmidi_8h.html#a01c2958834092b449b3dbfed0648de81a89ae091f3262ae77bd33147bb48d90d4">UNDEFINED_15</a> = 0x0F
+, <br />
+&#160;&#160;<a class="el" href="qmidi_8h.html#a01c2958834092b449b3dbfed0648de81af544e34d0b7ba08244bb5f9bad13c6a3">GENERAL_PURPOSE_CONTROLLER_1</a> = 0x10
+, <a class="el" href="qmidi_8h.html#a01c2958834092b449b3dbfed0648de81ae0cffb2bc10a40e97cecd2cc7602e159">GENERAL_PURPOSE_CONTROLLER_2</a> = 0x11
+, <a class="el" href="qmidi_8h.html#a01c2958834092b449b3dbfed0648de81aad87cb4cb8c4ca8b98b936020282444e">GENERAL_PURPOSE_CONTROLLER_3</a> = 0x12
+, <a class="el" href="qmidi_8h.html#a01c2958834092b449b3dbfed0648de81a073780399eda8a8e6a883df944f6dbfc">GENERAL_PURPOSE_CONTROLLER_4</a> = 0x13
+, <br />
+&#160;&#160;<a class="el" href="qmidi_8h.html#a01c2958834092b449b3dbfed0648de81a2050dc04e7e52c2777ad6e9c792189cf">UNDEFINED_20</a> = 0x14
+, <a class="el" href="qmidi_8h.html#a01c2958834092b449b3dbfed0648de81aad630766ee37cc8312f76aed11877496">UNDEFINED_21</a> = 0x15
+, <a class="el" href="qmidi_8h.html#a01c2958834092b449b3dbfed0648de81a6f1bacd2c178e1f02254523a56a37e75">UNDEFINED_22</a> = 0x16
+, <a class="el" href="qmidi_8h.html#a01c2958834092b449b3dbfed0648de81a80ec2b7abb4b3c7568cc094e77a19659">UNDEFINED_23</a> = 0x17
+, <br />
+&#160;&#160;<a class="el" href="qmidi_8h.html#a01c2958834092b449b3dbfed0648de81ad19907ebe61211bdce7237c7ebfc5874">UNDEFINED_24</a> = 0x18
+, <a class="el" href="qmidi_8h.html#a01c2958834092b449b3dbfed0648de81a01f48ab94792caa6d5ac4e9e422e5cdf">UNDEFINED_25</a> = 0x19
+, <a class="el" href="qmidi_8h.html#a01c2958834092b449b3dbfed0648de81a1fed0e97502008c8b79ce85d9079395a">UNDEFINED_26</a> = 0x1A
+, <a class="el" href="qmidi_8h.html#a01c2958834092b449b3dbfed0648de81a15410570927056ecac13e3e055d5a16d">UNDEFINED_27</a> = 0x1B
+, <br />
+&#160;&#160;<a class="el" href="qmidi_8h.html#a01c2958834092b449b3dbfed0648de81a7418841f6892d07d604978bfe335e239">UNDEFINED_28</a> = 0x1C
+, <a class="el" href="qmidi_8h.html#a01c2958834092b449b3dbfed0648de81aa1c9c3ee3ec58b8489373497d340f08b">UNDEFINED_29</a> = 0x1D
+, <a class="el" href="qmidi_8h.html#a01c2958834092b449b3dbfed0648de81a95af0d4695f73df854309b35189ef1ab">UNDEFINED_30</a> = 0x1E
+, <a class="el" href="qmidi_8h.html#a01c2958834092b449b3dbfed0648de81a91f2914a150be5b0a66265b8b0953b00">UNDEFINED_31</a> = 0x1F
+, <br />
+&#160;&#160;<a class="el" href="qmidi_8h.html#a01c2958834092b449b3dbfed0648de81a890e1ae0e1ac283a6b7114da8c541d80">LSB_FOR_BANK_SELECT</a> = 0x20
+, <a class="el" href="qmidi_8h.html#a01c2958834092b449b3dbfed0648de81a2a6f96e476d15c651120a6e06702786b">LSB_FOR_MODULATION_WHEEL</a> = 0x21
+, <a class="el" href="qmidi_8h.html#a01c2958834092b449b3dbfed0648de81a5e06e4dc8034db526a9bcd22f402eca7">LSB_FOR_BREATH_CONTROLLER</a> = 0x22
+, <a class="el" href="qmidi_8h.html#a01c2958834092b449b3dbfed0648de81a68dd36f3d0064a5b0f9132e04873222a">LSB_FOR_UNDEFINED_3</a> = 0x23
+, <br />
+&#160;&#160;<a class="el" href="qmidi_8h.html#a01c2958834092b449b3dbfed0648de81aecd6c6b198fb862b11d5abf5239f2550">LSB_FOR_FOOT_CONTROLLER</a> = 0x24
+, <a class="el" href="qmidi_8h.html#a01c2958834092b449b3dbfed0648de81a2459244b4963f9b0a8edf1d43dc5498c">LSB_FOR_PORTAMENTO_TIME</a> = 0x25
+, <a class="el" href="qmidi_8h.html#a01c2958834092b449b3dbfed0648de81a64a90308c38637b0df17951264e5deb9">LSB_FOR_DATA_ENTRY</a> = 0x26
+, <a class="el" href="qmidi_8h.html#a01c2958834092b449b3dbfed0648de81adde24fc8b6aa27eaafcae9b0f6f080bd">LSB_FOR_CHANNEL_VOLUME</a> = 0x27
+, <br />
+&#160;&#160;<a class="el" href="qmidi_8h.html#a01c2958834092b449b3dbfed0648de81a63ff28954dacdbc1c0895fc4747009fd">LSB_FOR_BALANCE</a> = 0x28
+, <a class="el" href="qmidi_8h.html#a01c2958834092b449b3dbfed0648de81a6d7385bb018d28c1c9b80191c5913899">LSB_FOR_UNDEFINED_9</a> = 0x29
+, <a class="el" href="qmidi_8h.html#a01c2958834092b449b3dbfed0648de81a3c7c3f5a1f90c9a129765bdd832958a8">LSB_FOR_PAN</a> = 0x2A
+, <a class="el" href="qmidi_8h.html#a01c2958834092b449b3dbfed0648de81a14f38a576d42921ec8177ba31fe46c0a">LSB_FOR_EXPRESSION_CONTROLLER</a> = 0x2B
+, <br />
+&#160;&#160;<a class="el" href="qmidi_8h.html#a01c2958834092b449b3dbfed0648de81a0b8944a8be8328f55d8626c0488d3b52">LSB_FOR_EFFECT_CONTROL_1</a> = 0x2C
+, <a class="el" href="qmidi_8h.html#a01c2958834092b449b3dbfed0648de81a610b57bef0ccbd8d79a7e9635b6d0d2e">LSB_FOR_EFFECT_CONTROL_2</a> = 0x2D
+, <a class="el" href="qmidi_8h.html#a01c2958834092b449b3dbfed0648de81a91f7b0c2998af522b866baa4caf913bf">LSB_FOR_UNDEFINED_14</a> = 0x2E
+, <a class="el" href="qmidi_8h.html#a01c2958834092b449b3dbfed0648de81a32002024ac2b40f809a9b3f6317333c7">LSB_FOR_UNDEFINED_15</a> = 0x2F
+, <br />
+&#160;&#160;<a class="el" href="qmidi_8h.html#a01c2958834092b449b3dbfed0648de81ad541b9aba70114407b1086d1796e9a25">LSB_FOR_GENERAL_PURPOSE_CONTROLLER_1</a> = 0x30
+, <a class="el" href="qmidi_8h.html#a01c2958834092b449b3dbfed0648de81a094a00d7d558d95d960027f8c228bd74">LSB_FOR_GENERAL_PURPOSE_CONTROLLER_2</a> = 0x31
+, <a class="el" href="qmidi_8h.html#a01c2958834092b449b3dbfed0648de81aef364751871c1e20b9d37610d8d1392e">LSB_FOR_GENERAL_PURPOSE_CONTROLLER_3</a> = 0x32
+, <a class="el" href="qmidi_8h.html#a01c2958834092b449b3dbfed0648de81a75e2b6643d45267f3c5f0c0f13a19ab4">LSB_FOR_GENERAL_PURPOSE_CONTROLLER_4</a> = 0x33
+, <br />
+&#160;&#160;<a class="el" href="qmidi_8h.html#a01c2958834092b449b3dbfed0648de81a8f5d7c5fe15f71c04e291c711ee4b15b">LSB_FOR_UNDEFINED_20</a> = 0x34
+, <a class="el" href="qmidi_8h.html#a01c2958834092b449b3dbfed0648de81af848eb4e019e4d9234df169067cada16">LSB_FOR_UNDEFINED_21</a> = 0x35
+, <a class="el" href="qmidi_8h.html#a01c2958834092b449b3dbfed0648de81a30c0d46456bd694f91bd057488a03032">LSB_FOR_UNDEFINED_22</a> = 0x36
+, <a class="el" href="qmidi_8h.html#a01c2958834092b449b3dbfed0648de81afbc0853854294d78b060a9e4794149ee">LSB_FOR_UNDEFINED_23</a> = 0x37
+, <br />
+&#160;&#160;<a class="el" href="qmidi_8h.html#a01c2958834092b449b3dbfed0648de81a4794544edbf7dee7d69711076d490f4a">LSB_FOR_UNDEFINED_24</a> = 0x38
+, <a class="el" href="qmidi_8h.html#a01c2958834092b449b3dbfed0648de81af3e076360a7b83d94ebd498651ad6d28">LSB_FOR_UNDEFINED_25</a> = 0x39
+, <a class="el" href="qmidi_8h.html#a01c2958834092b449b3dbfed0648de81a2a680ced9a79315381340cac18306a66">LSB_FOR_UNDEFINED_26</a> = 0x3A
+, <a class="el" href="qmidi_8h.html#a01c2958834092b449b3dbfed0648de81a44d0e15c909dff0fd4ff6f5459da1043">LSB_FOR_UNDEFINED_27</a> = 0x3B
+, <br />
+&#160;&#160;<a class="el" href="qmidi_8h.html#a01c2958834092b449b3dbfed0648de81a7bf2fcc7633e887d69f8c4c3736b68fd">LSB_FOR_UNDEFINED_28</a> = 0x3C
+, <a class="el" href="qmidi_8h.html#a01c2958834092b449b3dbfed0648de81a22e42ad3cefe7da821b0a3da5acddcee">LSB_FOR_UNDEFINED_29</a> = 0x3D
+, <a class="el" href="qmidi_8h.html#a01c2958834092b449b3dbfed0648de81a65cb83e84e60d50370c214eddbfb1d33">LSB_FOR_UNDEFINED_30</a> = 0x3E
+, <a class="el" href="qmidi_8h.html#a01c2958834092b449b3dbfed0648de81afde4ffc2a49f752e383b546a397ae19d">LSB_FOR_UNDEFINED_31</a> = 0x3F
+, <br />
+&#160;&#160;<a class="el" href="qmidi_8h.html#a01c2958834092b449b3dbfed0648de81a60dd7fed0500c40affd6174734f2e841">DAMPER_PEDAL</a> = 0x40
+, <a class="el" href="qmidi_8h.html#a01c2958834092b449b3dbfed0648de81a2e38f844954f3cdc5254c3fe8d7bac28">PORTAMENTO</a> = 0x41
+, <a class="el" href="qmidi_8h.html#a01c2958834092b449b3dbfed0648de81a4df433d3f69fbddf55335df62c3cef1a">SOSTENUTO</a> = 0x42
+, <a class="el" href="qmidi_8h.html#a01c2958834092b449b3dbfed0648de81ac0d64e238b2b49b0d20f587e6888ab0e">SOFT_PEDAL</a> = 0x43
+, <br />
+&#160;&#160;<a class="el" href="qmidi_8h.html#a01c2958834092b449b3dbfed0648de81a6e905e0ce6a6edc4081b878c6c9f4ad7">LEGATO_FOOTSWITCH</a> = 0x44
+, <a class="el" href="qmidi_8h.html#a01c2958834092b449b3dbfed0648de81ab3e6e34f17abbe820f354d2ad5f53bba">HOLD_2</a> = 0x45
+, <a class="el" href="qmidi_8h.html#a01c2958834092b449b3dbfed0648de81a17c075a6698a4177f580266d5c223f68">SOUND_CONTROLLER_1</a> = 0x46
+, <a class="el" href="qmidi_8h.html#a01c2958834092b449b3dbfed0648de81afb7a14cbfd6eac3cb0a1ecf387ca4313">SOUND_CONTROLLER_2</a> = 0x47
+, <br />
+&#160;&#160;<a class="el" href="qmidi_8h.html#a01c2958834092b449b3dbfed0648de81a0bb77a27477a84b103275182c3e00687">SOUND_CONTROLLER_3</a> = 0x48
+, <a class="el" href="qmidi_8h.html#a01c2958834092b449b3dbfed0648de81ab015cf5e954b5e0e87522adde82268e2">SOUND_CONTROLLER_4</a> = 0x49
+, <a class="el" href="qmidi_8h.html#a01c2958834092b449b3dbfed0648de81a4c6606cb5c1a3ceb7827899fe071edb9">SOUND_CONTROLLER_5</a> = 0x4A
+, <a class="el" href="qmidi_8h.html#a01c2958834092b449b3dbfed0648de81ac886f2e2d560c329fa7da886701ee612">SOUND_CONTROLLER_6</a> = 0x4B
+, <br />
+&#160;&#160;<a class="el" href="qmidi_8h.html#a01c2958834092b449b3dbfed0648de81ad26ae1d85afb4076411cce0ecfdb0fdc">SOUND_CONTROLLER_7</a> = 0x4C
+, <a class="el" href="qmidi_8h.html#a01c2958834092b449b3dbfed0648de81a0854ee89efad6afd39d2c28766423536">SOUND_CONTROLLER_8</a> = 0x4D
+, <a class="el" href="qmidi_8h.html#a01c2958834092b449b3dbfed0648de81a14948e43004d3ec0dbce2f918dfdab8a">SOUND_CONTROLLER_9</a> = 0x4E
+, <a class="el" href="qmidi_8h.html#a01c2958834092b449b3dbfed0648de81af732a78e8af527e0c19cbce6a8bbefbe">SOUND_CONTROLLER_10</a> = 0x4F
+, <br />
+&#160;&#160;<a class="el" href="qmidi_8h.html#a01c2958834092b449b3dbfed0648de81a3f2da52af59df37a7ddd4bcec7194a04">GENERAL_PURPOSE_CONTROLLER_5</a> = 0x50
+, <a class="el" href="qmidi_8h.html#a01c2958834092b449b3dbfed0648de81a0cbe4495b390456491dda120c0d2096d">GENERAL_PURPOSE_CONTROLLER_6</a> = 0x51
+, <a class="el" href="qmidi_8h.html#a01c2958834092b449b3dbfed0648de81ad6f01f720e469b08908b29d8c33712c1">GENERAL_PURPOSE_CONTROLLER_7</a> = 0x52
+, <a class="el" href="qmidi_8h.html#a01c2958834092b449b3dbfed0648de81a90d76608ed30bf803f38695cac090f98">GENERAL_PURPOSE_CONTROLLER_8</a> = 0x53
+, <br />
+&#160;&#160;<a class="el" href="qmidi_8h.html#a01c2958834092b449b3dbfed0648de81a8f560fec248cfa3514b8d840386d2b37">PORTAMENTO_CONTROL</a> = 0x54
+, <a class="el" href="qmidi_8h.html#a01c2958834092b449b3dbfed0648de81a384fdd583b541854ca24dff1eb0dc9de">UNDEFINED_85</a> = 0x55
+, <a class="el" href="qmidi_8h.html#a01c2958834092b449b3dbfed0648de81ac389e0e31d880fb25a620f10f249a2d7">UNDEFINED_86</a> = 0x56
+, <a class="el" href="qmidi_8h.html#a01c2958834092b449b3dbfed0648de81ad46a31471555165d613d0040dd9153dd">UNDEFINED_87</a> = 0x57
+, <br />
+&#160;&#160;<a class="el" href="qmidi_8h.html#a01c2958834092b449b3dbfed0648de81aedbf6d3b784240ff5aa257893698ba5b">HIGH_RESOLUTION_VELOCITY_PREFIX</a> = 0x58
+, <a class="el" href="qmidi_8h.html#a01c2958834092b449b3dbfed0648de81acdfd6f3210c302095e9f50f4fe52b532">UNDEFINED_89</a> = 0x59
+, <a class="el" href="qmidi_8h.html#a01c2958834092b449b3dbfed0648de81a17e6a1ac15687ce194977869ab573a18">UNDEFINED_90</a> = 0x5A
+, <a class="el" href="qmidi_8h.html#a01c2958834092b449b3dbfed0648de81a9aa48b9e36aa5dc5554e87d5aede6e20">EFFECTS_1_DEPTH</a> = 0x5B
+, <br />
+&#160;&#160;<a class="el" href="qmidi_8h.html#a01c2958834092b449b3dbfed0648de81a9cc57fa35bb9eb7edaca0b7abcc25d44">EFFECTS_2_DEPTH</a> = 0x5C
+, <a class="el" href="qmidi_8h.html#a01c2958834092b449b3dbfed0648de81ae7166db0e3d938ee1c0083a121c19a6f">EFFECTS_3_DEPTH</a> = 0x5D
+, <a class="el" href="qmidi_8h.html#a01c2958834092b449b3dbfed0648de81a2ab871c6aa3dc6def652561e345a6710">EFFECTS_4_DEPTH</a> = 0x5E
+, <a class="el" href="qmidi_8h.html#a01c2958834092b449b3dbfed0648de81a7764b0ff55e9247cfdcd993569844a95">EFFECTS_5_DEPTH</a> = 0x5F
+, <br />
+&#160;&#160;<a class="el" href="qmidi_8h.html#a01c2958834092b449b3dbfed0648de81ae0cac6105f334e8c7dbc2e8e10bd1086">DATA_INCREMENT</a> = 0x60
+, <a class="el" href="qmidi_8h.html#a01c2958834092b449b3dbfed0648de81a93e0456823b0508bc27e5e658cec75ba">DATA_DECREMENT</a> = 0x61
+, <a class="el" href="qmidi_8h.html#a01c2958834092b449b3dbfed0648de81a4313a7ab57eb860cd929d7630e290582">NRPN_LSB</a> = 0x62
+, <a class="el" href="qmidi_8h.html#a01c2958834092b449b3dbfed0648de81aa24f10732b4bc6e7c8348273124d7eb7">NRPN_MSB</a> = 0x63
+, <br />
+&#160;&#160;<a class="el" href="qmidi_8h.html#a01c2958834092b449b3dbfed0648de81a26a6a9870d19e31053b10f1272d7acfb">RPN_LSB</a> = 0x64
+, <a class="el" href="qmidi_8h.html#a01c2958834092b449b3dbfed0648de81afff10c10ef386d9902212c1562c931a4">RPN_MSB</a> = 0X65
+, <a class="el" href="qmidi_8h.html#a01c2958834092b449b3dbfed0648de81aeac75c9023cf72fa19e59ba883277f3a">UNDEFINED_102</a> = 0x66
+, <a class="el" href="qmidi_8h.html#a01c2958834092b449b3dbfed0648de81a754270e2755b3f330de2e6f2378ec51a">UNDEFINED_103</a> = 0x67
+, <br />
+&#160;&#160;<a class="el" href="qmidi_8h.html#a01c2958834092b449b3dbfed0648de81a65d37bfd7e75ec5addeec4f11b441b53">UNDEFINED_104</a> = 0x68
+, <a class="el" href="qmidi_8h.html#a01c2958834092b449b3dbfed0648de81a071a4f9c42ef50aa5c98069280ce963c">UNDEFINED_105</a> = 0x69
+, <a class="el" href="qmidi_8h.html#a01c2958834092b449b3dbfed0648de81aa04b118ed1ed9af6bab62f04a8d82ff9">UNDEFINED_106</a> = 0x6A
+, <a class="el" href="qmidi_8h.html#a01c2958834092b449b3dbfed0648de81afaae9ad05e890ada9b8178945a7ab865">UNDEFINED_107</a> = 0x6B
+, <br />
+&#160;&#160;<a class="el" href="qmidi_8h.html#a01c2958834092b449b3dbfed0648de81a39c6c30ae1dddb2a3ace1bc5cb73c926">UNDEFINED_108</a> = 0x6C
+, <a class="el" href="qmidi_8h.html#a01c2958834092b449b3dbfed0648de81ab3980f9cf3e4eb171486220f145947da">UNDEFINED_109</a> = 0x6D
+, <a class="el" href="qmidi_8h.html#a01c2958834092b449b3dbfed0648de81a68d1259445548e8c723b5121ba53d378">UNDEFINED_110</a> = 0x6E
+, <a class="el" href="qmidi_8h.html#a01c2958834092b449b3dbfed0648de81a27f0d78b70e4f7082ac6d0917fb4812c">UNDEFINED_111</a> = 0x6F
+, <br />
+&#160;&#160;<a class="el" href="qmidi_8h.html#a01c2958834092b449b3dbfed0648de81a97f5c8687991ea027d0d5f52ac33e1e7">UNDEFINED_112</a> = 0x70
+, <a class="el" href="qmidi_8h.html#a01c2958834092b449b3dbfed0648de81af3ae84cf1354bfb98832e0823a3943b1">UNDEFINED_113</a> = 0x71
+, <a class="el" href="qmidi_8h.html#a01c2958834092b449b3dbfed0648de81a829e98839886d0084e9dad8c17401228">UNDEFINED_114</a> = 0x72
+, <a class="el" href="qmidi_8h.html#a01c2958834092b449b3dbfed0648de81a27b10d06a0e6fa743890ad6b012562cc">UNDEFINED_115</a> = 0x73
+, <br />
+&#160;&#160;<a class="el" href="qmidi_8h.html#a01c2958834092b449b3dbfed0648de81a7ecd62c67060909e3893f934475fbfa1">UNDEFINED_116</a> = 0x74
+, <a class="el" href="qmidi_8h.html#a01c2958834092b449b3dbfed0648de81a7150bba441797da0e5fc684d5f146b58">UNDEFINED_117</a> = 0x75
+, <a class="el" href="qmidi_8h.html#a01c2958834092b449b3dbfed0648de81a096d815c01de93ffa456ae6023336e36">UNDEFINED_118</a> = 0x76
+, <a class="el" href="qmidi_8h.html#a01c2958834092b449b3dbfed0648de81a2134b4e1d52a804da74ecceb36da4a0e">UNDEFINED_119</a> = 0x77
+, <br />
+&#160;&#160;<a class="el" href="qmidi_8h.html#a01c2958834092b449b3dbfed0648de81aa0d16b0c2424f99943c29679d8a00c75">ALL_SOUND_OFF</a> = 0x78
+, <a class="el" href="qmidi_8h.html#a01c2958834092b449b3dbfed0648de81a589b7d94a3d91d145720e2fed0eb3a05">RESET</a> = 0x79
+, <a class="el" href="qmidi_8h.html#a01c2958834092b449b3dbfed0648de81a9624e1934d5db049dcb6f7434a35e2af">LOCAL_CONTROL</a> = 0x7A
+, <a class="el" href="qmidi_8h.html#a01c2958834092b449b3dbfed0648de81a89da44e44125cd6451e62cca811cca33">ALL_NOTES_OFF</a> = 0x7B
+, <br />
+&#160;&#160;<a class="el" href="qmidi_8h.html#a01c2958834092b449b3dbfed0648de81ad1700e4e2360bc33fa81b63f3d8f625b">OMNI_OFF</a> = 0x7C
+, <a class="el" href="qmidi_8h.html#a01c2958834092b449b3dbfed0648de81a3e571d2339a832c277170cb2ec0d510a">OMNI_ON</a> = 0x7D
+, <a class="el" href="qmidi_8h.html#a01c2958834092b449b3dbfed0648de81a68a9559559e763ca1692dbee1f5f2a73">MONO_ON</a> = 0x7E
+, <a class="el" href="qmidi_8h.html#a01c2958834092b449b3dbfed0648de81a80095f8fb1395dde85d6bdf6bcaadb03">POLY_ON</a> = 0x7F
 <br />
  }</td></tr>
-<tr class="memdesc:aa4b6f84137ca41144e000b5ab0af044d"><td class="mdescLeft">&#160;</td><td class="mdescRight">first byte of data for CONTROL_CHANGE status  <a href="qmidi_8h.html#aa4b6f84137ca41144e000b5ab0af044d">More...</a><br /></td></tr>
-<tr class="separator:aa4b6f84137ca41144e000b5ab0af044d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memdesc:a01c2958834092b449b3dbfed0648de81"><td class="mdescLeft">&#160;</td><td class="mdescRight">The Control Channel First Data Byte enum.  <a href="qmidi_8h.html#a01c2958834092b449b3dbfed0648de81">More...</a><br /></td></tr>
+<tr class="separator:a01c2958834092b449b3dbfed0648de81"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a05bb17e97b98be20bcd6143e05bbc2e1"><td class="memItemLeft" align="right" valign="top"><a id="a05bb17e97b98be20bcd6143e05bbc2e1" name="a05bb17e97b98be20bcd6143e05bbc2e1"></a>enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="qmidi_8h.html#a05bb17e97b98be20bcd6143e05bbc2e1">ManuID</a> { <br />
 &#160;&#160;<b>SEQUENTIAL_CIRCUITS</b> = 0x01
 , <b>BIG_BRIAR</b> = 0x02
@@ -205,36 +355,275 @@ Enumerations</h2></td></tr>
 <div class="textblock"><p >enum, define, global var file </p>
 <p >In this file stand all the QMidi enum, define and global variables </p>
 </div><h2 class="groupheader">Enumeration Type Documentation</h2>
-<a id="aa4b6f84137ca41144e000b5ab0af044d" name="aa4b6f84137ca41144e000b5ab0af044d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa4b6f84137ca41144e000b5ab0af044d">&#9670;&nbsp;</a></span>ChannelModeStatus</h2>
+<a id="a01c2958834092b449b3dbfed0648de81" name="a01c2958834092b449b3dbfed0648de81"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a01c2958834092b449b3dbfed0648de81">&#9670;&nbsp;</a></span>CCFirstDataByte</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">enum <a class="el" href="qmidi_8h.html#aa4b6f84137ca41144e000b5ab0af044d">ChannelModeStatus</a></td>
+          <td class="memname">enum <a class="el" href="qmidi_8h.html#a01c2958834092b449b3dbfed0648de81">CCFirstDataByte</a></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>first byte of data for CONTROL_CHANGE status </p>
-<p >if byte &lt; 121 first byte will be controler ID and second one, value else it's channel mode message with these following status. </p>
+<p>The Control Channel First Data Byte enum. </p>
 <table class="fieldtable">
-<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="aa4b6f84137ca41144e000b5ab0af044da1bc350270be3c4a898b62524642635d8" name="aa4b6f84137ca41144e000b5ab0af044da1bc350270be3c4a898b62524642635d8"></a>UNKNOWN_CH_MOD_MESSAGE&#160;</td><td class="fielddoc"><p >null default value </p>
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a01c2958834092b449b3dbfed0648de81ac87f3c9fd45428ca707e6ea735a79c67" name="a01c2958834092b449b3dbfed0648de81ac87f3c9fd45428ca707e6ea735a79c67"></a>BANK_SELECT&#160;</td><td class="fielddoc"><p >value 0-127, used as MSB, reset : do not set </p>
 </td></tr>
-<tr><td class="fieldname"><a id="aa4b6f84137ca41144e000b5ab0af044da589b7d94a3d91d145720e2fed0eb3a05" name="aa4b6f84137ca41144e000b5ab0af044da589b7d94a3d91d145720e2fed0eb3a05"></a>RESET&#160;</td><td class="fielddoc"><p >2nd byte means nothing (set to 0) </p>
+<tr><td class="fieldname"><a id="a01c2958834092b449b3dbfed0648de81aff5ae831545e27d7e8168b1614a7436c" name="a01c2958834092b449b3dbfed0648de81aff5ae831545e27d7e8168b1614a7436c"></a>MODULATION_WHEEL&#160;</td><td class="fielddoc"><p >value 0-127, used as MSB, reset : 0 </p>
 </td></tr>
-<tr><td class="fieldname"><a id="aa4b6f84137ca41144e000b5ab0af044da9624e1934d5db049dcb6f7434a35e2af" name="aa4b6f84137ca41144e000b5ab0af044da9624e1934d5db049dcb6f7434a35e2af"></a>LOCAL_CONTROL&#160;</td><td class="fielddoc"><p >2nd byte 0 = off, 127 = on </p>
+<tr><td class="fieldname"><a id="a01c2958834092b449b3dbfed0648de81acfa7a67117078306bdc3c61513023c8a" name="a01c2958834092b449b3dbfed0648de81acfa7a67117078306bdc3c61513023c8a"></a>BREATH_CONTROLER&#160;</td><td class="fielddoc"><p >value 0-127, used as MSB, reset : 0 </p>
 </td></tr>
-<tr><td class="fieldname"><a id="aa4b6f84137ca41144e000b5ab0af044da89da44e44125cd6451e62cca811cca33" name="aa4b6f84137ca41144e000b5ab0af044da89da44e44125cd6451e62cca811cca33"></a>ALL_NOTES_OFF&#160;</td><td class="fielddoc"><p >2nd byte means nothing (set to 0) </p>
+<tr><td class="fieldname"><a id="a01c2958834092b449b3dbfed0648de81ac45bf9e54def78fec39df2b84b31564c" name="a01c2958834092b449b3dbfed0648de81ac45bf9e54def78fec39df2b84b31564c"></a>UNDEFINED_3&#160;</td><td class="fielddoc"><p >value 0-127, used as MSB, reset : Device specific </p>
 </td></tr>
-<tr><td class="fieldname"><a id="aa4b6f84137ca41144e000b5ab0af044dad1700e4e2360bc33fa81b63f3d8f625b" name="aa4b6f84137ca41144e000b5ab0af044dad1700e4e2360bc33fa81b63f3d8f625b"></a>OMNI_OFF&#160;</td><td class="fielddoc"><p >2nd byte means nothing (set to 0) </p>
+<tr><td class="fieldname"><a id="a01c2958834092b449b3dbfed0648de81a63240119efa81d0eceace339c4f292e6" name="a01c2958834092b449b3dbfed0648de81a63240119efa81d0eceace339c4f292e6"></a>FOOT_CONTROLLER&#160;</td><td class="fielddoc"><p >value 0-127, used as MSB, reset : 0 </p>
 </td></tr>
-<tr><td class="fieldname"><a id="aa4b6f84137ca41144e000b5ab0af044da3e571d2339a832c277170cb2ec0d510a" name="aa4b6f84137ca41144e000b5ab0af044da3e571d2339a832c277170cb2ec0d510a"></a>OMNI_ON&#160;</td><td class="fielddoc"><p >2nd byte means nothing (set to 0) </p>
+<tr><td class="fieldname"><a id="a01c2958834092b449b3dbfed0648de81aae1e91d587e901d7ac3ae87f1f21fdeb" name="a01c2958834092b449b3dbfed0648de81aae1e91d587e901d7ac3ae87f1f21fdeb"></a>PORTAMENTO_TIME&#160;</td><td class="fielddoc"><p >value 0-127, used as MSB, reset : 0 </p>
 </td></tr>
-<tr><td class="fieldname"><a id="aa4b6f84137ca41144e000b5ab0af044da68a9559559e763ca1692dbee1f5f2a73" name="aa4b6f84137ca41144e000b5ab0af044da68a9559559e763ca1692dbee1f5f2a73"></a>MONO_ON&#160;</td><td class="fielddoc"><p >if 2nd byte = 0 then the number of channels used is determined by the receiver; all other values set a specific number of channels, beginning with the current basic channel. </p>
+<tr><td class="fieldname"><a id="a01c2958834092b449b3dbfed0648de81a0910dbb99df42a48b6d495092401efc8" name="a01c2958834092b449b3dbfed0648de81a0910dbb99df42a48b6d495092401efc8"></a>DATA_ENTRY&#160;</td><td class="fielddoc"><p >value 0-127, used as MSB, reset : do not set </p>
 </td></tr>
-<tr><td class="fieldname"><a id="aa4b6f84137ca41144e000b5ab0af044da80095f8fb1395dde85d6bdf6bcaadb03" name="aa4b6f84137ca41144e000b5ab0af044da80095f8fb1395dde85d6bdf6bcaadb03"></a>POLY_ON&#160;</td><td class="fielddoc"><p >2nd byte means nothing (set to 0) </p>
+<tr><td class="fieldname"><a id="a01c2958834092b449b3dbfed0648de81a32589b7faf86e566252589b2efee9bd6" name="a01c2958834092b449b3dbfed0648de81a32589b7faf86e566252589b2efee9bd6"></a>CHANNEL_VOLUME&#160;</td><td class="fielddoc"><p >value 0-127, used as MSB, reset : do not set </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a01c2958834092b449b3dbfed0648de81aa7fbdba844f9e290189b826a10c1d399" name="a01c2958834092b449b3dbfed0648de81aa7fbdba844f9e290189b826a10c1d399"></a>BALANCE&#160;</td><td class="fielddoc"><p >value 0-127, used as MSB, reset : 64 </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a01c2958834092b449b3dbfed0648de81acb8afa41611517c8a6addc50760a5c37" name="a01c2958834092b449b3dbfed0648de81acb8afa41611517c8a6addc50760a5c37"></a>UNDEFINED_9&#160;</td><td class="fielddoc"><p >value 0-127, used as MSB, reset : Device specific </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a01c2958834092b449b3dbfed0648de81a1fea4799e7e5d4fd82b3df6813ce0e71" name="a01c2958834092b449b3dbfed0648de81a1fea4799e7e5d4fd82b3df6813ce0e71"></a>PAN&#160;</td><td class="fielddoc"><p >value 0-127, used as MSB, reset : do not set </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a01c2958834092b449b3dbfed0648de81ad0c5ce591ca32679265519b540771a81" name="a01c2958834092b449b3dbfed0648de81ad0c5ce591ca32679265519b540771a81"></a>EXPRESSION_CONTROLLER&#160;</td><td class="fielddoc"><p >value 0-127, used as MSB, reset : 127 </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a01c2958834092b449b3dbfed0648de81afe0c37a1e186dbe89ec788756ba145d3" name="a01c2958834092b449b3dbfed0648de81afe0c37a1e186dbe89ec788756ba145d3"></a>EFFECT_CONTROL_1&#160;</td><td class="fielddoc"><p >value 0-127, used as MSB, reset : 0 </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a01c2958834092b449b3dbfed0648de81a188fc85e7c50642aa6e08738d633c58a" name="a01c2958834092b449b3dbfed0648de81a188fc85e7c50642aa6e08738d633c58a"></a>EFFECT_CONTROL_2&#160;</td><td class="fielddoc"><p >value 0-127, used as MSB, reset : 0 </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a01c2958834092b449b3dbfed0648de81a50209a3831509bafd10bb32761e50c14" name="a01c2958834092b449b3dbfed0648de81a50209a3831509bafd10bb32761e50c14"></a>UNDEFINED_14&#160;</td><td class="fielddoc"><p >value 0-127, used as MSB, reset : Device specific </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a01c2958834092b449b3dbfed0648de81a89ae091f3262ae77bd33147bb48d90d4" name="a01c2958834092b449b3dbfed0648de81a89ae091f3262ae77bd33147bb48d90d4"></a>UNDEFINED_15&#160;</td><td class="fielddoc"><p >value 0-127, used as MSB, reset : Device specific </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a01c2958834092b449b3dbfed0648de81af544e34d0b7ba08244bb5f9bad13c6a3" name="a01c2958834092b449b3dbfed0648de81af544e34d0b7ba08244bb5f9bad13c6a3"></a>GENERAL_PURPOSE_CONTROLLER_1&#160;</td><td class="fielddoc"><p >value 0-127, used as MSB, reset : Device specific </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a01c2958834092b449b3dbfed0648de81ae0cffb2bc10a40e97cecd2cc7602e159" name="a01c2958834092b449b3dbfed0648de81ae0cffb2bc10a40e97cecd2cc7602e159"></a>GENERAL_PURPOSE_CONTROLLER_2&#160;</td><td class="fielddoc"><p >value 0-127, used as MSB, reset : Device specific </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a01c2958834092b449b3dbfed0648de81aad87cb4cb8c4ca8b98b936020282444e" name="a01c2958834092b449b3dbfed0648de81aad87cb4cb8c4ca8b98b936020282444e"></a>GENERAL_PURPOSE_CONTROLLER_3&#160;</td><td class="fielddoc"><p >value 0-127, used as MSB, reset : Device specific </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a01c2958834092b449b3dbfed0648de81a073780399eda8a8e6a883df944f6dbfc" name="a01c2958834092b449b3dbfed0648de81a073780399eda8a8e6a883df944f6dbfc"></a>GENERAL_PURPOSE_CONTROLLER_4&#160;</td><td class="fielddoc"><p >value 0-127, used as MSB, reset : Device specific </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a01c2958834092b449b3dbfed0648de81a2050dc04e7e52c2777ad6e9c792189cf" name="a01c2958834092b449b3dbfed0648de81a2050dc04e7e52c2777ad6e9c792189cf"></a>UNDEFINED_20&#160;</td><td class="fielddoc"><p >value 0-127, used as MSB, reset : Device specific </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a01c2958834092b449b3dbfed0648de81aad630766ee37cc8312f76aed11877496" name="a01c2958834092b449b3dbfed0648de81aad630766ee37cc8312f76aed11877496"></a>UNDEFINED_21&#160;</td><td class="fielddoc"><p >value 0-127, used as MSB, reset : Device specific </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a01c2958834092b449b3dbfed0648de81a6f1bacd2c178e1f02254523a56a37e75" name="a01c2958834092b449b3dbfed0648de81a6f1bacd2c178e1f02254523a56a37e75"></a>UNDEFINED_22&#160;</td><td class="fielddoc"><p >value 0-127, used as MSB, reset : Device specific </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a01c2958834092b449b3dbfed0648de81a80ec2b7abb4b3c7568cc094e77a19659" name="a01c2958834092b449b3dbfed0648de81a80ec2b7abb4b3c7568cc094e77a19659"></a>UNDEFINED_23&#160;</td><td class="fielddoc"><p >value 0-127, used as MSB, reset : Device specific </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a01c2958834092b449b3dbfed0648de81ad19907ebe61211bdce7237c7ebfc5874" name="a01c2958834092b449b3dbfed0648de81ad19907ebe61211bdce7237c7ebfc5874"></a>UNDEFINED_24&#160;</td><td class="fielddoc"><p >value 0-127, used as MSB, reset : Device specific </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a01c2958834092b449b3dbfed0648de81a01f48ab94792caa6d5ac4e9e422e5cdf" name="a01c2958834092b449b3dbfed0648de81a01f48ab94792caa6d5ac4e9e422e5cdf"></a>UNDEFINED_25&#160;</td><td class="fielddoc"><p >value 0-127, used as MSB, reset : Device specific </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a01c2958834092b449b3dbfed0648de81a1fed0e97502008c8b79ce85d9079395a" name="a01c2958834092b449b3dbfed0648de81a1fed0e97502008c8b79ce85d9079395a"></a>UNDEFINED_26&#160;</td><td class="fielddoc"><p >value 0-127, used as MSB, reset : Device specific </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a01c2958834092b449b3dbfed0648de81a15410570927056ecac13e3e055d5a16d" name="a01c2958834092b449b3dbfed0648de81a15410570927056ecac13e3e055d5a16d"></a>UNDEFINED_27&#160;</td><td class="fielddoc"><p >value 0-127, used as MSB, reset : Device specific </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a01c2958834092b449b3dbfed0648de81a7418841f6892d07d604978bfe335e239" name="a01c2958834092b449b3dbfed0648de81a7418841f6892d07d604978bfe335e239"></a>UNDEFINED_28&#160;</td><td class="fielddoc"><p >value 0-127, used as MSB, reset : Device specific </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a01c2958834092b449b3dbfed0648de81aa1c9c3ee3ec58b8489373497d340f08b" name="a01c2958834092b449b3dbfed0648de81aa1c9c3ee3ec58b8489373497d340f08b"></a>UNDEFINED_29&#160;</td><td class="fielddoc"><p >value 0-127, used as MSB, reset : Device specific </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a01c2958834092b449b3dbfed0648de81a95af0d4695f73df854309b35189ef1ab" name="a01c2958834092b449b3dbfed0648de81a95af0d4695f73df854309b35189ef1ab"></a>UNDEFINED_30&#160;</td><td class="fielddoc"><p >value 0-127, used as MSB, reset : Device specific </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a01c2958834092b449b3dbfed0648de81a91f2914a150be5b0a66265b8b0953b00" name="a01c2958834092b449b3dbfed0648de81a91f2914a150be5b0a66265b8b0953b00"></a>UNDEFINED_31&#160;</td><td class="fielddoc"><p >value 0-127, used as MSB, reset : Device specific </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a01c2958834092b449b3dbfed0648de81a890e1ae0e1ac283a6b7114da8c541d80" name="a01c2958834092b449b3dbfed0648de81a890e1ae0e1ac283a6b7114da8c541d80"></a>LSB_FOR_BANK_SELECT&#160;</td><td class="fielddoc"><p >value 0-127, used as LSB, reset : do not set </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a01c2958834092b449b3dbfed0648de81a2a6f96e476d15c651120a6e06702786b" name="a01c2958834092b449b3dbfed0648de81a2a6f96e476d15c651120a6e06702786b"></a>LSB_FOR_MODULATION_WHEEL&#160;</td><td class="fielddoc"><p >value 0-127, used as LSB, reset : 0 </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a01c2958834092b449b3dbfed0648de81a5e06e4dc8034db526a9bcd22f402eca7" name="a01c2958834092b449b3dbfed0648de81a5e06e4dc8034db526a9bcd22f402eca7"></a>LSB_FOR_BREATH_CONTROLLER&#160;</td><td class="fielddoc"><p >value 0-127, used as LSB, reset : 0 </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a01c2958834092b449b3dbfed0648de81a68dd36f3d0064a5b0f9132e04873222a" name="a01c2958834092b449b3dbfed0648de81a68dd36f3d0064a5b0f9132e04873222a"></a>LSB_FOR_UNDEFINED_3&#160;</td><td class="fielddoc"><p >value 0-127, used as LSB, reset : Device specific </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a01c2958834092b449b3dbfed0648de81aecd6c6b198fb862b11d5abf5239f2550" name="a01c2958834092b449b3dbfed0648de81aecd6c6b198fb862b11d5abf5239f2550"></a>LSB_FOR_FOOT_CONTROLLER&#160;</td><td class="fielddoc"><p >value 0-127, used as LSB, reset : 0 </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a01c2958834092b449b3dbfed0648de81a2459244b4963f9b0a8edf1d43dc5498c" name="a01c2958834092b449b3dbfed0648de81a2459244b4963f9b0a8edf1d43dc5498c"></a>LSB_FOR_PORTAMENTO_TIME&#160;</td><td class="fielddoc"><p >value 0-127, used as LSB, reset : 0 </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a01c2958834092b449b3dbfed0648de81a64a90308c38637b0df17951264e5deb9" name="a01c2958834092b449b3dbfed0648de81a64a90308c38637b0df17951264e5deb9"></a>LSB_FOR_DATA_ENTRY&#160;</td><td class="fielddoc"><p >value 0-127, used as LSB, reset : do not set </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a01c2958834092b449b3dbfed0648de81adde24fc8b6aa27eaafcae9b0f6f080bd" name="a01c2958834092b449b3dbfed0648de81adde24fc8b6aa27eaafcae9b0f6f080bd"></a>LSB_FOR_CHANNEL_VOLUME&#160;</td><td class="fielddoc"><p >value 0-127, used as LSB, reset : do not set </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a01c2958834092b449b3dbfed0648de81a63ff28954dacdbc1c0895fc4747009fd" name="a01c2958834092b449b3dbfed0648de81a63ff28954dacdbc1c0895fc4747009fd"></a>LSB_FOR_BALANCE&#160;</td><td class="fielddoc"><p >value 0-127, used as LSB, reset : 64 </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a01c2958834092b449b3dbfed0648de81a6d7385bb018d28c1c9b80191c5913899" name="a01c2958834092b449b3dbfed0648de81a6d7385bb018d28c1c9b80191c5913899"></a>LSB_FOR_UNDEFINED_9&#160;</td><td class="fielddoc"><p >value 0-127, used as LSB, reset : Device specific </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a01c2958834092b449b3dbfed0648de81a3c7c3f5a1f90c9a129765bdd832958a8" name="a01c2958834092b449b3dbfed0648de81a3c7c3f5a1f90c9a129765bdd832958a8"></a>LSB_FOR_PAN&#160;</td><td class="fielddoc"><p >value 0-127, used as LSB, reset : do not set </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a01c2958834092b449b3dbfed0648de81a14f38a576d42921ec8177ba31fe46c0a" name="a01c2958834092b449b3dbfed0648de81a14f38a576d42921ec8177ba31fe46c0a"></a>LSB_FOR_EXPRESSION_CONTROLLER&#160;</td><td class="fielddoc"><p >value 0-127, used as LSB, reset : 127 </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a01c2958834092b449b3dbfed0648de81a0b8944a8be8328f55d8626c0488d3b52" name="a01c2958834092b449b3dbfed0648de81a0b8944a8be8328f55d8626c0488d3b52"></a>LSB_FOR_EFFECT_CONTROL_1&#160;</td><td class="fielddoc"><p >value 0-127, used as LSB, reset : 0 </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a01c2958834092b449b3dbfed0648de81a610b57bef0ccbd8d79a7e9635b6d0d2e" name="a01c2958834092b449b3dbfed0648de81a610b57bef0ccbd8d79a7e9635b6d0d2e"></a>LSB_FOR_EFFECT_CONTROL_2&#160;</td><td class="fielddoc"><p >value 0-127, used as LSB, reset : 0 </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a01c2958834092b449b3dbfed0648de81a91f7b0c2998af522b866baa4caf913bf" name="a01c2958834092b449b3dbfed0648de81a91f7b0c2998af522b866baa4caf913bf"></a>LSB_FOR_UNDEFINED_14&#160;</td><td class="fielddoc"><p >value 0-127, used as LSB, reset : Device specific </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a01c2958834092b449b3dbfed0648de81a32002024ac2b40f809a9b3f6317333c7" name="a01c2958834092b449b3dbfed0648de81a32002024ac2b40f809a9b3f6317333c7"></a>LSB_FOR_UNDEFINED_15&#160;</td><td class="fielddoc"><p >value 0-127, used as LSB, reset : Device specific </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a01c2958834092b449b3dbfed0648de81ad541b9aba70114407b1086d1796e9a25" name="a01c2958834092b449b3dbfed0648de81ad541b9aba70114407b1086d1796e9a25"></a>LSB_FOR_GENERAL_PURPOSE_CONTROLLER_1&#160;</td><td class="fielddoc"><p >value 0-127, used as LSB, reset : Device specific </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a01c2958834092b449b3dbfed0648de81a094a00d7d558d95d960027f8c228bd74" name="a01c2958834092b449b3dbfed0648de81a094a00d7d558d95d960027f8c228bd74"></a>LSB_FOR_GENERAL_PURPOSE_CONTROLLER_2&#160;</td><td class="fielddoc"><p >value 0-127, used as LSB, reset : Device specific </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a01c2958834092b449b3dbfed0648de81aef364751871c1e20b9d37610d8d1392e" name="a01c2958834092b449b3dbfed0648de81aef364751871c1e20b9d37610d8d1392e"></a>LSB_FOR_GENERAL_PURPOSE_CONTROLLER_3&#160;</td><td class="fielddoc"><p >value 0-127, used as LSB, reset : Device specific </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a01c2958834092b449b3dbfed0648de81a75e2b6643d45267f3c5f0c0f13a19ab4" name="a01c2958834092b449b3dbfed0648de81a75e2b6643d45267f3c5f0c0f13a19ab4"></a>LSB_FOR_GENERAL_PURPOSE_CONTROLLER_4&#160;</td><td class="fielddoc"><p >value 0-127, used as LSB, reset : Device specific </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a01c2958834092b449b3dbfed0648de81a8f5d7c5fe15f71c04e291c711ee4b15b" name="a01c2958834092b449b3dbfed0648de81a8f5d7c5fe15f71c04e291c711ee4b15b"></a>LSB_FOR_UNDEFINED_20&#160;</td><td class="fielddoc"><p >value 0-127, used as LSB, reset : Device specific </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a01c2958834092b449b3dbfed0648de81af848eb4e019e4d9234df169067cada16" name="a01c2958834092b449b3dbfed0648de81af848eb4e019e4d9234df169067cada16"></a>LSB_FOR_UNDEFINED_21&#160;</td><td class="fielddoc"><p >value 0-127, used as LSB, reset : Device specific </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a01c2958834092b449b3dbfed0648de81a30c0d46456bd694f91bd057488a03032" name="a01c2958834092b449b3dbfed0648de81a30c0d46456bd694f91bd057488a03032"></a>LSB_FOR_UNDEFINED_22&#160;</td><td class="fielddoc"><p >value 0-127, used as LSB, reset : Device specific </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a01c2958834092b449b3dbfed0648de81afbc0853854294d78b060a9e4794149ee" name="a01c2958834092b449b3dbfed0648de81afbc0853854294d78b060a9e4794149ee"></a>LSB_FOR_UNDEFINED_23&#160;</td><td class="fielddoc"><p >value 0-127, used as LSB, reset : Device specific </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a01c2958834092b449b3dbfed0648de81a4794544edbf7dee7d69711076d490f4a" name="a01c2958834092b449b3dbfed0648de81a4794544edbf7dee7d69711076d490f4a"></a>LSB_FOR_UNDEFINED_24&#160;</td><td class="fielddoc"><p >value 0-127, used as LSB, reset : Device specific </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a01c2958834092b449b3dbfed0648de81af3e076360a7b83d94ebd498651ad6d28" name="a01c2958834092b449b3dbfed0648de81af3e076360a7b83d94ebd498651ad6d28"></a>LSB_FOR_UNDEFINED_25&#160;</td><td class="fielddoc"><p >value 0-127, used as LSB, reset : Device specific </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a01c2958834092b449b3dbfed0648de81a2a680ced9a79315381340cac18306a66" name="a01c2958834092b449b3dbfed0648de81a2a680ced9a79315381340cac18306a66"></a>LSB_FOR_UNDEFINED_26&#160;</td><td class="fielddoc"><p >value 0-127, used as LSB, reset : Device specific </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a01c2958834092b449b3dbfed0648de81a44d0e15c909dff0fd4ff6f5459da1043" name="a01c2958834092b449b3dbfed0648de81a44d0e15c909dff0fd4ff6f5459da1043"></a>LSB_FOR_UNDEFINED_27&#160;</td><td class="fielddoc"><p >value 0-127, used as LSB, reset : Device specific </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a01c2958834092b449b3dbfed0648de81a7bf2fcc7633e887d69f8c4c3736b68fd" name="a01c2958834092b449b3dbfed0648de81a7bf2fcc7633e887d69f8c4c3736b68fd"></a>LSB_FOR_UNDEFINED_28&#160;</td><td class="fielddoc"><p >value 0-127, used as LSB, reset : Device specific </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a01c2958834092b449b3dbfed0648de81a22e42ad3cefe7da821b0a3da5acddcee" name="a01c2958834092b449b3dbfed0648de81a22e42ad3cefe7da821b0a3da5acddcee"></a>LSB_FOR_UNDEFINED_29&#160;</td><td class="fielddoc"><p >value 0-127, used as LSB, reset : Device specific </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a01c2958834092b449b3dbfed0648de81a65cb83e84e60d50370c214eddbfb1d33" name="a01c2958834092b449b3dbfed0648de81a65cb83e84e60d50370c214eddbfb1d33"></a>LSB_FOR_UNDEFINED_30&#160;</td><td class="fielddoc"><p >value 0-127, used as LSB, reset : Device specific </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a01c2958834092b449b3dbfed0648de81afde4ffc2a49f752e383b546a397ae19d" name="a01c2958834092b449b3dbfed0648de81afde4ffc2a49f752e383b546a397ae19d"></a>LSB_FOR_UNDEFINED_31&#160;</td><td class="fielddoc"><p >value 0-127, used as LSB, reset : Device specific </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a01c2958834092b449b3dbfed0648de81a60dd7fed0500c40affd6174734f2e841" name="a01c2958834092b449b3dbfed0648de81a60dd7fed0500c40affd6174734f2e841"></a>DAMPER_PEDAL&#160;</td><td class="fielddoc"><p >value &lt;64 -&gt; OFF, &gt;63 -&gt; ON, used as LSB, reset : Device specific </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a01c2958834092b449b3dbfed0648de81a2e38f844954f3cdc5254c3fe8d7bac28" name="a01c2958834092b449b3dbfed0648de81a2e38f844954f3cdc5254c3fe8d7bac28"></a>PORTAMENTO&#160;</td><td class="fielddoc"><p >&lt;64 -&gt; OFF, &gt;63 -&gt; ON, used as LSB, reset : Device specific </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a01c2958834092b449b3dbfed0648de81a4df433d3f69fbddf55335df62c3cef1a" name="a01c2958834092b449b3dbfed0648de81a4df433d3f69fbddf55335df62c3cef1a"></a>SOSTENUTO&#160;</td><td class="fielddoc"><p >&lt;64 -&gt; OFF, &gt;63 -&gt; ON, used as LSB, reset : Device specific </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a01c2958834092b449b3dbfed0648de81ac0d64e238b2b49b0d20f587e6888ab0e" name="a01c2958834092b449b3dbfed0648de81ac0d64e238b2b49b0d20f587e6888ab0e"></a>SOFT_PEDAL&#160;</td><td class="fielddoc"><p >&lt;64 -&gt; OFF, &gt;63 -&gt; ON, used as LSB, reset : Device specific </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a01c2958834092b449b3dbfed0648de81a6e905e0ce6a6edc4081b878c6c9f4ad7" name="a01c2958834092b449b3dbfed0648de81a6e905e0ce6a6edc4081b878c6c9f4ad7"></a>LEGATO_FOOTSWITCH&#160;</td><td class="fielddoc"><p >&lt;64 -&gt; NORMAL, &gt;63 -&gt; LEGATO, used as LSB, reset : Device specific </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a01c2958834092b449b3dbfed0648de81ab3e6e34f17abbe820f354d2ad5f53bba" name="a01c2958834092b449b3dbfed0648de81ab3e6e34f17abbe820f354d2ad5f53bba"></a>HOLD_2&#160;</td><td class="fielddoc"><p >&lt;64 -&gt; OFF, &gt;63 -&gt; ON, used as LSB, reset : Device specific </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a01c2958834092b449b3dbfed0648de81a17c075a6698a4177f580266d5c223f68" name="a01c2958834092b449b3dbfed0648de81a17c075a6698a4177f580266d5c223f68"></a>SOUND_CONTROLLER_1&#160;</td><td class="fielddoc"><p >default : Sound Variation, value 0-127, used as LSB, reset : do not set </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a01c2958834092b449b3dbfed0648de81afb7a14cbfd6eac3cb0a1ecf387ca4313" name="a01c2958834092b449b3dbfed0648de81afb7a14cbfd6eac3cb0a1ecf387ca4313"></a>SOUND_CONTROLLER_2&#160;</td><td class="fielddoc"><p >default : Timbre/Harmonic Intens., value 0-127, used as LSB, reset : do not set </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a01c2958834092b449b3dbfed0648de81a0bb77a27477a84b103275182c3e00687" name="a01c2958834092b449b3dbfed0648de81a0bb77a27477a84b103275182c3e00687"></a>SOUND_CONTROLLER_3&#160;</td><td class="fielddoc"><p >default : Release Time, value 0-127, used as LSB, reset : do not set </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a01c2958834092b449b3dbfed0648de81ab015cf5e954b5e0e87522adde82268e2" name="a01c2958834092b449b3dbfed0648de81ab015cf5e954b5e0e87522adde82268e2"></a>SOUND_CONTROLLER_4&#160;</td><td class="fielddoc"><p >default : Attack Time, value 0-127, used as LSB, reset : do not set </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a01c2958834092b449b3dbfed0648de81a4c6606cb5c1a3ceb7827899fe071edb9" name="a01c2958834092b449b3dbfed0648de81a4c6606cb5c1a3ceb7827899fe071edb9"></a>SOUND_CONTROLLER_5&#160;</td><td class="fielddoc"><p >default : Brightness, value 0-127, used as LSB, reset : do not set </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a01c2958834092b449b3dbfed0648de81ac886f2e2d560c329fa7da886701ee612" name="a01c2958834092b449b3dbfed0648de81ac886f2e2d560c329fa7da886701ee612"></a>SOUND_CONTROLLER_6&#160;</td><td class="fielddoc"><p >default : Decay Time, value 0-127, used as LSB, reset : do not set </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a01c2958834092b449b3dbfed0648de81ad26ae1d85afb4076411cce0ecfdb0fdc" name="a01c2958834092b449b3dbfed0648de81ad26ae1d85afb4076411cce0ecfdb0fdc"></a>SOUND_CONTROLLER_7&#160;</td><td class="fielddoc"><p >default : Vibrato Rate, value 0-127, used as LSB, reset : do not set </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a01c2958834092b449b3dbfed0648de81a0854ee89efad6afd39d2c28766423536" name="a01c2958834092b449b3dbfed0648de81a0854ee89efad6afd39d2c28766423536"></a>SOUND_CONTROLLER_8&#160;</td><td class="fielddoc"><p >default : Vibrato Depth, value 0-127, used as LSB, reset : do not set </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a01c2958834092b449b3dbfed0648de81a14948e43004d3ec0dbce2f918dfdab8a" name="a01c2958834092b449b3dbfed0648de81a14948e43004d3ec0dbce2f918dfdab8a"></a>SOUND_CONTROLLER_9&#160;</td><td class="fielddoc"><p >default : Vibrato Delay, value 0-127, used as LSB, reset : do not set </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a01c2958834092b449b3dbfed0648de81af732a78e8af527e0c19cbce6a8bbefbe" name="a01c2958834092b449b3dbfed0648de81af732a78e8af527e0c19cbce6a8bbefbe"></a>SOUND_CONTROLLER_10&#160;</td><td class="fielddoc"><p >default : undefined, value 0-127, used as LSB, reset : do not set </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a01c2958834092b449b3dbfed0648de81a3f2da52af59df37a7ddd4bcec7194a04" name="a01c2958834092b449b3dbfed0648de81a3f2da52af59df37a7ddd4bcec7194a04"></a>GENERAL_PURPOSE_CONTROLLER_5&#160;</td><td class="fielddoc"><p >value 0-127, used as LSB, reset : Device specific </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a01c2958834092b449b3dbfed0648de81a0cbe4495b390456491dda120c0d2096d" name="a01c2958834092b449b3dbfed0648de81a0cbe4495b390456491dda120c0d2096d"></a>GENERAL_PURPOSE_CONTROLLER_6&#160;</td><td class="fielddoc"><p >value 0-127, used as LSB, reset : Device specific </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a01c2958834092b449b3dbfed0648de81ad6f01f720e469b08908b29d8c33712c1" name="a01c2958834092b449b3dbfed0648de81ad6f01f720e469b08908b29d8c33712c1"></a>GENERAL_PURPOSE_CONTROLLER_7&#160;</td><td class="fielddoc"><p >value 0-127, used as LSB, reset : Device specific </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a01c2958834092b449b3dbfed0648de81a90d76608ed30bf803f38695cac090f98" name="a01c2958834092b449b3dbfed0648de81a90d76608ed30bf803f38695cac090f98"></a>GENERAL_PURPOSE_CONTROLLER_8&#160;</td><td class="fielddoc"><p >value 0-127, used as LSB, reset : Device specific </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a01c2958834092b449b3dbfed0648de81a8f560fec248cfa3514b8d840386d2b37" name="a01c2958834092b449b3dbfed0648de81a8f560fec248cfa3514b8d840386d2b37"></a>PORTAMENTO_CONTROL&#160;</td><td class="fielddoc"><p >value 0-127, used as LSB, reset : Device specific </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a01c2958834092b449b3dbfed0648de81a384fdd583b541854ca24dff1eb0dc9de" name="a01c2958834092b449b3dbfed0648de81a384fdd583b541854ca24dff1eb0dc9de"></a>UNDEFINED_85&#160;</td><td class="fielddoc"><p >reset : Device specific </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a01c2958834092b449b3dbfed0648de81ac389e0e31d880fb25a620f10f249a2d7" name="a01c2958834092b449b3dbfed0648de81ac389e0e31d880fb25a620f10f249a2d7"></a>UNDEFINED_86&#160;</td><td class="fielddoc"><p >reset : Device specific </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a01c2958834092b449b3dbfed0648de81ad46a31471555165d613d0040dd9153dd" name="a01c2958834092b449b3dbfed0648de81ad46a31471555165d613d0040dd9153dd"></a>UNDEFINED_87&#160;</td><td class="fielddoc"><p >reset : Device specific </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a01c2958834092b449b3dbfed0648de81aedbf6d3b784240ff5aa257893698ba5b" name="a01c2958834092b449b3dbfed0648de81aedbf6d3b784240ff5aa257893698ba5b"></a>HIGH_RESOLUTION_VELOCITY_PREFIX&#160;</td><td class="fielddoc"><p >value 0-127, used as LSB, reset : do not set </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a01c2958834092b449b3dbfed0648de81acdfd6f3210c302095e9f50f4fe52b532" name="a01c2958834092b449b3dbfed0648de81acdfd6f3210c302095e9f50f4fe52b532"></a>UNDEFINED_89&#160;</td><td class="fielddoc"><p >reset : Device specific </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a01c2958834092b449b3dbfed0648de81a17e6a1ac15687ce194977869ab573a18" name="a01c2958834092b449b3dbfed0648de81a17e6a1ac15687ce194977869ab573a18"></a>UNDEFINED_90&#160;</td><td class="fielddoc"><p >reset : Device specific </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a01c2958834092b449b3dbfed0648de81a9aa48b9e36aa5dc5554e87d5aede6e20" name="a01c2958834092b449b3dbfed0648de81a9aa48b9e36aa5dc5554e87d5aede6e20"></a>EFFECTS_1_DEPTH&#160;</td><td class="fielddoc"><p >default: Reverb Send Level, value 0-127, reset : do not set </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a01c2958834092b449b3dbfed0648de81a9cc57fa35bb9eb7edaca0b7abcc25d44" name="a01c2958834092b449b3dbfed0648de81a9cc57fa35bb9eb7edaca0b7abcc25d44"></a>EFFECTS_2_DEPTH&#160;</td><td class="fielddoc"><p >value : 0-127, reset : do not set </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a01c2958834092b449b3dbfed0648de81ae7166db0e3d938ee1c0083a121c19a6f" name="a01c2958834092b449b3dbfed0648de81ae7166db0e3d938ee1c0083a121c19a6f"></a>EFFECTS_3_DEPTH&#160;</td><td class="fielddoc"><p >default: Chorus Send Level, value : 0-127, reset : do not set </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a01c2958834092b449b3dbfed0648de81a2ab871c6aa3dc6def652561e345a6710" name="a01c2958834092b449b3dbfed0648de81a2ab871c6aa3dc6def652561e345a6710"></a>EFFECTS_4_DEPTH&#160;</td><td class="fielddoc"><p >value : 0-127, reset : do not set </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a01c2958834092b449b3dbfed0648de81a7764b0ff55e9247cfdcd993569844a95" name="a01c2958834092b449b3dbfed0648de81a7764b0ff55e9247cfdcd993569844a95"></a>EFFECTS_5_DEPTH&#160;</td><td class="fielddoc"><p >value : 0-127, reset : do not set </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a01c2958834092b449b3dbfed0648de81ae0cac6105f334e8c7dbc2e8e10bd1086" name="a01c2958834092b449b3dbfed0648de81ae0cac6105f334e8c7dbc2e8e10bd1086"></a>DATA_INCREMENT&#160;</td><td class="fielddoc"><p >reset : do not set </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a01c2958834092b449b3dbfed0648de81a93e0456823b0508bc27e5e658cec75ba" name="a01c2958834092b449b3dbfed0648de81a93e0456823b0508bc27e5e658cec75ba"></a>DATA_DECREMENT&#160;</td><td class="fielddoc"><p >reset : do not set </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a01c2958834092b449b3dbfed0648de81a4313a7ab57eb860cd929d7630e290582" name="a01c2958834092b449b3dbfed0648de81a4313a7ab57eb860cd929d7630e290582"></a>NRPN_LSB&#160;</td><td class="fielddoc"><p >value 0-127, used as LSB, reset : 127 </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a01c2958834092b449b3dbfed0648de81aa24f10732b4bc6e7c8348273124d7eb7" name="a01c2958834092b449b3dbfed0648de81aa24f10732b4bc6e7c8348273124d7eb7"></a>NRPN_MSB&#160;</td><td class="fielddoc"><p >value 0-127, used as MSB, reset : 127 </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a01c2958834092b449b3dbfed0648de81a26a6a9870d19e31053b10f1272d7acfb" name="a01c2958834092b449b3dbfed0648de81a26a6a9870d19e31053b10f1272d7acfb"></a>RPN_LSB&#160;</td><td class="fielddoc"><p >value 0-127, used as LSB, reset : 127 </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a01c2958834092b449b3dbfed0648de81afff10c10ef386d9902212c1562c931a4" name="a01c2958834092b449b3dbfed0648de81afff10c10ef386d9902212c1562c931a4"></a>RPN_MSB&#160;</td><td class="fielddoc"><p >value 0-127, used as MSB, reset : 127 </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a01c2958834092b449b3dbfed0648de81aeac75c9023cf72fa19e59ba883277f3a" name="a01c2958834092b449b3dbfed0648de81aeac75c9023cf72fa19e59ba883277f3a"></a>UNDEFINED_102&#160;</td><td class="fielddoc"><p >reset : Device specific </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a01c2958834092b449b3dbfed0648de81a754270e2755b3f330de2e6f2378ec51a" name="a01c2958834092b449b3dbfed0648de81a754270e2755b3f330de2e6f2378ec51a"></a>UNDEFINED_103&#160;</td><td class="fielddoc"><p >reset : Device specific </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a01c2958834092b449b3dbfed0648de81a65d37bfd7e75ec5addeec4f11b441b53" name="a01c2958834092b449b3dbfed0648de81a65d37bfd7e75ec5addeec4f11b441b53"></a>UNDEFINED_104&#160;</td><td class="fielddoc"><p >reset : Device specific </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a01c2958834092b449b3dbfed0648de81a071a4f9c42ef50aa5c98069280ce963c" name="a01c2958834092b449b3dbfed0648de81a071a4f9c42ef50aa5c98069280ce963c"></a>UNDEFINED_105&#160;</td><td class="fielddoc"><p >reset : Device specific </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a01c2958834092b449b3dbfed0648de81aa04b118ed1ed9af6bab62f04a8d82ff9" name="a01c2958834092b449b3dbfed0648de81aa04b118ed1ed9af6bab62f04a8d82ff9"></a>UNDEFINED_106&#160;</td><td class="fielddoc"><p >reset : Device specific </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a01c2958834092b449b3dbfed0648de81afaae9ad05e890ada9b8178945a7ab865" name="a01c2958834092b449b3dbfed0648de81afaae9ad05e890ada9b8178945a7ab865"></a>UNDEFINED_107&#160;</td><td class="fielddoc"><p >reset : Device specific </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a01c2958834092b449b3dbfed0648de81a39c6c30ae1dddb2a3ace1bc5cb73c926" name="a01c2958834092b449b3dbfed0648de81a39c6c30ae1dddb2a3ace1bc5cb73c926"></a>UNDEFINED_108&#160;</td><td class="fielddoc"><p >reset : Device specific </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a01c2958834092b449b3dbfed0648de81ab3980f9cf3e4eb171486220f145947da" name="a01c2958834092b449b3dbfed0648de81ab3980f9cf3e4eb171486220f145947da"></a>UNDEFINED_109&#160;</td><td class="fielddoc"><p >reset : Device specific </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a01c2958834092b449b3dbfed0648de81a68d1259445548e8c723b5121ba53d378" name="a01c2958834092b449b3dbfed0648de81a68d1259445548e8c723b5121ba53d378"></a>UNDEFINED_110&#160;</td><td class="fielddoc"><p >reset : Device specific </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a01c2958834092b449b3dbfed0648de81a27f0d78b70e4f7082ac6d0917fb4812c" name="a01c2958834092b449b3dbfed0648de81a27f0d78b70e4f7082ac6d0917fb4812c"></a>UNDEFINED_111&#160;</td><td class="fielddoc"><p >reset : Device specific </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a01c2958834092b449b3dbfed0648de81a97f5c8687991ea027d0d5f52ac33e1e7" name="a01c2958834092b449b3dbfed0648de81a97f5c8687991ea027d0d5f52ac33e1e7"></a>UNDEFINED_112&#160;</td><td class="fielddoc"><p >reset : Device specific </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a01c2958834092b449b3dbfed0648de81af3ae84cf1354bfb98832e0823a3943b1" name="a01c2958834092b449b3dbfed0648de81af3ae84cf1354bfb98832e0823a3943b1"></a>UNDEFINED_113&#160;</td><td class="fielddoc"><p >reset : Device specific </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a01c2958834092b449b3dbfed0648de81a829e98839886d0084e9dad8c17401228" name="a01c2958834092b449b3dbfed0648de81a829e98839886d0084e9dad8c17401228"></a>UNDEFINED_114&#160;</td><td class="fielddoc"><p >reset : Device specific </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a01c2958834092b449b3dbfed0648de81a27b10d06a0e6fa743890ad6b012562cc" name="a01c2958834092b449b3dbfed0648de81a27b10d06a0e6fa743890ad6b012562cc"></a>UNDEFINED_115&#160;</td><td class="fielddoc"><p >reset : Device specific </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a01c2958834092b449b3dbfed0648de81a7ecd62c67060909e3893f934475fbfa1" name="a01c2958834092b449b3dbfed0648de81a7ecd62c67060909e3893f934475fbfa1"></a>UNDEFINED_116&#160;</td><td class="fielddoc"><p >reset : Device specific </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a01c2958834092b449b3dbfed0648de81a7150bba441797da0e5fc684d5f146b58" name="a01c2958834092b449b3dbfed0648de81a7150bba441797da0e5fc684d5f146b58"></a>UNDEFINED_117&#160;</td><td class="fielddoc"><p >reset : Device specific </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a01c2958834092b449b3dbfed0648de81a096d815c01de93ffa456ae6023336e36" name="a01c2958834092b449b3dbfed0648de81a096d815c01de93ffa456ae6023336e36"></a>UNDEFINED_118&#160;</td><td class="fielddoc"><p >reset : Device specific </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a01c2958834092b449b3dbfed0648de81a2134b4e1d52a804da74ecceb36da4a0e" name="a01c2958834092b449b3dbfed0648de81a2134b4e1d52a804da74ecceb36da4a0e"></a>UNDEFINED_119&#160;</td><td class="fielddoc"><p >reset : Device specific </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a01c2958834092b449b3dbfed0648de81aa0d16b0c2424f99943c29679d8a00c75" name="a01c2958834092b449b3dbfed0648de81aa0d16b0c2424f99943c29679d8a00c75"></a>ALL_SOUND_OFF&#160;</td><td class="fielddoc"><p >value : 0, reset : do not set </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a01c2958834092b449b3dbfed0648de81a589b7d94a3d91d145720e2fed0eb3a05" name="a01c2958834092b449b3dbfed0648de81a589b7d94a3d91d145720e2fed0eb3a05"></a>RESET&#160;</td><td class="fielddoc"><p >value : 0, reset : do not set </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a01c2958834092b449b3dbfed0648de81a9624e1934d5db049dcb6f7434a35e2af" name="a01c2958834092b449b3dbfed0648de81a9624e1934d5db049dcb6f7434a35e2af"></a>LOCAL_CONTROL&#160;</td><td class="fielddoc"><p >value : 0 off - 127 on, reset : do not set </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a01c2958834092b449b3dbfed0648de81a89da44e44125cd6451e62cca811cca33" name="a01c2958834092b449b3dbfed0648de81a89da44e44125cd6451e62cca811cca33"></a>ALL_NOTES_OFF&#160;</td><td class="fielddoc"><p >value : 0, reset : do not set </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a01c2958834092b449b3dbfed0648de81ad1700e4e2360bc33fa81b63f3d8f625b" name="a01c2958834092b449b3dbfed0648de81ad1700e4e2360bc33fa81b63f3d8f625b"></a>OMNI_OFF&#160;</td><td class="fielddoc"><p >value : 0, reset : do not set </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a01c2958834092b449b3dbfed0648de81a3e571d2339a832c277170cb2ec0d510a" name="a01c2958834092b449b3dbfed0648de81a3e571d2339a832c277170cb2ec0d510a"></a>OMNI_ON&#160;</td><td class="fielddoc"><p >value : 0, reset : do not set </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a01c2958834092b449b3dbfed0648de81a68a9559559e763ca1692dbee1f5f2a73" name="a01c2958834092b449b3dbfed0648de81a68a9559559e763ca1692dbee1f5f2a73"></a>MONO_ON&#160;</td><td class="fielddoc"><p >This equals the number of channels, or zero if the number of channels equals the number of voices in the receiver </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a01c2958834092b449b3dbfed0648de81a80095f8fb1395dde85d6bdf6bcaadb03" name="a01c2958834092b449b3dbfed0648de81a80095f8fb1395dde85d6bdf6bcaadb03"></a>POLY_ON&#160;</td><td class="fielddoc"><p >2nd byte means nothing (set to 0) </p>
 </td></tr>
 </table>
 

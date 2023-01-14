@@ -145,7 +145,8 @@ void QMidiOut::sendChannelModeReset(unsigned int t_channel)
   auto message = new QMidiMessage(this);
   message->setStatus(CONTROL_CHANGE);
   message->setChannel(t_channel);
-  message->setChModStatus(RESET);
+//  message->setChModStatus(RESET);
+  message->setCCFristDataByte(RESET);
   message->setValue(0);
   sendQMidiMessage(message);
 }
@@ -155,7 +156,8 @@ void QMidiOut::sendLocalControlOn(unsigned int t_channel)
   auto message = new QMidiMessage(this);
   message->setStatus(CONTROL_CHANGE);
   message->setChannel(t_channel);
-  message->setChModStatus(LOCAL_CONTROL);
+//  message->setChModStatus(LOCAL_CONTROL);
+  message->setCCFristDataByte(LOCAL_CONTROL);
   message->setValue(LOCAL_CONTROL_ON);
   sendQMidiMessage(message);
 
@@ -166,7 +168,8 @@ void QMidiOut::sendLocalControlOff(unsigned int t_channel)
   auto message = new QMidiMessage(this);
   message->setStatus(CONTROL_CHANGE);
   message->setChannel(t_channel);
-  message->setChModStatus(LOCAL_CONTROL);
+//  message->setChModStatus(LOCAL_CONTROL);
+  message->setCCFristDataByte(LOCAL_CONTROL);
   message->setValue(LOCAL_CONTROL_OFF);
   sendQMidiMessage(message);
 
@@ -177,7 +180,8 @@ void QMidiOut::sendAllNotesOff(unsigned int t_channel)
   auto message = new QMidiMessage(this);
   message->setStatus(CONTROL_CHANGE);
   message->setChannel(t_channel);
-  message->setChModStatus(ALL_NOTES_OFF);
+//  message->setChModStatus(ALL_NOTES_OFF);
+  message->setCCFristDataByte(ALL_NOTES_OFF);
   message->setValue(0);
   sendQMidiMessage(message);
 
@@ -188,7 +192,8 @@ void QMidiOut::sendOmniOff(unsigned int t_channel)
   auto message = new QMidiMessage(this);
   message->setStatus(CONTROL_CHANGE);
   message->setChannel(t_channel);
-  message->setChModStatus(OMNI_OFF);
+//  message->setChModStatus(OMNI_OFF);
+  message->setCCFristDataByte(OMNI_OFF);
   message->setValue(0);
   sendQMidiMessage(message);
 
@@ -199,7 +204,8 @@ void QMidiOut::sendOmniOn(unsigned int t_channel)
   auto message = new QMidiMessage(this);
   message->setStatus(CONTROL_CHANGE);
   message->setChannel(t_channel);
-  message->setChModStatus(OMNI_ON);
+//  message->setChModStatus(OMNI_ON);
+  message->setCCFristDataByte(OMNI_ON);
   message->setValue(0);
   sendQMidiMessage(message);
 
@@ -211,7 +217,8 @@ void QMidiOut::sendMonoOn(unsigned int t_channel,
   auto message = new QMidiMessage(this);
   message->setStatus(CONTROL_CHANGE);
   message->setChannel(t_channel);
-  message->setChModStatus(MONO_ON);
+//  message->setChModStatus(MONO_ON);
+  message->setCCFristDataByte(MONO_ON);
   message->setChannelNumber(t_channelNumber);
   sendQMidiMessage(message);
 
@@ -222,7 +229,8 @@ void QMidiOut::sendPolyOn(unsigned int t_channel)
   auto message = new QMidiMessage(this);
   message->setStatus(CONTROL_CHANGE);
   message->setChannel(t_channel);
-  message->setChModStatus(POLY_ON);
+//  message->setChModStatus(POLY_ON);
+  message->setCCFristDataByte(POLY_ON);
   message->setValue(0);
   sendQMidiMessage(message);
 
